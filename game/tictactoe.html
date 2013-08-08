@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jsx/jquery.min.js"></script>
+<meta charset=utf-8 />
+<title>Tic Tac Toe</title>
+<script type="text/javascript">
+$(function (){
+  var state = [9,9,9,9,9,9,9,9,9];
+  var turn;
+  var COMPUTER = 1;
+  var USER = 0;
+  var EMPTY = 9;
+
+  turn = USER;
+
+  function win(team, board) {
+    if(board.length != 9)
+      return false;
+    
+    return((team === board[1] && board[0] === board[1] && board[1] === board[2]) || 
+           (team === board[4] && board[3] === board[4] && board[4] === board[5]) || 
+           (team === board[7] && board[6] === board[7] && board[7] === board[8]) || 
+           (team === board[3] && board[0] === board[3] && board[3] === board[6]) || 
+           (team === board[4] && board[1] === board[4] && board[4] === board[7]) || 
+           (team === board[5] && board[2] === board[5] && board[5] === board[8]) || 
+           (team === board[4] && board[0] === board[4] && board[4] === board[8]) || 
+           (team === board[4] && board[2] === board[4] && board[4] === board[6]));
+  }
+
+  var testb = [0,1,0,
+               0,1,1,
+               6,1,0];
+
+  win(0, testb);
+
+
+  function winner() {
+    $('#winner').css("display", "block");
+    state =  [0,0,0,0,0,0,0,0,0];
+    return true;
+  }
+
+  function looser() {
+    $('#looser').css("display", "block");
+    state =  [0,0,0,0,0,0,0,0,0];
+    return true;
+  }
+
+  function gameReset() {
+    state =  [9,9,9,9,9,9,9,9,9];
+    turn = 0;
+
+    $('#winner').css("display", "none");
+    $('#looser').css("display", "none");
+
+    $('.board-cell').each(function(i, obj) {
+      obj.style.backgroundColor = "#fff";
+    });
+  }
+
+  function computerPlay(){
+
+    for (cell = 0; cell < 9; cell++) {
+      if(state[cell] != EMPTY)
+        continue;
+      
+      state[cell] = COMPUTER;
+      if(win(COMPUTER, state)) {
+        changeCellColor(cell,"blue");
+        looser();
+        return;
+      }
+      state[cell] = EMPTY;
+    }
+
+    for (cell = 0; cell < 9; cell++) {
+      if(state[cell] != EMPTY)
+        continue;
+      
+      state[cell] = USER;
+      if(win(USER, state)) {
+        state[cell] = COMPUTER;
+        changeCellColor(cell,"blue");
+        return;      
+      }
+      state[cell] = EMPTY;
+    }
+
+    var emptyCells = [];
+    for (cell = 0; cell < 9; cell++) {
+      if(state[cell] == EMPTY) {
+        emptyCells.push(cell);
+      }
+    }
+    
+    var randomCell = emptyCells[Math.floor(Math.random()* emptyCells.length)];
+    
+    state[randomCell] = COMPUTER;
+    changeCellColor(randomCell,"blue");
+
+  }
+
+  function changeCellColor(cell,color) {
+    $('.board-cell').each(function(i, obj) {
+      if($(obj).attr("data-cell-num") == cell)
+        $(obj).css("background-color", color);
+    });
+  }
+
+  function userPlay (node) {
+    var cell = node.attr("data-cell-num");
+    
+    if(state[cell] != EMPTY)
+      return false;
+
+    state[cell] = USER;
+    $(node).css("background-color", "red");
+
+    if(!win(USER,state)) {
+      turn = COMPUTER;
+      computerPlay();
+    } else
+      winner();
+  }
+
+  $('.board-cell').bind("click", function () {
+    userPlay($(this));
+  });
+
+  $('#newgame').click(function(){gameReset();});
+
+});
+</script>
+
+<style type="text/css">
+* {
+  box-sizing : border-box;
+}
+body {
+  font-family: "helvetica", arial, sans-serif;
+  font-weight: 300;
+}
+h1 {
+  font-weight: 300;
+  color: #555;
+  margin-bottom: 0;
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+#winner {
+  display : none;
+}
+#looser {
+  color : red;
+  display : none;
+}
+#mesg-cont {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+#board-cont {
+  width:308px;
+  margin:auto;
+  border: 4px solid #ddd;
+}
+.board-cell {
+  height : 100px;
+  width : 100px;
+  margin : 0px;
+  border : 4px solid #ddd;
+  float:left;
+}
+.board-cell:hover {
+  border : 4px solid #64E73B;
+}
+
+</style>
+</head>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <p>click on a box to start</p>
+  <div id="board-cont">
+    <div class="board-cell" data-cell-num="0"></div>
+    <div class="board-cell" data-cell-num="1"></div>
+    <div class="board-cell" data-cell-num="2"></div><br clear="left">
+    <div class="board-cell" data-cell-num="3"></div>
+    <div class="board-cell" data-cell-num="4"></div>
+    <div class="board-cell" data-cell-num="5"></div><br clear="left">
+    <div class="board-cell" data-cell-num="6"></div>
+    <div class="board-cell" data-cell-num="7"></div>
+    <div class="board-cell" data-cell-num="8"></div>  <br clear="left">
+  </div>
+    <br clear="left">
+
+  <div id="mesg-cont">
+    <h4 id="winner">You Win !</h4>
+    <h4 id="looser">You Loose !</h4>
+    <button id="newgame">new game</button>
+  </div>
+  </body>
+</html>
