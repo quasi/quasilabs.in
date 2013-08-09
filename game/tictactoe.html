@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="../jsx/jquery.min.js"></script>
 <meta charset=utf-8 />
 <title>Tic Tac Toe</title>
+
+<link rel="stylesheet" type="text/css" href="../css/animations.css">
+<link rel="stylesheet" href="../jsx/font-awesome/css/font-awesome.min.css">
+<script src="../js/taunts.js"></script>
+<script src="../jsx/jquery.min.js"></script>
+
 <script type="text/javascript">
 $(function (){
   var state = [9,9,9,9,9,9,9,9,9];
   var turn;
   var COMPUTER = 1;
-  var USER = 0;
+  var PLAYER = 0;
   var EMPTY = 9;
 
-  turn = USER;
+  turn = Math.floor(Math.random()*2);
+
+  taunts.init();
 
   function win(team, board) {
     if(board.length != 9)
@@ -28,35 +35,43 @@ $(function (){
            (team === board[4] && board[2] === board[4] && board[4] === board[6]));
   }
 
-  var testb = [0,1,0,
-               0,1,1,
-               6,1,0];
+  function postWin (who) {
+    if (who == PLAYER) {
+      computerSay("Oh Oh. You Win. Darn.")
+    } else {
+      computerSay("Yippee! You loose you sucker !")
+    }
 
-  win(0, testb);
+    var x = [];
+    for(i = 0; i < 9; i++) {
+      if(state[i] == who) {
+        x.push(i);
+      }
+    }
 
-
-  function winner() {
-    $('#winner').css("display", "block");
+    $('.board-cell').each(function(i, obj) {
+      if(x.indexOf(parseInt($(obj).attr("data-cell-num"))) != -1) {
+        $(obj).addClass("winning-glow");
+      }
+    });
     state =  [0,0,0,0,0,0,0,0,0];
-    return true;
-  }
-
-  function looser() {
-    $('#looser').css("display", "block");
-    state =  [0,0,0,0,0,0,0,0,0];
-    return true;
   }
 
   function gameReset() {
     state =  [9,9,9,9,9,9,9,9,9];
-    turn = 0;
-
-    $('#winner').css("display", "none");
-    $('#looser').css("display", "none");
+    turn = Math.floor(Math.random()*2);
 
     $('.board-cell').each(function(i, obj) {
-      obj.style.backgroundColor = "#fff";
+      $(obj).css("background-color", "#CCCCCC");
+      $(obj).removeClass("winning-glow");
     });
+
+    if (turn == PLAYER)
+      computerSay("Again ? You go first.");
+    else
+      computerSay("I'll start.");
+
+    gameInit();
   }
 
   function computerPlay(){
@@ -68,7 +83,7 @@ $(function (){
       state[cell] = COMPUTER;
       if(win(COMPUTER, state)) {
         changeCellColor(cell,"blue");
-        looser();
+        postWin(COMPUTER)
         return;
       }
       state[cell] = EMPTY;
@@ -78,8 +93,8 @@ $(function (){
       if(state[cell] != EMPTY)
         continue;
       
-      state[cell] = USER;
-      if(win(USER, state)) {
+      state[cell] = PLAYER;
+      if(win(PLAYER, state)) {
         state[cell] = COMPUTER;
         changeCellColor(cell,"blue");
         return;      
@@ -103,33 +118,45 @@ $(function (){
 
   function changeCellColor(cell,color) {
     $('.board-cell').each(function(i, obj) {
-      if($(obj).attr("data-cell-num") == cell)
+      if($(obj).attr("data-cell-num") == cell) {
         $(obj).css("background-color", color);
+      }
     });
   }
 
-  function userPlay (node) {
+  function computerSay (txt) {
+    $("#mesg").html(txt);
+  }
+
+  function PLAYERPlay (node) {
     var cell = node.attr("data-cell-num");
     
     if(state[cell] != EMPTY)
       return false;
 
-    state[cell] = USER;
+    state[cell] = PLAYER;
     $(node).css("background-color", "red");
 
-    if(!win(USER,state)) {
+    if(!win(PLAYER,state)) {
+      computerSay(taunts.getOne());
       turn = COMPUTER;
       computerPlay();
     } else
-      winner();
+      postWin(PLAYER);
   }
 
   $('.board-cell').bind("click", function () {
-    userPlay($(this));
+    PLAYERPlay($(this));
   });
 
   $('#newgame').click(function(){gameReset();});
 
+  function gameInit() {
+    if (turn == COMPUTER) {
+      computerPlay();
+    }
+  }
+  gameInit();
 });
 </script>
 
@@ -144,7 +171,6 @@ body {
 h1 {
   font-weight: 300;
   color: #555;
-  margin-bottom: 0;
   text-align: center;
 }
 p {
@@ -163,26 +189,41 @@ p {
   text-align: center;
 }
 #board-cont {
-  width:308px;
+  width: 306px;
   margin:auto;
-  border: 4px solid #ddd;
 }
 .board-cell {
+  background-color: #CCCCCC;
   height : 100px;
   width : 100px;
-  margin : 0px;
-  border : 4px solid #ddd;
+  margin : 1px;
   float:left;
 }
 .board-cell:hover {
   border : 4px solid #64E73B;
 }
 
+@-webkit-keyframes glow {
+  0% { -webkit-box-shadow: none; }
+  50% { -webkit-box-shadow: inset 0 0 1px 4px #64E73B; }
+  100% { -webkit-box-shadow: none; }
+}
+@-moz-keyframes glow {
+  0% { -moz-box-shadow: none; }
+  50% { -moz-box-shadow: inset 0 0 1px 4px #64E73B; }
+  100% { -moz-box-shadow: none; }
+}
+
+.winning-glow {
+  -webkit-animation: glow 1s ease-in;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation: glow 1s ease-in;
+  -moz-animation-iteration-count: infinite;
+}
 </style>
 </head>
 <body>
   <h1>Tic Tac Toe</h1>
-  <p>click on a box to start</p>
   <div id="board-cont">
     <div class="board-cell" data-cell-num="0"></div>
     <div class="board-cell" data-cell-num="1"></div>
@@ -192,13 +233,12 @@ p {
     <div class="board-cell" data-cell-num="5"></div><br clear="left">
     <div class="board-cell" data-cell-num="6"></div>
     <div class="board-cell" data-cell-num="7"></div>
-    <div class="board-cell" data-cell-num="8"></div>  <br clear="left">
+    <div class="board-cell" data-cell-num="8"></div><br clear="left">
   </div>
-    <br clear="left">
+  <br clear="left">
 
   <div id="mesg-cont">
-    <h4 id="winner">You Win !</h4>
-    <h4 id="looser">You Loose !</h4>
+    <p id="mesg">So you want to challange me?<br>Click on a box to Start the WAR !</p>
     <button id="newgame">new game</button>
   </div>
   </body>

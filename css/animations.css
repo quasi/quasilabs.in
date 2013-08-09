@@ -1,0 +1,17 @@
+.spin {
+	-webkit-animation: spinAnimation 2s infinite linear;
+	-moz-animation: spinAnimation 2s infinite linear;
+	-o-animation: spinAnimation 1s infinite linear;
+}
+@-webkit-keyframes spinAnimation {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spinAnimation {
+	from { -moz-transform: rotate(0deg); }
+	to { -moz-transform: rotate(360deg); }
+}
+@-o-keyframes spinAnimation {
+	from { -o-transform: rotate(0deg); }
+	to { -o-transform: rotate(360deg); }
+}
