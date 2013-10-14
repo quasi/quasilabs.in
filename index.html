@@ -1,8 +1,120 @@
 <!DOCTYPE html>
 <html>
-	<title>quasiLabs</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="quasiLabs">
+    <meta name="author" content="Abhijit Rao">
+
+    <title>quasiLabs</title>
+
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #fff;
+        background-size: cover;
+        font: 14px/1.5 Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        color: #777;
+        margin: 10px;
+      }
+      h1 {
+        font-weight: 100;
+        margin: 10px 0;
+        font-size: 3em;
+      }
+      ul {
+        margin-left: 20px;
+      }
+
+      .heart {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+      }
+
+      .foo {
+        padding: 20px;
+        opacity: 0.8;
+        border-radius: 100px;
+        border : 1px solid rgba(255,0,0,0.2);
+        color:red;
+      }
+
+
+      .foo:hover {
+        -webkit-animation: sonarEffect 1.3s ease-out 75ms;
+        -moz-animation: sonarEffect 1.3s ease-out 75ms;
+        animation: sonarEffect 1.3s ease-out 75ms;
+      }
+
+      @-webkit-keyframes sonarEffect {
+        0% {
+          opacity: 0.3;
+        }
+        60% {
+          opacity: 0.5;
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+        }
+        100% {
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+          -webkit-transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+      @-moz-keyframes sonarEffect {
+        0% {
+          opacity: 0.3;
+        }
+        40% {
+          opacity: 0.5;
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+        }
+        100% {
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+          -moz-transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+      @keyframes sonarEffect {
+        0% {
+          opacity: 0.3;
+        }
+        40% {
+          opacity: 0.5;
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+        }
+        100% {
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head> 
 <body>
-	<h1>Coming up!</h1>
-Common Lisp consulting.
+  <h1>Coming up!</h1>
+  <em>Common Lisp consulting.</em>
+  <br /><br />
+  <p>Open Source Common Lisp Libraries
+    <ul>
+      <li><a href="http://quasilabs.com/pooler/">Pooler</a></li>
+      <li><a href="http://quasilabs.com/cl-memcached/">CL-Memcached</a></li>
+    </ul>
+  </p>
+  <br />
+  <p>Simple JS game <a href="game/tictactoe.html">TicTacToe</a>
+  </p>
+  <div class="heart" ><i class="foo icon-heart icon-2x"></i></div>
+
 </body>
 </html>
