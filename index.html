@@ -38,15 +38,19 @@
 
       .heart {
         position: absolute;
-        top: 50px;
-        right: 50px;
+        top: 80px;
+        right: 80px;
       }
-
+      .made-with {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+      }
       .foo {
         padding: 20px;
         opacity: 0.8;
         border-radius: 100px;
-        border : 1px solid rgba(255,0,0,0.2);
+        border : 1px solid rgba(0,255,0,0.2);
         color:red;
       }
 
@@ -63,10 +67,10 @@
         }
         60% {
           opacity: 0.5;
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(0,255,0,0.5);
         }
         100% {
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
+          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(0,255,0,0.5);
           -webkit-transform: scale(1.5);
           opacity: 0;
         }
@@ -102,19 +106,20 @@
     </style>
   </head> 
 <body>
-  <h1>Coming up!</h1>
-  <em>Common Lisp consulting.</em>
+  <h1>quasiLabs</h1>
   <br /><br />
+  <p><a href="blog/">Blog</a></p>
+  <br />
   <p>Open Source Common Lisp Libraries
     <ul>
-      <li><a href="http://quasilabs.com/pooler/">Pooler</a></li>
-      <li><a href="http://quasilabs.com/cl-memcached/">CL-Memcached</a></li>
+      <li><a href="http://quasilabs.com/pooler/">Pooler</a> - A simple, thread-safe generic pooling library.</li>
+      <li><a href="http://quasilabs.com/cl-memcached/">CL-Memcached</a> - A fast, thread-safe interface to the Memcached in-memory datastore.</li>
     </ul>
   </p>
   <br />
   <p>Simple JS game <a href="game/tictactoe.html">TicTacToe</a>
   </p>
-  <div class="heart" ><i class="foo icon-heart icon-2x"></i></div>
-
+  <div class="heart" ><img src="images/lisp-lizzard.png" width="100" class="foo"></div>
+  <div class="made-with"><img src="images/lisp-glossy.jpg" width="150" alt="Made with Lisp"></div>
 </body>
 </html>
