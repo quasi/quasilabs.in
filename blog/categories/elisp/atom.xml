@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: elisp | quasiTech]]></title>
+  <link href="http://quasi.github.io/categories/elisp/atom.xml" rel="self"/>
+  <link href="http://quasi.github.io/"/>
+  <updated>2014-01-06T18:59:06+05:30</updated>
+  <id>http://quasi.github.io/</id>
+  <author>
+    <name><![CDATA[Abhijit Rao]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs and JS: Finding function definitions]]></title>
+    <link href="http://quasi.github.io/2014/01/06/emacs-and-js-finding-function-definitions/"/>
+    <updated>2014-01-06T17:31:00+05:30</updated>
+    <id>http://quasi.github.io/2014/01/06/emacs-and-js-finding-function-definitions</id>
+    <content type="html"><![CDATA[<p>I started doing Javascript recently. The <code>js2-mode</code> is excellent. But I am spoilt by <code>SLIME</code> :). One of the things I most missed from there was to be able to lookup function definitions with <code>M-.</code> and to get back with <code>M-,</code>. I had been pair programming with a tem-mate and editing a 1000 line file and in his &lsquo;Sublime&rsquo; editor and it was a royal pain scrolling all over the place looking for function definitions.  So I decided to try my hand at some elisp. This was the first time but I really felt the need.</p>
+
+<p>So this is pretty simple really :</p>
+
+<ul>
+<li>Get the word at point</li>
+<li>Prepend &ldquo;function &rdquo; to it</li>
+<li>Save current location on a sack to getting back</li>
+<li>Go to top of buffer</li>
+<li>Do a forward search with our search string</li>
+<li>If successful center line</li>
+<li>else show do nothing and show message.</li>
+</ul>
+
+
+<p>Another function, bound to <code>M-,</code> pops a position off the stack and goes there.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;;; Find JS function definition in your current buffer (and go back).&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span><span class="p">(</span><span class="nb">defvar</span> <span class="nv">&lt;em&gt;quasi-js-current-pos&lt;/em&gt;</span> <span class="no">nil</span><span class="p">)</span><span class="nv">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span><span class="p">(</span><span class="nb">defun</span> <span class="nv">quasi-js-function-search</span> <span class="p">()</span>
+</span><span class='line'>  <span class="nv">&amp;ldquo</span><span class="c1">;Search for JS function definations. In a rather dumb way, but works, albeit</span>
+</span><span class='line'><span class="nv">only</span> <span class="nv">for</span> <span class="nv">current</span> <span class="nv">buffer.</span> <span class="nv">Works</span> <span class="nv">recurcively</span> <span class="nv">too</span> <span class="err">:</span><span class="p">)</span><span class="nv">&amp;rdquo</span><span class="c1">;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">text</span> <span class="p">(</span><span class="nv">thing-at-point</span> <span class="nv">&amp;lsquo</span><span class="c1">;word)))&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="nv">point</span><span class="p">)</span> <span class="vg">*quasi-js-current-pos*</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nv">point-min</span><span class="p">))</span>
+</span><span class='line'><span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">search-forward</span> <span class="p">(</span><span class="nv">concat</span> <span class="s">&quot;function &quot;</span> <span class="nv">text</span><span class="p">)</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">recenter</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">progn</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nb">pop</span> <span class="vg">*quasi-js-current-pos*</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;Could not find definition for %s&quot;</span> <span class="nv">text</span><span class="p">)))))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span><span class="p">(</span><span class="nb">defun</span> <span class="nv">quasi-js-function-go-back</span> <span class="p">()</span>
+</span><span class='line'>  <span class="nv">&amp;ldquo</span><span class="c1">;Go back to where you initiated search from&amp;rdquo;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">if</span> <span class="nv">&lt;em&gt;quasi-js-current-pos&lt;/em&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span>  <span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nb">pop</span> <span class="vg">*quasi-js-current-pos*</span><span class="p">))</span>
+</span><span class='line'><span class="p">(</span><span class="nv">message</span> <span class="s">&quot;Nowhere to jump!&quot;</span><span class="p">)))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span><span class="c1">;; Add hooks to js2-mode. It will cobbler the default tag-search bindings. Beware.</span>
+</span><span class='line'><span class="p">(</span><span class="nv">add-hook</span> <span class="nv">&amp;lsquo</span><span class="c1">;js2-mode-hook&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span>      <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+</span><span class='line'>        <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-.&quot;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">quasi-js-function-search</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-,&quot;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">quasi-js-function-go-back</span><span class="p">)))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>It really felt good to have written my first <em>useful</em> elisp code.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: problem solving | quasiTech]]></title>
+  <link href="http://quasi.github.io/categories/problem-solving/atom.xml" rel="self"/>
+  <link href="http://quasi.github.io/"/>
+  <updated>2014-01-06T18:59:06+05:30</updated>
+  <id>http://quasi.github.io/</id>
+  <author>
+    <name><![CDATA[Abhijit Rao]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to solve it]]></title>
+    <link href="http://quasi.github.io/2009/08/23/how-to-solve-it/"/>
+    <updated>2009-08-23T17:07:00+05:30</updated>
+    <id>http://quasi.github.io/2009/08/23/how-to-solve-it</id>
+    <content type="html"><![CDATA[<p>One of the books, which Alok Tiwari, a friend of mine from the old time, had suggested I read was &lsquo;How to Solve it&rsquo; by G Polya. I remember being enthralled reading it. It, with Euclid&rsquo;s &lsquo;Elements&rsquo;, are the two books which have had the most impact on my method of thought.</p>
+
+<p>I made a quick set of slides for sharing the salient points of that book with a few friends. The book itself is written in 1945 but still is a very inspiring read.</p>
+
+<p>Wikipedia <a href="http://en.wikipedia.org/wiki/George_P%C3%B3lya">article</a> about him says that he was born in Budapest, Hungary and that he was a professor of mathematics from 1914 to 1940 at ETH Zürich in Switzerland and from 1940 to 1953 at Stanford University carrying on as Stanford Professor Emeritus the rest of his life and career. He wrote four books on the subject: <a href="http://en.wikipedia.org/wiki/How_to_Solve_It">How to Solve It</a>, Mathematical Discovery: On Understanding, Learning, and Teaching Problem Solving; Mathematics and Plausible Reasoning Volume I: Induction and Analogy in Mathematics, and Mathematics and Plausible Reasoning Volume II: Patterns of Plausible Reasoning.</p>
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/1892806 " width="595" height="446" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen></iframe> </p>
+]]></content>
+  </entry>
+  
+</feed>

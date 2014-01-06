@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: test | quasiTech]]></title>
-  <link href="http://quasi.github.io/categories/test/atom.xml" rel="self"/>
+  <title><![CDATA[Category: common lisp | quasiTech]]></title>
+  <link href="http://quasi.github.io/categories/common-lisp/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2014-01-06T18:41:28+05:30</updated>
+  <updated>2014-01-06T18:59:06+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pooler]]></title>
+    <link href="http://quasi.github.io/2013/10/14/pooler/"/>
+    <updated>2013-10-14T16:53:00+05:30</updated>
+    <id>http://quasi.github.io/2013/10/14/pooler</id>
+    <content type="html"><![CDATA[<p>A <em>simple</em>, <em>fast</em> &amp; <em>thread-safe</em> generic pooling library.</p>
+
+<p>Homepage <a href="http://quasilabs.com/pooler/">http://quasilabs.com/pooler/</a></p>
+
+<p>We need pools for items which have heavy cost of creation and which we can reuse. A typical use case is connection pools.</p>
+
+<p>Pool item creation (as required) is automatic on fetch-from pool. Pool-item&rsquo;s are created and destroyed using user supplied funcitons. The pool has a idle timeout after which all the existing pool-item&rsquo;s are destroyed and new ones created (pool-init). The pool has a threshold number of items which it tries to maintain.</p>
+
+<p>Licence : MIT</p>
+
+<p>An Example :
+```
+CL-USER> (pooler:make-pool :item-maker</p>
+
+<pre><code>                       #'(lambda () (clsql:connect '("127.0.0.1" "quasidb" "quasi" "*****")
+                                                   :database-type :mysql
+                                                   :if-exists :new))
+                       :item-destroyer
+                       #'(lambda (item) (clsql:disconnect :database item)))
+</code></pre>
+
+<h1>S(POOLER::POOL</h1>
+
+<p>  :NAME &ldquo;Default Pool&rdquo;
+  :QUEUE #S(SB-CONCURRENCY:QUEUE
+  :HEAD (SB-CONCURRENCY::.DUMMY.)
+  :TAIL (SB-CONCURRENCY::.DUMMY.)
+  :NAME NIL)
+  :LOCK #&lt;SB-THREAD:MUTEX &ldquo;Pool Lock&rdquo; (free)>
+  :ITEM-MAKER #<FUNCTION (LAMBDA #) {1005C9BFAB}>
+  :ITEM-DESTROYER #<FUNCTION (LAMBDA #) {1005CCAAAB}>
+  :CAPACITY 40
+  :THRESHOLD 2
+  :TIMEOUT 300
+  :LAST-ACCESS 0
+  :CURRENT-SIZE 0
+  :TOTAL-USES 0
+  :TOTAL-CREATED 0
+  :TOTAL-POOL-INITS 0)
+CL-USER> (defvar <em>mysql-pool</em> <em>)
+CL-USER> (pooler:fetch-from </em>mysql-pool*)</p>
+
+<h1>&lt;CLSQL-MYSQL:MYSQL-DATABASE 127.0.0.1/quasidb/quasi OPEN {1007571373}></h1>
+
+<p>CL-USER> (pooler:return-to <em>mysql-pool</em> <em>)
+2
+CL-USER> (pooler:with-pool (db </em>mysql-pool*) (clsql:query &ldquo;show tables;&rdquo; :database db))
+((&ldquo;LOGIN_DATA&rdquo;))
+(&ldquo;Tables_in_quasidb&rdquo;)
+```</p>
+
+<p>Has been tested with SBCL, CCL &amp; CMUCL on OSX. Should work on GNU/Linux.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Some Hash Functions]]></title>

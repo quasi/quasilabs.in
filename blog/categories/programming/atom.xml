@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: test | quasiTech]]></title>
-  <link href="http://quasi.github.io/categories/test/atom.xml" rel="self"/>
+  <title><![CDATA[Category: programming | quasiTech]]></title>
+  <link href="http://quasi.github.io/categories/programming/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2014-01-06T18:41:28+05:30</updated>
+  <updated>2014-01-06T18:59:06+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Nostalgia]]></title>
+    <link href="http://quasi.github.io/2012/05/15/nostalgia/"/>
+    <updated>2012-05-15T16:57:00+05:30</updated>
+    <id>http://quasi.github.io/2012/05/15/nostalgia</id>
+    <content type="html"><![CDATA[<p><img class="<a" src="href="http://1.bp.blogspot.com/-xWJTvyKhvrQ/T7Ik6N7yNEI/AAAAAAAAARk/b5TztqbnekU/s1600/Screen+Shot+2012-05-15+at+3.10.47+PM.png">http://1.bp.blogspot.com/-xWJTvyKhvrQ/T7Ik6N7yNEI/AAAAAAAAARk/b5TztqbnekU/s1600/Screen+Shot+2012-05-15+at+3.10.47+PM.png</a>" title="savastio.c" ></p>
+
+<p>Long ago I used to program &lsquo;C&rsquo;. I loved it. In those days, access to the net was restricted to a 30 minute session once a week. There used to be a &lsquo;superfast&rsquo; 14400 baud US Robotics modem connected to a DOS PC in our collage library. We had to pay for the access. I used to spend those 30 minutes downloading stuff at optimal speeds for later consumption. Either I used to download code snippets from ftp servers and boards or some random Anarchist documents or I used to be downloading images of angels compressed in this magical format called JPEG. These were so much better and smaller than the prevalent GIF files at that time. 16 million colours as opposed to 256 and that too at 1/5 the size !!</p>
+
+<p>I taught myself &lsquo;C&rsquo; programing using <a href="http://www.flipkart.com/let-c-8183331637/p/itmdyueqvbspzywn?pid=9788183331630&amp;_l=gWxQa0snNjHUHKJhnj_y0w--&amp;_r=Z%20C%20hLPvLs7ecz_0PZDaOw--&amp;ref=318165db-bd51-44f6-a294-e91d61c6f5b9">&lsquo;Let us C&rsquo; by Yeshvant Kanhetkar</a>. I also loved the book <a href="http://www.amazon.com/Programming-ANSI-C-Ram-Kumar/dp/0314895639">&lsquo;Programing in ANSI C&rsquo; by Ram Kumar and Rakesh Agarwal</a>. DOS 6.2 was an awesome OS to play with. You could do anything you wanted. :) I wrote a couple of interesting TSR&rsquo;s and a system information utility which gave complete information about your hardware. I also wrote a graphical copy program. The inspiration was the hours we spent transferring bootleg material around on floppies and waiting for them to get copied not knowing how much % was remaining or which files were written on bad sectors. We could skip files which gave the dreaded <a href="http://en.wikipedia.org/wiki/Abort,_Retry,_Fail%3F">Abort, Retry, Fail?</a> error.</p>
+
+<p>One of the most amazing and inspirational &lsquo;C&rsquo; programs I came across was from the <a href="http://www.ioccc.org/">The International Obfuscated C Code Contest</a> (IOCCC). The program calculated a factorial of any large number. I have let it run for about 30 minutes on my 386 watching the endless stream of numbers. It is written by one Michael Savastio and the source code is beautiful and can be found <a href="http://www.ioccc.org/1995/savastio.c">here (savastio.c)</a>.</p>
+
+<p>&lsquo;Nuff of the nostalgia :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[About paradigms]]></title>
+    <link href="http://quasi.github.io/2009/04/15/about-paradigms/"/>
+    <updated>2009-04-15T17:31:00+05:30</updated>
+    <id>http://quasi.github.io/2009/04/15/about-paradigms</id>
+    <content type="html"><![CDATA[<p><img class="<a" src="href="http://farm4.static.flickr.com/3564/3416855569_e222d064b4.jpg">http://farm4.static.flickr.com/3564/3416855569_e222d064b4.jpg</a>" title="&lsquo;Mahavir &amp; Nirvana, Badami&rsquo;" ></p>
+
+<p><blockquote><p>A multi-paradigm programming language is a programming language that supports more than one programming paradigm. As Leda designer Tim Budd holds it: The idea of a multiparadigm language is to provide a framework in which programmers can work in a variety of styles, freely intermixing constructs from different paradigms. The design goal of such languages is to allow programmers to use the best tool for a job, admitting that no one paradigm solves all problems in the easiest or most efficient way.</p><footer><strong>Wikipedia <a href="http://en.wikipedia.org/wiki/Multi-paradigm_programming_language">http://en.wikipedia.org/wiki/Multi-paradigm_programming_language</a> Multi Paradigm Programming Language</strong></footer></blockquote></p>
+
+<p>I was just reading this blog post by my friend Sandeep <a href="http://sandeep.shetty.in/2009/04/procedural-programming-is-not-bad-thing.html">Procedural Programming is NOT a Bad Thing!</a> and just thought I had to add some of my own blab &hellip;</p>
+
+<p>I think rather than what features a language or paradigm provides, it is more important to ask oneself how many of these problem solving tricks/ techniques / methods one really knows and can call to aid. Understanding a certain paradigms enough to start fashioning solutions around it is non trivial. Knowing several paradigms should help open a world of different techniques of problem conquest. Any reasonably sized software would have you contemplate deep and hard on the problem space and probable techniques. Most likely, new techniques and paradigms will have to be acquired.</p>
+
+<p>The tools we know of mould the way in which we approach problems. As a C programmer, say, what I can think of are data, locations of data, manipulation of this data in some conditional or iterative way. I would see clear steps and their impact on performance. As a schemer perhaps, I could see abstractions which might help me solve larger problems with less effort at the cost of seeing immediate impact on performance. For example quoting from SICP where the author is explaining about &lsquo;concepts&rsquo; and &lsquo;abstractions&rsquo; &ndash; &ldquo;Similarly, as program designers, we would like our language to be powerful enough so that we can write a procedure that expresses the concept of summation itself rather than only procedures that compute particular sums.&rdquo;</p>
+
+<p>The key to program design and problem solutions is our ability to see these &lsquo;abstractions&rsquo; and hence reduce problem space and complexity repeatedly till we have managed to &lsquo;solve&rsquo; it sufficiently.</p>
+
+<p>Certain vagueness or misdirections occurs when people give (or understand) only part of the reasons why they propound a particular paradigm strongly. For example, the Java people build a engineering platform which could scale to handle large complexity and resources and also help management of the whole thing. Large companies with extremely large code bases and with large programmer base have, as an element of the problem space, issues regarding code integrity, collaborative maximal exclusion coding. The issues and hence the design patterns which addresses these issues are specific to such systems. A Linus working on GIT is a different proposition. So Java is not necessarily a very elegant medium of expression of ideas but it is an excellent platform for the management of larger code bases and systems.</p>
+
+<p>One has to choose a platform which will give him access to all the paradigms which his problem space may need to reach a good solution. So the key to a good platform for the creative types and people not encumbered with people problems, turns out to be the flexibility of the platform in providing the programmer a free space where a solution could be designed which merits the problem without being restrained or constrained by any particular paradigm or method of work. Ruby and Python are becoming more popular due to the flexibility and the expressiveness they provide, which I will call the elegance factor, which earlier was underrated.</p>
+
+<p>Me, I program in Common Lisp. It is Nirvana for the programmer. The path to Niravana is always tough. But what you can do with such tools is what makes work pleasure.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Some Hash Functions]]></title>

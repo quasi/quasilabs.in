@@ -4,7 +4,7 @@
   <title><![CDATA[quasiTech]]></title>
   <link href="http://quasi.github.io/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2013-10-11T16:33:08+05:30</updated>
+  <updated>2014-01-06T18:59:06+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -12,6 +12,178 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Emacs and JS: Finding function definitions]]></title>
+    <link href="http://quasi.github.io/2014/01/06/emacs-and-js-finding-function-definitions/"/>
+    <updated>2014-01-06T17:31:00+05:30</updated>
+    <id>http://quasi.github.io/2014/01/06/emacs-and-js-finding-function-definitions</id>
+    <content type="html"><![CDATA[<p>I started doing Javascript recently. The <code>js2-mode</code> is excellent. But I am spoilt by <code>SLIME</code> :). One of the things I most missed from there was to be able to lookup function definitions with <code>M-.</code> and to get back with <code>M-,</code>. I had been pair programming with a tem-mate and editing a 1000 line file and in his &lsquo;Sublime&rsquo; editor and it was a royal pain scrolling all over the place looking for function definitions.  So I decided to try my hand at some elisp. This was the first time but I really felt the need.</p>
+
+<p>So this is pretty simple really :</p>
+
+<ul>
+<li>Get the word at point</li>
+<li>Prepend &ldquo;function &rdquo; to it</li>
+<li>Save current location on a sack to getting back</li>
+<li>Go to top of buffer</li>
+<li>Do a forward search with our search string</li>
+<li>If successful center line</li>
+<li>else show do nothing and show message.</li>
+</ul>
+
+
+<p>Another function, bound to <code>M-,</code> pops a position off the stack and goes there.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;;; Find JS function definition in your current buffer (and go back).</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defvar</span> <span class="vg">*quasi-js-current-pos*</span> <span class="no">nil</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">quasi-js-function-search</span> <span class="p">()</span>
+</span><span class='line'>  <span class="s">&quot;Search for JS function definations. In a rather dumb way, but works, albeit</span>
+</span><span class='line'><span class="s">only for current buffer. Works recurcively too :)&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">text</span> <span class="p">(</span><span class="nv">thing-at-point</span> <span class="ss">&#39;word</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nb">push</span> <span class="p">(</span><span class="nv">point</span><span class="p">)</span> <span class="vg">*quasi-js-current-pos*</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nv">point-min</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nv">search-forward</span> <span class="p">(</span><span class="nv">concat</span> <span class="s">&quot;function &quot;</span> <span class="nv">text</span><span class="p">)</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">(</span><span class="nv">recenter</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="k">progn</span>
+</span><span class='line'>        <span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nb">pop</span> <span class="vg">*quasi-js-current-pos*</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;Could not find definition for %s&quot;</span> <span class="nv">text</span><span class="p">)))))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">quasi-js-function-go-back</span> <span class="p">()</span>
+</span><span class='line'>  <span class="s">&quot;Go back to where you initiated search from&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">if</span> <span class="vg">*quasi-js-current-pos*</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">goto-char</span> <span class="p">(</span><span class="nb">pop</span> <span class="vg">*quasi-js-current-pos*</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">message</span> <span class="s">&quot;Nowhere to jump!&quot;</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; Add hooks to js2-mode. It will cobbler the default tag-search bindings. Beware.</span>
+</span><span class='line'><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;js2-mode-hook</span>
+</span><span class='line'>          <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span>
+</span><span class='line'>            <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-.&quot;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">quasi-js-function-search</span><span class="p">)</span>
+</span><span class='line'>            <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-,&quot;</span><span class="p">)</span> <span class="nf">#&#39;</span><span class="nv">quasi-js-function-go-back</span><span class="p">)))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It really felt good to have written my first <em>useful</em> elisp code.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pooler]]></title>
+    <link href="http://quasi.github.io/2013/10/14/pooler/"/>
+    <updated>2013-10-14T16:53:00+05:30</updated>
+    <id>http://quasi.github.io/2013/10/14/pooler</id>
+    <content type="html"><![CDATA[<p>A <em>simple</em>, <em>fast</em> &amp; <em>thread-safe</em> generic pooling library.</p>
+
+<p>Homepage <a href="http://quasilabs.com/pooler/">http://quasilabs.com/pooler/</a></p>
+
+<p>We need pools for items which have heavy cost of creation and which we can reuse. A typical use case is connection pools.</p>
+
+<p>Pool item creation (as required) is automatic on fetch-from pool. Pool-item&rsquo;s are created and destroyed using user supplied funcitons. The pool has a idle timeout after which all the existing pool-item&rsquo;s are destroyed and new ones created (pool-init). The pool has a threshold number of items which it tries to maintain.</p>
+
+<p>Licence : MIT</p>
+
+<p>An Example :</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CL-USER&gt; (pooler:make-pool :item-maker
+</span><span class='line'>                           #'(lambda () (clsql:connect '("127.0.0.1" "quasidb" "quasi" "*****")
+</span><span class='line'>                                                       :database-type :mysql
+</span><span class='line'>                                                       :if-exists :new))
+</span><span class='line'>                           :item-destroyer
+</span><span class='line'>                           #'(lambda (item) (clsql:disconnect :database item)))
+</span><span class='line'>#S(POOLER::POOL
+</span><span class='line'>  :NAME "Default Pool"
+</span><span class='line'>  :QUEUE #S(SB-CONCURRENCY:QUEUE
+</span><span class='line'>  :HEAD (SB-CONCURRENCY::.DUMMY.)
+</span><span class='line'>  :TAIL (SB-CONCURRENCY::.DUMMY.)
+</span><span class='line'>  :NAME NIL)
+</span><span class='line'>  :LOCK #&lt;SB-THREAD:MUTEX "Pool Lock" (free)&gt;
+</span><span class='line'>  :ITEM-MAKER #&lt;FUNCTION (LAMBDA #) {1005C9BFAB}&gt;
+</span><span class='line'>  :ITEM-DESTROYER #&lt;FUNCTION (LAMBDA #) {1005CCAAAB}&gt;
+</span><span class='line'>  :CAPACITY 40
+</span><span class='line'>  :THRESHOLD 2
+</span><span class='line'>  :TIMEOUT 300
+</span><span class='line'>  :LAST-ACCESS 0
+</span><span class='line'>  :CURRENT-SIZE 0
+</span><span class='line'>  :TOTAL-USES 0
+</span><span class='line'>  :TOTAL-CREATED 0
+</span><span class='line'>  :TOTAL-POOL-INITS 0)
+</span><span class='line'>CL-USER&gt; (defvar *mysql-pool* *)
+</span><span class='line'>CL-USER&gt; (pooler:fetch-from *mysql-pool*)
+</span><span class='line'>#&lt;CLSQL-MYSQL:MYSQL-DATABASE 127.0.0.1/quasidb/quasi OPEN {1007571373}&gt;
+</span><span class='line'>CL-USER&gt; (pooler:return-to *mysql-pool* *)
+</span><span class='line'>2
+</span><span class='line'>CL-USER&gt; (pooler:with-pool (db *mysql-pool*) (clsql:query "show tables;" :database db))
+</span><span class='line'>(("LOGIN_DATA"))
+</span><span class='line'>("Tables_in_quasidb")</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Has been tested with SBCL, CCL &amp; CMUCL on OSX. Should work on GNU/Linux.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Nostalgia]]></title>
