@@ -4,7 +4,7 @@
   <title><![CDATA[quasiTech]]></title>
   <link href="http://quasi.github.io/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2014-01-06T18:59:06+05:30</updated>
+  <updated>2014-01-07T16:50:15+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -18,22 +18,22 @@
     <link href="http://quasi.github.io/2014/01/06/emacs-and-js-finding-function-definitions/"/>
     <updated>2014-01-06T17:31:00+05:30</updated>
     <id>http://quasi.github.io/2014/01/06/emacs-and-js-finding-function-definitions</id>
-    <content type="html"><![CDATA[<p>I started doing Javascript recently. The <code>js2-mode</code> is excellent. But I am spoilt by <code>SLIME</code> :). One of the things I most missed from there was to be able to lookup function definitions with <code>M-.</code> and to get back with <code>M-,</code>. I had been pair programming with a tem-mate and editing a 1000 line file and in his &lsquo;Sublime&rsquo; editor and it was a royal pain scrolling all over the place looking for function definitions.  So I decided to try my hand at some elisp. This was the first time but I really felt the need.</p>
+    <content type="html"><![CDATA[<p>I started doing Javascript recently. The <code>js2-mode</code> is excellent. But I am spoilt by <code>SLIME</code> :). One of the things I most missed from there was to be able to lookup function definitions with <code>M-.</code> and to get back with <code>M-,</code>. I had been pair programming with a team-mate and editing a 1000 line file and in his vanilla &lsquo;Sublime&rsquo; editor and it was a royal pain scrolling all over the place looking for function definitions.  So I decided to try my hand at some elisp. This was the first time but I really felt the need.</p>
 
-<p>So this is pretty simple really :</p>
+<p>This is pretty simple really :</p>
 
 <ul>
 <li>Get the word at point</li>
 <li>Prepend &ldquo;function &rdquo; to it</li>
-<li>Save current location on a sack to getting back</li>
+<li>Save current location on a stack to getting back</li>
 <li>Go to top of buffer</li>
 <li>Do a forward search with our search string</li>
 <li>If successful center line</li>
-<li>else show do nothing and show message.</li>
+<li>Else do nothing and show message.</li>
 </ul>
 
 
-<p>Another function, bound to <code>M-,</code> pops a position off the stack and goes there.</p>
+<p>Another function, bound to <code>M-,</code> pops a position off the stack and goes to it.</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -181,7 +181,7 @@
 </span><span class='line'>("Tables_in_quasidb")</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Has been tested with SBCL, CCL &amp; CMUCL on OSX. Should work on GNU/Linux.</p>
+<p>Has been tested with <a href="http://www.sbcl.org/">SBCL (Steel Bank Common Lisp)</a>, <a href="http://www.clozure.com/clozurecl.html">CCL (Clozure Common Lisp)</a> &amp; <a href="http://www.cons.org/cmucl/">CMUCL (CMU Common Lisp)</a> on OSX. Should work on GNU/Linux.</p>
 ]]></content>
   </entry>
   
@@ -192,11 +192,11 @@
     <id>http://quasi.github.io/2012/05/15/nostalgia</id>
     <content type="html"><![CDATA[<p><img src="http://1.bp.blogspot.com/-xWJTvyKhvrQ/T7Ik6N7yNEI/AAAAAAAAARk/b5TztqbnekU/s1600/Screen+Shot+2012-05-15+at+3.10.47+PM.png" title="savastio.c" ></p>
 
-<p>Long ago I used to program &lsquo;C&rsquo;. I loved it. In those days, access to the net was restricted to a 30 minute session once a week. There used to be a &lsquo;superfast&rsquo; 14400 baud US Robotics modem connected to a DOS PC in our collage library. We had to pay for the access. I used to spend those 30 minutes downloading stuff at optimal speeds for later consumption. Either I used to download code snippets from ftp servers and boards or some random Anarchist documents or I used to be downloading images of angels compressed in this magical format called JPEG. These were so much better and smaller than the prevalent GIF files at that time. 16 million colours as opposed to 256 and that too at 1/5 the size !!</p>
+<p>Long ago I used to program <code>C</code>. I loved it. In those days, access to the net was restricted to a 30 minute session once a week. There used to be a &lsquo;superfast&rsquo; 14400 baud US Robotics modem connected to a DOS PC in our collage library. We had to pay for the access. I used to spend those 30 minutes downloading stuff at optimal speeds for later consumption. Either I used to download code snippets from ftp servers and boards or some random Anarchist documents or I used to be downloading images of angels compressed in this magical format called JPEG. These were so much better and smaller than the prevalent GIF files at that time. 16 million colours as opposed to 256 and that too at 1/5 the size !!</p>
 
-<p>I taught myself &lsquo;C&rsquo; programing using <a href="http://www.flipkart.com/let-c-8183331637/p/itmdyueqvbspzywn?pid=9788183331630&amp;_l=gWxQa0snNjHUHKJhnj_y0w--&amp;_r=Z%20C%20hLPvLs7ecz_0PZDaOw--&amp;ref=318165db-bd51-44f6-a294-e91d61c6f5b9">&lsquo;Let us C&rsquo; by Yeshvant Kanhetkar</a>. I also loved the book <a href="http://www.amazon.com/Programming-ANSI-C-Ram-Kumar/dp/0314895639">&lsquo;Programing in ANSI C&rsquo; by Ram Kumar and Rakesh Agarwal</a>. DOS 6.2 was an awesome OS to play with. You could do anything you wanted. :) I wrote a couple of interesting TSR&rsquo;s and a system information utility which gave complete information about your hardware. I also wrote a graphical copy program. The inspiration was the hours we spent transferring bootleg material around on floppies and waiting for them to get copied not knowing how much % was remaining or which files were written on bad sectors. We could skip files which gave the dreaded <a href="http://en.wikipedia.org/wiki/Abort,_Retry,_Fail%3F">Abort, Retry, Fail?</a> error.</p>
+<p>I taught myself &lsquo;C&rsquo; programing using <a href="http://www.flipkart.com/let-c-8183331637/p/itmdyueqvbspzywn?pid=9788183331630&amp;_l=gWxQa0snNjHUHKJhnj_y0w--&amp;_r=Z%20C%20hLPvLs7ecz_0PZDaOw--&amp;ref=318165db-bd51-44f6-a294-e91d61c6f5b9">&lsquo;Let us C&rsquo; by Yeshvant Kanhetkar</a>. I also loved the book <a href="http://www.amazon.com/Programming-ANSI-C-Ram-Kumar/dp/0314895639">&lsquo;Programing in ANSI C&rsquo; by Ram Kumar and Rakesh Agarwal</a>. <code>DOS 6.2</code> was an awesome OS to play with. You could do anything you wanted. :) I wrote a couple of interesting TSR&rsquo;s and a system information utility which gave complete information about your hardware. I also wrote a graphical copy program. The inspiration was the hours we spent transferring bootleg material around on floppy disks and waiting for them to get copied not knowing how much % was remaining or which files were written on bad sectors. We could skip files which gave the dreaded <a href="http://en.wikipedia.org/wiki/Abort,_Retry,_Fail%3F">Abort, Retry, Fail?</a> error.</p>
 
-<p>One of the most amazing and inspirational &lsquo;C&rsquo; programs I came across was from the <a href="http://www.ioccc.org/">The International Obfuscated C Code Contest</a> (IOCCC). The program calculated a factorial of any large number. I have let it run for about 30 minutes on my 386 watching the endless stream of numbers. It is written by one Michael Savastio and the source code is beautiful and can be found <a href="http://www.ioccc.org/1995/savastio.c">here (savastio.c)</a>.</p>
+<p>One of the most amazing and inspirational <code>C</code> programs I came across was from the <a href="http://www.ioccc.org/">The International Obfuscated C Code Contest</a> (IOCCC). The program calculated a factorial of any large number. I have let it run for about 30 minutes on my AMD 386 DX 40MHz machine, watching the endless stream of numbers. It is written by one Michael Savastio and the source code is beautiful and can be found <a href="http://www.ioccc.org/1995/savastio.c">here (savastio.c)</a>.</p>
 
 <p>&lsquo;Nuff of the nostalgia :)</p>
 ]]></content>

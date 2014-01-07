@@ -31,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44839128-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -91,9 +103,9 @@
   </header>
 
 
-<div class="entry-content"><p>I started doing Javascript recently. The <code>js2-mode</code> is excellent. But I am spoilt by <code>SLIME</code> :). One of the things I most missed from there was to be able to lookup function definitions with <code>M-.</code> and to get back with <code>M-,</code>. I had been pair programming with a tem-mate and editing a 1000 line file and in his &lsquo;Sublime&rsquo; editor and it was a royal pain scrolling all over the place looking for function definitions.  So I decided to try my hand at some elisp. This was the first time but I really felt the need.</p>
+<div class="entry-content"><p>I started doing Javascript recently. The <code>js2-mode</code> is excellent. But I am spoilt by <code>SLIME</code> :). One of the things I most missed from there was to be able to lookup function definitions with <code>M-.</code> and to get back with <code>M-,</code>. I had been pair programming with a team-mate and editing a 1000 line file and in his vanilla &lsquo;Sublime&rsquo; editor and it was a royal pain scrolling all over the place looking for function definitions.  So I decided to try my hand at some elisp. This was the first time but I really felt the need.</p>
 
-<p>So this is pretty simple really :</p>
+<p>This is pretty simple really :</p>
 
 <ul>
 <li>Get the word at point</li>
@@ -102,11 +114,11 @@
 <li>Go to top of buffer</li>
 <li>Do a forward search with our search string</li>
 <li>If successful center line</li>
-<li>else show do nothing and show message.</li>
+<li>Else do nothing and show message.</li>
 </ul>
 
 
-<p>Another function, bound to <code>M-,</code> pops a position off the stack and goes there.</p>
+<p>Another function, bound to <code>M-,</code> pops a position off the stack and goes to it.</p>
 
 <figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
