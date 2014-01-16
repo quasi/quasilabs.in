@@ -4,7 +4,7 @@
   <title><![CDATA[quasiTech]]></title>
   <link href="http://quasi.github.io/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2014-01-07T16:50:15+05:30</updated>
+  <updated>2014-01-16T17:06:09+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How I came to Lisp]]></title>
+    <link href="http://quasi.github.io/2014/01/15/how-I-came-to-lisp/"/>
+    <updated>2014-01-15T14:18:00+05:30</updated>
+    <id>http://quasi.github.io/2014/01/15/how-I-came-to-lisp</id>
+    <content type="html"><![CDATA[<blockquote class="twitter-tweet" lang="en"><p>This is the decade of <a href="https://twitter.com/search?q=%23Lisp&amp;src=hash">#Lisp</a>. Mind it.</p>&mdash; Abhijit Rao (@_quasi) <a href="https://twitter.com/_quasi/statuses/365851774499815425">August 9, 2013</a></blockquote>
+
+
+<script async src="http://quasi.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>People have asked me why I chose to program in Lisp.</p>
+
+<h3>Early days</h3>
+
+<p>Long back (1995-6) when I was still a college student (studying Math) I first saw Prolog. Chirs Martis, then boyfriend (now husband) of my friend Medha Patkar used to work for some company in SEEPZ and he was working on a project for some Japanese company. They had to migrate an older code base to a newer stack. I disremember the details (I dont think I knew much anyway) but he was learning Prolog as they were using a translater written in Prolog to help in the translation of the older codebase. I was a curious cuss then, and kept pestering him with questions. I was interested and wanted to learn Prolog. This was before we had access to the Internet. So my friend Anuprita took me to the British Council Library where she was a member. I saw a couple of Prolog books &ndash; pretty hard for me to understand as I had scant background in Programming (I did not even own a computer at that time). But I also saw a tiny booklet about another language called Lisp written by some Indian author. What intrigued me was the factorial program on the last page &ndash; this did not look like any program I had ever seen. I was more interested.</p>
+
+<p>Fast forward to 1998. I tried using <a href="http://www.cons.org/cmucl/">CMUCL</a> on my AMD 386DX with 8 MB of RAM.  It was very hard to understand what to do at the REPL. Hardly any documentation.  Fast forward somewhere 2001 and Internet world. I landed up on comp.lang.lisp and asked a few silly questions. Got my head bitten off seriously &ndash; especially by Naggum. But <a href="http://xach.com/naggum/articles/">Erik Naggum</a>, and <a href="http://www.flownet.com/">Erann Gatt (Ron Garret)</a> were the reason I persisted. Erann(Ron) by his <a href="http://www.flownet.com/gat/jpl-lisp.html">Nasa stories</a> really awed me. By this time I had also come across <a href="http://en.wikipedia.org/wiki/Greenspun%27s_Tenth_Rule">Greenspun&rsquo;s tenth rule</a> of programming&hellip;</p>
+
+<p><img src="http://quasi.in/old-homepage/surreal/images/rmsandme.jpg" alt="RMS and me" /></p>
+
+<p>By this time I was a super fan of <a href="http://stallman.org/">RMS</a>. He wrote <a href="http://www.gnu.org/software/emacs/">Emacs</a>. In <a href="http://en.wikipedia.org/wiki/Emacs_Lisp">lisp</a>. WOW.</p>
+
+<p>Soon, 2003, I wrote a software for a cable ISP service provider in Bandra East. I tried <a href="http://www.cons.org/cmucl/">CMUCL</a> again. This time with Emacs. I had an upgraded machine &ndash; Pentium MMX 200MHz with 32 MB or RAM. Those were the days when internet was provided by small players who provided Cable TV. This software did everything from user management to enabling / disabling users to keeping track of their usage. I used the GNU/Linux &lsquo;tc&rsquo; tool to do the traffic shaping. I wrote everything including a jazzy web-frontend in <a href="http://www.cons.org/cmucl/">CMUCL</a>. It ran very stably.</p>
+
+<p>All this time I was a <a href="http://en.wikipedia.org/wiki/Common_Lisp">Common Lisp</a> noob. But still I loved the simplicity of the syntax and the expressibility. There was also a sense that I was just touching the surface and I needed to find the horizon. From 1995 to this time I had learned programming in C and had done some low level stuff in Dos 6.22 and GNU/Linux. I had finished my Post Graduate Diploma in Networking from the National Center of Software Technology. I had done a bit of network programming. I loved to program in C. But I loved CL too.</p>
+
+<p>So the reasons I persisted and learned programming in Common Lisp are many, mostly incidental. But there was also a sense that this was something beyond the ordinary &ndash; it was elegant. There was also some kind of respect for it as few of the greatest minds of this field had used it and respected it.</p>
+
+<p>I had to explore. I had to learn.</p>
+
+<p>next post &ndash; how I used Common Lisp at <a href="http://www.cleartrip.com/">Cleartrip</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Emacs and JS: Finding function definitions]]></title>

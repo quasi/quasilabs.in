@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: common lisp | quasiTech]]></title>
+  <title><![CDATA[Category: Common Lisp | quasiTech]]></title>
   <link href="http://quasi.github.io/categories/common-lisp/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2014-01-07T16:50:15+05:30</updated>
+  <updated>2014-01-16T17:06:09+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -14,231 +14,37 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Pooler]]></title>
-    <link href="http://quasi.github.io/2013/10/14/pooler/"/>
-    <updated>2013-10-14T16:53:00+05:30</updated>
-    <id>http://quasi.github.io/2013/10/14/pooler</id>
-    <content type="html"><![CDATA[<p>A <em>simple</em>, <em>fast</em> &amp; <em>thread-safe</em> generic pooling library.</p>
+    <title type="html"><![CDATA[How I came to Lisp]]></title>
+    <link href="http://quasi.github.io/2014/01/15/how-I-came-to-lisp/"/>
+    <updated>2014-01-15T14:18:00+05:30</updated>
+    <id>http://quasi.github.io/2014/01/15/how-I-came-to-lisp</id>
+    <content type="html"><![CDATA[<blockquote class="twitter-tweet" lang="en"><p>This is the decade of <a href="https://twitter.com/search?q=%23Lisp&amp;src=hash">#Lisp</a>. Mind it.</p>&mdash; Abhijit Rao (@_quasi) <a href="https://twitter.com/_quasi/statuses/365851774499815425">August 9, 2013</a></blockquote>
 
-<p>Homepage <a href="http://quasilabs.com/pooler/">http://quasilabs.com/pooler/</a></p>
 
-<p>We need pools for items which have heavy cost of creation and which we can reuse. A typical use case is connection pools.</p>
+<script async src="http://quasi.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p>Pool item creation (as required) is automatic on fetch-from pool. Pool-item&rsquo;s are created and destroyed using user supplied funcitons. The pool has a idle timeout after which all the existing pool-item&rsquo;s are destroyed and new ones created (pool-init). The pool has a threshold number of items which it tries to maintain.</p>
 
-<p>Licence : MIT</p>
+<p>People have asked me why I chose to program in Lisp.</p>
 
-<p>An Example :
-```
-CL-USER> (pooler:make-pool :item-maker</p>
+<h3>Early days</h3>
 
-<pre><code>                       #'(lambda () (clsql:connect '("127.0.0.1" "quasidb" "quasi" "*****")
-                                                   :database-type :mysql
-                                                   :if-exists :new))
-                       :item-destroyer
-                       #'(lambda (item) (clsql:disconnect :database item)))
-</code></pre>
+<p>Long back (1995-6) when I was still a college student (studying Math) I first saw Prolog. Chirs Martis, then boyfriend (now husband) of my friend Medha Patkar used to work for some company in SEEPZ and he was working on a project for some Japanese company. They had to migrate an older code base to a newer stack. I disremember the details (I dont think I knew much anyway) but he was learning Prolog as they were using a translater written in Prolog to help in the translation of the older codebase. I was a curious cuss then, and kept pestering him with questions. I was interested and wanted to learn Prolog. This was before we had access to the Internet. So my friend Anuprita took me to the British Council Library where she was a member. I saw a couple of Prolog books &ndash; pretty hard for me to understand as I had scant background in Programming (I did not even own a computer at that time). But I also saw a tiny booklet about another language called Lisp written by some Indian author. What intrigued me was the factorial program on the last page &ndash; this did not look like any program I had ever seen. I was more interested.</p>
 
-<h1>S(POOLER::POOL</h1>
+<p>Fast forward to 1998. I tried using <a href="http://www.cons.org/cmucl/">CMUCL</a> on my AMD 386DX with 8 MB of RAM.  It was very hard to understand what to do at the REPL. Hardly any documentation.  Fast forward somewhere 2001 and Internet world. I landed up on comp.lang.lisp and asked a few silly questions. Got my head bitten off seriously &ndash; especially by Naggum. But <a href="http://xach.com/naggum/articles/">Erik Naggum</a>, and <a href="http://www.flownet.com/">Erann Gatt (Ron Garret)</a> were the reason I persisted. Erann(Ron) by his <a href="http://www.flownet.com/gat/jpl-lisp.html">Nasa stories</a> really awed me. By this time I had also come across <a href="http://en.wikipedia.org/wiki/Greenspun%27s_Tenth_Rule">Greenspun&rsquo;s tenth rule</a> of programming&hellip;</p>
 
-<p>  :NAME &ldquo;Default Pool&rdquo;
-  :QUEUE #S(SB-CONCURRENCY:QUEUE
-  :HEAD (SB-CONCURRENCY::.DUMMY.)
-  :TAIL (SB-CONCURRENCY::.DUMMY.)
-  :NAME NIL)
-  :LOCK #&lt;SB-THREAD:MUTEX &ldquo;Pool Lock&rdquo; (free)>
-  :ITEM-MAKER #<FUNCTION (LAMBDA #) {1005C9BFAB}>
-  :ITEM-DESTROYER #<FUNCTION (LAMBDA #) {1005CCAAAB}>
-  :CAPACITY 40
-  :THRESHOLD 2
-  :TIMEOUT 300
-  :LAST-ACCESS 0
-  :CURRENT-SIZE 0
-  :TOTAL-USES 0
-  :TOTAL-CREATED 0
-  :TOTAL-POOL-INITS 0)
-CL-USER> (defvar <em>mysql-pool</em> <em>)
-CL-USER> (pooler:fetch-from </em>mysql-pool*)</p>
+<p><img src="http://quasi.in/old-homepage/surreal/images/rmsandme.jpg" alt="RMS and me" /></p>
 
-<h1>&lt;CLSQL-MYSQL:MYSQL-DATABASE 127.0.0.1/quasidb/quasi OPEN {1007571373}></h1>
+<p>By this time I was a super fan of <a href="http://stallman.org/">RMS</a>. He wrote <a href="http://www.gnu.org/software/emacs/">Emacs</a>. In <a href="http://en.wikipedia.org/wiki/Emacs_Lisp">lisp</a>. WOW.</p>
 
-<p>CL-USER> (pooler:return-to <em>mysql-pool</em> <em>)
-2
-CL-USER> (pooler:with-pool (db </em>mysql-pool*) (clsql:query &ldquo;show tables;&rdquo; :database db))
-((&ldquo;LOGIN_DATA&rdquo;))
-(&ldquo;Tables_in_quasidb&rdquo;)
-```</p>
+<p>Soon, 2003, I wrote a software for a cable ISP service provider in Bandra East. I tried <a href="http://www.cons.org/cmucl/">CMUCL</a> again. This time with Emacs. I had an upgraded machine &ndash; Pentium MMX 200MHz with 32 MB or RAM. Those were the days when internet was provided by small players who provided Cable TV. This software did everything from user management to enabling / disabling users to keeping track of their usage. I used the GNU/Linux &lsquo;tc&rsquo; tool to do the traffic shaping. I wrote everything including a jazzy web-frontend in <a href="http://www.cons.org/cmucl/">CMUCL</a>. It ran very stably.</p>
 
-<p>Has been tested with <a href="http://www.sbcl.org/">SBCL (Steel Bank Common Lisp)</a>, <a href="http://www.clozure.com/clozurecl.html">CCL (Clozure Common Lisp)</a> &amp; <a href="http://www.cons.org/cmucl/">CMUCL (CMU Common Lisp)</a> on OSX. Should work on GNU/Linux.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Some Hash Functions]]></title>
-    <link href="http://quasi.github.io/2009/03/21/hash-functions/"/>
-    <updated>2009-03-21T14:20:00+05:30</updated>
-    <id>http://quasi.github.io/2009/03/21/hash-functions</id>
-    <content type="html"><![CDATA[<p>Here are some common hash functions in C I found online <a href="http://www.cse.yorku.ca/~oz/hash.html">here</a> and <a href="http://www.partow.net/programming/hashfunctions/index.html">here</a>. I have done the menial task of translating them to Common Lisp.</p>
+<p>All this time I was a <a href="http://en.wikipedia.org/wiki/Common_Lisp">Common Lisp</a> noob. But still I loved the simplicity of the syntax and the expressibility. There was also a sense that I was just touching the surface and I needed to find the horizon. From 1995 to this time I had learned programming in C and had done some low level stuff in Dos 6.22 and GNU/Linux. I had finished my Post Graduate Diploma in Networking from the National Center of Software Technology. I had done a bit of network programming. I loved to program in C. But I loved CL too.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;;; Hash Function by Dan Bernstein</span>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hash-DJB</span> <span class="p">(</span><span class="nv">str</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="k">declare</span> <span class="p">(</span><span class="k">type</span> <span class="kt">simple-string</span> <span class="nv">str</span><span class="p">)</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="k">type</span> <span class="p">(</span><span class="kt">unsigned-byte</span> <span class="mi">32</span><span class="p">)</span> <span class="nv">hash</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="k">optimize</span> <span class="nv">speed</span> <span class="p">(</span><span class="nv">debug</span> <span class="mi">0</span><span class="p">)))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">hash</span> <span class="mi">5381</span><span class="p">))</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nv">x</span> <span class="nv">across</span> <span class="nv">str</span>
-</span><span class='line'> <span class="nb">do</span> <span class="p">(</span><span class="nb">setf</span> <span class="nv">hash</span> <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>                    <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>                            <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>                                    <span class="p">(</span><span class="nb">ash</span> <span class="nv">hash</span> <span class="mi">5</span><span class="p">))</span> <span class="nv">hash</span><span class="p">))</span>
-</span><span class='line'>                       <span class="p">(</span><span class="nb">char-int</span> <span class="nv">x</span><span class="p">))))</span>
-</span><span class='line'> <span class="nv">finally</span> <span class="p">(</span><span class="nb">return</span> <span class="nv">hash</span><span class="p">))))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>So the reasons I persisted and learned programming in Common Lisp are many, mostly incidental. But there was also a sense that this was something beyond the ordinary &ndash; it was elegant. There was also some kind of respect for it as few of the greatest minds of this field had used it and respected it.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;;; Hash Function by Dan Bernstein</span>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hash-DJB2</span> <span class="p">(</span><span class="nv">str</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="k">declare</span> <span class="p">(</span><span class="k">type</span> <span class="kt">simple-string</span> <span class="nv">str</span><span class="p">)</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="k">type</span> <span class="p">(</span><span class="kt">unsigned-byte</span> <span class="mi">32</span><span class="p">)</span> <span class="nv">hash</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="k">optimize</span> <span class="nv">speed</span> <span class="p">(</span><span class="nv">debug</span> <span class="mi">0</span><span class="p">)))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">hash</span> <span class="mi">5381</span><span class="p">))</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nv">x</span> <span class="nv">across</span> <span class="nv">str</span>
-</span><span class='line'>   <span class="nb">do</span> <span class="p">(</span><span class="nb">setf</span> <span class="nv">hash</span> <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>                      <span class="p">(</span><span class="nb">logxor</span> <span class="p">(</span><span class="nb">char-int</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">hash</span> <span class="mi">33</span><span class="p">))))</span>
-</span><span class='line'>   <span class="nv">finally</span> <span class="p">(</span><span class="nb">return</span> <span class="nv">hash</span><span class="p">))))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>I had to explore. I had to learn.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;;; Hash Function from GAWK, a variation from the verwion from SDBM</span>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hash-SDBM</span> <span class="p">(</span><span class="nv">str</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="k">declare</span> <span class="p">(</span><span class="k">type</span> <span class="kt">simple-string</span> <span class="nv">str</span><span class="p">)</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span>       <span class="p">(</span><span class="k">type</span> <span class="p">(</span><span class="kt">unsigned-byte</span> <span class="mi">32</span><span class="p">)</span> <span class="nv">hash</span><span class="p">)</span>
-</span><span class='line'>       <span class="p">(</span><span class="k">optimize</span> <span class="nv">speed</span> <span class="p">(</span><span class="nv">debug</span> <span class="mi">0</span><span class="p">)))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">hash</span> <span class="mi">0</span><span class="p">))</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nv">x</span> <span class="nv">across</span> <span class="nv">str</span>
-</span><span class='line'>   <span class="nb">do</span> <span class="p">(</span><span class="nb">setf</span> <span class="nv">hash</span> <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>                      <span class="p">(</span><span class="nb">+</span> <span class="p">(</span><span class="nb">char-int</span> <span class="nv">x</span><span class="p">)</span>
-</span><span class='line'>                         <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nb">ash</span> <span class="nv">hash</span> <span class="mi">6</span><span class="p">))</span>
-</span><span class='line'>                         <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nb">ash</span> <span class="nv">hash</span> <span class="mi">16</span><span class="p">))</span>
-</span><span class='line'>                         <span class="p">(</span><span class="nb">-</span> <span class="nv">hash</span><span class="p">))))</span>
-</span><span class='line'>   <span class="nv">finally</span> <span class="p">(</span><span class="nb">return</span> <span class="nv">hash</span><span class="p">))))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="c1">;;; An algorithm proposed by Donald E. Knuth in The Art Of Computer Programming Volume 3</span>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hash-DEK</span> <span class="p">(</span><span class="nv">str</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="k">declare</span> <span class="p">(</span><span class="k">type</span> <span class="kt">simple-string</span> <span class="nv">str</span><span class="p">)</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span>   <span class="p">(</span><span class="k">type</span> <span class="p">(</span><span class="kt">unsigned-byte</span> <span class="mi">32</span><span class="p">)</span> <span class="nv">hash</span><span class="p">)</span>
-</span><span class='line'>   <span class="p">(</span><span class="k">optimize</span> <span class="nv">speed</span> <span class="p">(</span><span class="nv">debug</span> <span class="mi">0</span><span class="p">)))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">hash</span> <span class="p">(</span><span class="nb">length</span> <span class="nv">str</span><span class="p">)))</span><span class="nv">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nv">x</span> <span class="nv">across</span> <span class="nv">str</span>
-</span><span class='line'>   <span class="nb">do</span> <span class="p">(</span><span class="nb">setf</span> <span class="nv">hash</span> <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>                      <span class="p">(</span><span class="nb">logxor</span> <span class="p">(</span><span class="nb">char-int</span> <span class="nv">x</span><span class="p">)</span>
-</span><span class='line'>                              <span class="p">(</span><span class="nb">logxor</span> <span class="p">(</span><span class="nb">ldb</span> <span class="p">(</span><span class="nb">byte</span> <span class="mi">32</span> <span class="mi">0</span><span class="p">)</span> <span class="p">(</span><span class="nb">ash</span> <span class="nv">hash</span> <span class="mi">5</span><span class="p">))</span>
-</span><span class='line'>                                      <span class="p">(</span><span class="nb">ash</span> <span class="nv">hash</span> <span class="mi">-27</span><span class="p">)))))</span>
-</span><span class='line'>   <span class="nv">finally</span> <span class="p">(</span><span class="nb">return</span> <span class="nv">hash</span><span class="p">))))</span>
-</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">&lt;p&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>next post &ndash; how I used Common Lisp at <a href="http://www.cleartrip.com/">Cleartrip</a></p>
 ]]></content>
   </entry>
   
