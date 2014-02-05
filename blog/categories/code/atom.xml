@@ -4,7 +4,7 @@
   <title><![CDATA[Category: code | quasiTech]]></title>
   <link href="http://quasi.github.io/categories/code/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2014-01-16T18:52:14+05:30</updated>
+  <updated>2014-02-05T19:27:34+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -171,7 +171,7 @@ CL-USER> (pooler:with-pool (db </em>mysql-pool*) (clsql:query &ldquo;show tables
 (&ldquo;Tables_in_quasidb&rdquo;)
 ```</p>
 
-<p>Has been tested with <a href="http://www.sbcl.org/">SBCL (Steel Bank Common Lisp)</a>, <a href="http://www.clozure.com/clozurecl.html">CCL (Clozure Common Lisp)</a> &amp; <a href="http://www.cons.org/cmucl/">CMUCL (CMU Common Lisp)</a> on OSX. Should work on GNU/Linux.</p>
+<p>Has been tested with <a href="http://www.sbcl.org/">SBCL</a>, <a href="http://www.clozure.com/clozurecl.html">CCL</a> &amp; <a href="http://www.cons.org/cmucl/">CMUCL</a> on OSX. Should work on GNU/Linux.</p>
 ]]></content>
   </entry>
   

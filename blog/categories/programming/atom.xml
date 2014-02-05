@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | quasiTech]]></title>
   <link href="http://quasi.github.io/categories/programming/atom.xml" rel="self"/>
   <link href="http://quasi.github.io/"/>
-  <updated>2014-01-16T18:52:14+05:30</updated>
+  <updated>2014-02-05T19:27:34+05:30</updated>
   <id>http://quasi.github.io/</id>
   <author>
     <name><![CDATA[Abhijit Rao]]></name>
@@ -12,6 +12,205 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Starting with Common Lisp]]></title>
+    <link href="http://quasi.github.io/2014/02/05/starting-with-common-lisp/"/>
+    <updated>2014-02-05T15:50:00+05:30</updated>
+    <id>http://quasi.github.io/2014/02/05/starting-with-common-lisp</id>
+    <content type="html"><![CDATA[<p>Learning a new programming language requires you to interact with its runtime. But the bare bones runtime is usually just that &ndash; bare. It generally is an unpleasant task to interact with directly. This is nowhere more true then when learning to program in Lisp. But the good news is that the tools of the Lisp environment are evolved and provide a lot of support to make interaction less unpleasent. It is therefore imperative that we use these tools and setup an ideal environment before we start with the lessons.</p>
+
+<p>Today we will setup, <em>from scratch</em>, a <em>Common Lisp</em> development environment. This will include an editor, an interactive development environment, a structured editing mode and an implementation of Common Lisp.</p>
+
+<p><em>Note : please change the paths in the examples to reflect your system</em></p>
+
+<h4>Common Lisp</h4>
+
+<p>We will need an implemntation of Common Lisp. There are <a href="http://cliki.net/Common%20Lisp%20implementation">several</a> free and commercial ones available. We will use the excellent public domain <a href="http://www.sbcl.org">Steel Bank Common Lisp (SBCL)</a> for this tutorial.</p>
+
+<blockquote><p>Steel Bank Common Lisp (SBCL) is a high performance Common Lisp compiler. It is open source / free software, with a permissive license. In addition to the compiler and runtime system for ANSI Common Lisp, it provides an interactive environment including a debugger, a statistical profiler, a code coverage tool, and many other extensions.</p></blockquote>
+
+<p>Let us select the Darwin (Mac OS X) AMD64 port from the <a href="http://www.sbcl.org/platform-table.html">downloads</a> section and download (&lt; 10 Mb).</p>
+
+<p><code>
+wget http://prdownloads.sourceforge.net/sbcl/sbcl-1.1.8-x86-64-darwin-binary.tar.bz2
+</code>
+Extract the archive
+<code>
+tar xjvf sbcl-1.1.8-x86-64-darwin-binary.tar.bz2
+</code>
+Change to the extracted folder
+<code>
+cd sbcl-1.1.8-x86-64-darwin
+</code>
+The <em>INSTALL</em> file details the installation instructions. I prefer to install in my home folder. Create a folder to contain all the <em>SBCL</em> files. Run the install script specifying the installation folder of our choice.
+```
+mkdir /Users/me/sbcl</p>
+
+<p>INSTALL_ROOT=/Users/me/sbcl sh install.sh
+<code>``
+This will install all the files into</code>/Users/me/sbcl<code>. *SBCL* contains an executable and a core file. The executable - usually named</code>sbcl<code>- looks for an environment variable</code>SBCL_HOME` to locate the core file. We also need to set the locale. I have a shell script in my local bin which does all this.</p>
+
+<p>Create a file <code>~/bin/sbcl</code> and add following to it :
+```</p>
+
+<h1>!/bin/sh</h1>
+
+<p>LC_CTYPE=en_US.UTF-8
+export LC_CTYPE
+export SBCL_HOME=/Users/me/sbcl/lib/sbcl/</p>
+
+<p>/Users/me/sbcl/bin/sbcl $*
+<code>
+Make this file executable
+</code>
+chmod +x ~/bin/sbcl
+<code>
+now typing `sbcl` into your shell prompt should start up *SBCL* and show something like below
+</code>
+This is SBCL 1.1.10, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <a href="http://www.sbcl.org/">http://www.sbcl.org/</a>.</p>
+
+<p>SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+*
+<code>
+You can type s-expressions at the `*` prompt and the lisp will evaluate and return you an answer. For example.
+</code>
+* (+ 2 3)</p>
+
+<p>5
+*
+```
+Congrats !! We have an installed and running <em>Common Lisp</em> ! Now let&rsquo;s move forward.</p>
+
+<h4>Quicklisp !</h4>
+
+<p><a href="http://www.quicklisp.org/beta/">http://www.quicklisp.org/beta/</a> by Zach Beane</p>
+
+<blockquote><p>Quicklisp is a library manager for Common Lisp. It works with your existing Common Lisp implementation to download, install, and load any of over 900 libraries with a few simple commands.</p></blockquote>
+
+<p>Read through the installation instructions from that site. In short we will have to :</p>
+
+<p><code>
+$ curl -O http://beta.quicklisp.org/quicklisp.lisp
+</code>
+Start <em>SBCL</em> with this file :
+<code>
+sbcl --load quicklisp.lisp
+</code>
+At the prompt follow the instructions &ndash; type following :
+<code>
+* (quicklisp-quickstart:install)
+</code>
+This will download and install the latest <em>quicklisp</em> software. To add the <em>quicklisp</em> to the <em>SBCL</em> startup file :
+<code>
+(ql:add-to-init-file)
+</code>
+Now everytime you start <em>SBCL</em> it will load <em>quicklisp</em> automatically. yey!</p>
+
+<p>To install a library you simply have to :
+<code>
+* (ql:quickload "libraryname")
+</code></p>
+
+<p>Now the we need to install a <em>very</em> important package called <a href="http://www.common-lisp.net/project/slime/">SLIME</a>. This is the software which gives us our interactive development environment <em>(like no other)</em> !</p>
+
+<p><code>
+(ql:quickload "quicklisp-slime-helper")
+</code>
+Note the instructions which follow this &ndash; you will need to use them for your editor configuration. Next topic.</p>
+
+<h4>Editor</h4>
+
+<blockquote><p>GNU Emacs is an extensible, customizable text editor—and more. At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.</p></blockquote>
+
+<p>Emacs is the editor of choice for Lisp programmers. It provides fantastic support for programming in various lisps. There are <a href="http://www.emacswiki.org/emacs/CategoryPorts">a lot of</a> flavours available for a lot of different systems. On GNU/Linux systems, the latest emacs can be installed using the system package manager. I use <a href="http://aquamacs.org">Aquamacs</a> on Mac OS X. Please install your Emacs before moving to the next step.</p>
+
+<h4>Configuring Emacs</h4>
+
+<p>Create a <code>.emacs</code> file in your home. This file is the Emacs startup file and can contain any valid elisp. All options can be configured here. By convention a folder <code>~/.emacs.d</code> is usually used for any misc elisp files, packages etc. which we may need to install manually.</p>
+
+<p>Emacs comes with a package manager. This can automagically install packages and their dependencies. I like all the installed packages to reside inside a folder <code>.emacs.d/elpa</code>. Create this folder.  To set it up, add the following to your .emacs. (note : <code>;</code> start a comment in lisp source files)
+```
+(require &lsquo;package)
+(add-to-list 'package-archives</p>
+
+<pre><code>         '("melpa" . "http://melpa.milkbox.net/packages/") t)
+</code></pre>
+
+<p>(setq package-user-dir &ldquo;/Users/me/.emacs.d/elpa/&rdquo;) ;; change the path.
+(package-initialize)
+```</p>
+
+<p>Now <code>M-x package-install &lt;package-name&gt;</code> will download and install the package.</p>
+
+<h5>SLIME</h5>
+
+<blockquote><p>SLIME is a Emacs mode for Common Lisp development.</p></blockquote>
+
+<p>Configuring <em>SLIME</em> : Add the following to your .emacs
+```
+(setq inferior-lisp-program &ldquo;~/bin/sbcl&rdquo;)
+(load (expand-file-name &ldquo;~/quicklisp/slime-helper.el&rdquo;))</p>
+
+<p>(setq slime-lisp-implementations</p>
+
+<pre><code>       '((sbcl ("~/bin/sbcl") :coding-system utf-8-unix)))
+</code></pre>
+
+<p>(set-language-environment &ldquo;UTF-8&rdquo;)
+(setq slime-net-coding-system &lsquo;utf-8-unix)</p>
+
+<p>```
+This basically tells Emacs where to find the lisp (called <em>inferior-lisp</em>) program. Then we load the <em>slime-helper</em> which <em>quicklisp</em> provides.</p>
+
+<p><code>M-x eval-buffer</code> will read your new changes. <code>M-x slime</code> should start <em>SLIME</em> and present you with a nice <em>REPL</em>. At the <em>REPL</em> <code>,q</code> will quit <em>SLIME</em>.</p>
+
+<h5>PAREDIT</h5>
+
+<blockquote><p>ParEdit (paredit.el) is a minor mode for performing structured editing of S-expression data.</p></blockquote>
+
+<p><code>M-x package-install paredit</code> should download and install it.</p>
+
+<p>To setup <em>paredit</em> and to get it to work with <em>SLIME</em>, add following to <code>.emacs</code>.
+<code>
+;; Paredit customizations
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code."
+  t)
+(add-hook 'slime-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+(require 'paredit)
+</code></p>
+
+<h4>Almost there</h4>
+
+<p>At this point of time we have an installed and running Common Lisp implementation, an advanced editor, an interactive development environment &amp; a structured editing extention for the editor. This is the place to spend some time to see how all of these work.</p>
+
+<ul>
+<li>Inside Emacs <code>C-h t</code> starts the inbuilt interactive tutorial</li>
+<li>Emacs introductory videos <a href="http://emacsrocks.com/">http://emacsrocks.com/</a></li>
+<li><a href="http://common-lisp.net/project/movies/movies/slime.mov">SLIME video</a> &ndash; This is an excellent and instructional watch. Marco Baringer shows how it is done. Consider this also as informal introduction to SLIME</li>
+<li>SLIME <a href="http://www.common-lisp.net/project/slime/doc/html/">manual</a></li>
+<li>Paredit Author&rsquo;s <a href="http://mumble.net/~campbell/emacs/paredit.html">page</a></li>
+<li>Paredit Emacs Wiki <a href="http://www.emacswiki.org/emacs/ParEdit">page</a></li>
+</ul>
+
+
+<h4>Epilogue : Learning Common Lisp</h4>
+
+<p>Now that we have got all the boring setup stuff out of the way, let us <em>start</em> with Common Lisp !! <a href="http://www.gigamonkeys.com/book/">Practical Common Lisp</a> is an excellent modern introduction and you can start here.</p>
+
+<p>I am assuming that as you have come this far, you <em>are</em> interested in learning. I would suggest that you do exactly so &ndash; <em>learn</em>. Give it some time and thought before you come to any conclusions. This is very important for people who are coming from a non-lisp programming background. The lisp way is different. It may take time for you to <em>get</em> it. Concentrate on the simpler language aspects and try to solve challenging programming problems. Stay away from the temptation of exploring libraries and doing some <em>&lsquo;real&rsquo;</em> work at this point. You will only get distracted with unnecessary detail.</p>
+
+<p>Best Luck on your journey &ndash; You will not regret it.</p>
+
+<p><em>May the force be with you.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Nostalgia]]></title>
