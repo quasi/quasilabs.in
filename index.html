@@ -9,8 +9,6 @@
 
     <title>quasiLabs</title>
 
-<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
     <style type="text/css">
       * {
         margin: 0;
@@ -21,22 +19,27 @@
       }
       body {
         background-color: #fff;
+        background: url(images/bg1.jpg) no-repeat;
         background-size: cover;
-        font: 14px/1.5 Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        color: #777;
-        margin: 10px 20px;
-      }
-      h1 {
-        font-weight: 100;
-        margin: 10px 0;
-        font-size: 3em;
-        border-bottom: 1px solid #eee;
+        font: 14px/1.5 Avenir, Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #FFF;
+        margin: 20px 50px;
       }
       ul {
         margin-left: 20px;
       }
-
+      a {
+        color : white;
+      }
+      div#left-cont {
+        margin-top: 50px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      }
+      #left-cont h4 {
+        font-weight: normal;
+        font-size: 1.2em;
+        text-shadow: 1px 1px 3px rgba(0,0,0,1);
+      }
 
       @media all and (max-width: 768px) {
         .lizzard, .made-with {
@@ -53,8 +56,10 @@
       @media all and (min-width: 1025px) {
         .lizzard {
           position: absolute;
-          top: 60px;
+          bottom: 60px;
           right: 60px;
+          width: 100px;
+          height: 100px;
         }
         .lizzard > img {
           padding: 20px;
@@ -77,7 +82,9 @@
           width: 60%;
         }
         footer {
-          display: none;
+          position: absolute;
+          bottom: 40px;
+          display: block;
         }
       }
 
@@ -130,37 +137,36 @@
     </style>
   </head> 
 <body>
-  <h1>quasiLabs</h1>
-  <p>Our <em>mostly</em> lispy <a href="blog/">blog</a>.</p>
-  <br />
-  <p>Open Source Common Lisp Libraries</p>
+  <div>
+    <img src="images/quasilabs-logo.png">
+    <div style="float:right;margin-top:10px;"><a href="blog/">BLOG</a></div>
+  </div>
+
+  <div id="left-cont">
+  <h4>Open Source Common Lisp Libraries</h4>
   <ul>
     <li><a href="http://quasilabs.com/pooler/">Pooler</a> - A simple, thread-safe generic pooling library.</li>
     <li><a href="http://quasilabs.com/cl-memcached/">CL-Memcached</a> - A fast, thread-safe interface to the Memcached in-memory datastore.</li>
   </ul>
   <br />
-  <p>Projects</p>
+  <h4>Projects</h4>
   <ul>
       <li><a href="http://tripr.in/">Tripr</a> - One World, One Life. EXPLORE.</li>
   </ul>
   <br />
-  <p>Time Pass</p>
+  <h4>Time Pass</h4>
   <ul>
     <li>Simple JS game <a href="game/tictactoe.html">TicTacToe</a></li>
     <li><i class="icon-smile"></i> <a href="http://babalagin.com/">Babalagin</a></li>
     <li>To <a href="http://trekr.in/">Trek</a> is to live!</li>
   </ul>
-
-  <div class="lizzard" ><img src="images/lisp-lizzard.png" width="100"></div>
-  <div class="made-with">
-    <a href="http://www.cliki.net/"><img src="images/lisp-glossy.jpg" height="60" alt="Made with Lisp"></a>
-    <a href="http://www.sbcl.org/"><img src="images/sbcl.png" height="60" alt="SBCL"></a>
-    <a href="http://common-lisp.net/project/slime/"><img src="images/slime.png" height="60" alt="SLIME"></a>
-    <a href="http://www.gnu.org/software/emacs/"><img src="images/emacs.png" height="60" alt="Emacs"></a>
+    
   </div>
 
+  <div class="lizzard" ><img src="images/lisp-lizzard.png" width="100"></div>
+
   <footer> 
-    <p>Copyright © 2013 quasilabs.com</p>           
+    <p>Copyright © 2008-2014 quasiLabs</p>           
   </footer>
 </body>
 <script type="text/javascript">
