@@ -78,7 +78,7 @@
           border : 1px solid rgba(0,255,0,0.2);
           color:red;
         }
-        .lizzard > img:hover {
+        .lizzard-old > img:hover {
           -webkit-animation: sonarEffect 1.3s ease-out 75ms;
           -moz-animation: sonarEffect 1.3s ease-out 75ms;
           animation: sonarEffect 1.3s ease-out 75ms;
@@ -158,7 +158,7 @@
   <div class="lizzard" ><img src="images/lisp-lizzard.png" width="100"></div>
 
   <footer> 
-    <p>© 2008-2014 quasiLabs</p>           
+    <p>© 2008-2023 quasiLabs</p>           
   </footer>
 </body>
 <script type="text/javascript">
@@ -169,7 +169,7 @@
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('httpss:' == document.location.protocol ? 'httpss://ssl' : 'https://www') + '.google-analytics.com/ga.js';
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
