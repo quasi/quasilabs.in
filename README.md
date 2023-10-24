@@ -1,4 +1,4 @@
-quasi.github.com
+quasilabs.github.com
 ================
 
-website
+quasiLabs website
