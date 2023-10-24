@@ -1,4 +1,4 @@
-quasilabs.github.com
+quasilabs.in
 ================
 
 quasiLabs website
