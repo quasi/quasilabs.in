@@ -1,0 +1,97 @@
+html, body {
+    height:	100%;
+    margin:	0;
+    padding:	0;
+}
+
+body {
+    background-color: #fff;
+    background: url(../images/bg1.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font: 16px/1.5 Avenir, Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #FFF;
+}
+
+ul {
+    margin-top:0;
+}
+
+a {
+    color : white;
+}
+
+header {
+    height: 36px;
+    padding: 12px;
+    border-bottom: 2px white dotted;
+    background-color: rgba(0,0,0,0.2);
+    font-style:italic;
+}
+
+header div {
+    float:left;
+    padding-left: 24px;
+    padding-top: 12px;
+}
+
+header img {
+    float:left;
+}
+
+main {
+    height: calc(100% - 152px);
+    overflow: scroll;
+    margin: 20px 0;
+}
+
+main #left-cont {
+    text-shadow: 0px 0px 2px rgba(0,0,0,0.8);
+    padding: 20px;
+    margin: 20px;
+    border-radius:4px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+#left-cont h4 {
+    font-weight: normal;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,1);
+    margin: 0;
+}
+
+#left-cont h5 {
+    font-size: 1.1em;
+    letter-spacing: 1.1px;
+    margin: 8px 0;
+    font-style: italic;
+}
+
+footer {
+    height: 24px;
+    border-top: 2px dotted #FFF;
+    text-align:left;
+    background-color:rgba(0,0,0,0.2);
+    padding: 12px;
+}
+
+@media all and (max-width: 768px) {
+    header div {
+	padding-left: 8px;
+	padding-top: 0;
+    }
+    ul {
+	padding-left: 16px;
+    }
+}
+@media all and (min-width: 769px) and (max-width: 1024px) {
+    #left-cont {
+	width: 66%;
+    }
+}
+@media all and (min-width: 1025px) {
+    #left-cont {
+	width: 50%
+    }	  
+}
+

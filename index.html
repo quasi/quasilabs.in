@@ -1,164 +1,76 @@
+
 <!DOCTYPE html>
-<html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" content="">
     <meta https-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="quasiLabs">
+    <meta name="description" content="quasiLabs Company Website">
     <meta name="author" content="Abhijit Rao">
 
     <title>quasiLabs</title>
-
-    <style type="text/css">
-      * {
-        margin: 0;
-        padding: 0;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-      body {
-        background-color: #fff;
-        background: url(images/bg1.jpg) no-repeat;
-        background-size: cover;
-        font: 14px/1.5 Avenir, Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: #FFF;
-        margin: 20px 50px;
-      }
-      ul {
-        margin-left: 20px;
-      }
-      a {
-        color : white;
-      }
-      div#left-cont {
-        margin-top: 50px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-      }
-      #left-cont h4 {
-        font-weight: normal;
-        font-size: 1.2em;
-        text-shadow: 1px 1px 3px rgba(0,0,0,1);
-      }
-      footer {
-        position: absolute;
-        bottom: 40px;
-        display: block;
-        border-top: 1px dotted #FFF;
-      }
-
-
-      @media all and (max-width: 768px) {
-        .lizzard, .made-with {
-          display: none;
-        }
-
-      }
-
-      @media all and (min-width: 769px) and (max-width: 1024px) {
-        .lizzard, .made-with {
-          display: none;
-        }
-        footer {
-          bottom: 10px;
-        }
-      }
-      @media all and (min-width: 1025px) {
-        .lizzard {
-          position: absolute;
-          bottom: 60px;
-          right: 60px;
-          width: 100px;
-          height: 100px;
-        }
-        .lizzard > img {
-          padding: 20px;
-          opacity: 0.8;
-          border-radius: 100px;
-          border : 1px solid rgba(0,255,0,0.2);
-          color:red;
-        }
-        .lizzard-old > img:hover {
-          -webkit-animation: sonarEffect 1.3s ease-out 75ms;
-          -moz-animation: sonarEffect 1.3s ease-out 75ms;
-          animation: sonarEffect 1.3s ease-out 75ms;
-        }
-        .made-with {
-          position: absolute;
-          bottom: 10px;
-          left: 20px;
-        }
-      }
-
-
-      @-webkit-keyframes sonarEffect {
-        0% {
-          opacity: 0.3;
-        }
-        60% {
-          opacity: 0.5;
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(0,255,0,0.5);
-        }
-        100% {
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(0,255,0,0.5);
-          -webkit-transform: scale(1.5);
-          opacity: 0;
-        }
-      }
-      @-moz-keyframes sonarEffect {
-        0% {
-          opacity: 0.3;
-        }
-        40% {
-          opacity: 0.5;
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
-        }
-        100% {
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
-          -moz-transform: scale(1.5);
-          opacity: 0;
-        }
-      }
-      @keyframes sonarEffect {
-        0% {
-          opacity: 0.3;
-        }
-        40% {
-          opacity: 0.5;
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
-        }
-        100% {
-          box-shadow: 0 0 0 2px rgba(0,0,0,0.1), 0 0 20px 20px #fff, 0 0 0 20px rgba(255,0,0,0.5);
-          transform: scale(1.5);
-          opacity: 0;
-        }
-      }
-    </style>
+    <link href="css/main.css" media="screen, projection" rel="stylesheet" type="text/css">
   </head> 
-<body>
-  <div>
-    <img src="images/quasilabs-logo.png">
-    <div style="float:right;margin-top:10px;"><a href="blog/">BLOG</a></div>
-  </div>
 
-  <div id="left-cont">
-  <h4>Open Source Common Lisp Libraries</h4>
+  <body>
+    <header>
+      <img src="images/quasilabs-logo.png">
+      <div><a href="/blog/">BLOG</a></div>
+      <div><a href="/about.html">ABOUT US</a></div>
+    </header>
+    <main>
+      <div id="left-cont">
+	<h4>Services</h4>
+	<ul>
+<li><b>Ideation, Conceptualization &amp; Roadmap Planning</b><br />We
+  work with your team to refine your product idea, focusing on market
+  fit and scalability. We help you develop a comprehensive product
+  roadmap, aligning technology, business goals, and user needs.</li>
+<li><b>MVP Development, API Design &amp;
+    Integrations</b><br />Fast-track the development of a Minimum
+  Viable Product for market validation. We can help you to integrate with existing internal systems and external third-party systems.</li>
+<li><b>Software Architecture & System Design</b><br/>Design to ensure
+  modular and scalable solutions. High-level system architecture and planning for scalability, reliability, and performance.</li>
+<li><b>Code Quality, Performance Tuning &amp; Best Practices</b><br/>We can
+  guide your team to deliver high quality development and testing of
+  software modules and features. We can help with setting up Code
+  Review processes and help with refactoring the current codebase for
+  higher maintainability, testability and performance.</li>
+<li><b>DevOps &amp; CI/CD</b>We can help you setup your deployment
+  stack and architecture, design your clusters and help setup up
+  release engineering processes and team.</li>
+<li><b>Training</b><br/>We can provide training for team in the following
+  areas:<br/>
+  Programming Techniques, Python programming, Javascript
+  programming, SQL and Data Modelling, Testing Practices, Software
+  Design and Architecture</li>
+<li><b>User Experience Design</b></li>
+<li><b>Vendor Evaluation</b></li>
+<li><b>Interviews and Evaluation for Senior Positions</b></li>
+    </ul>
+
+  <h4>Open Source Libraries</h4>
   <ul>
-    <li><a href="https://quasi.github.io/pooler/">Pooler</a> - A simple, thread-safe generic pooling library.</li>
-    <li><a href="https://quasi.github.io/cl-memcached/">CL-Memcached</a> - A fast, thread-safe interface to the Memcached in-memory datastore.</li>
+    <li><a href="https://quasi.github.io/pooler/">Pooler</a> - A
+    simple, thread-safe generic pooling library for Common Lisp.</li>
+    <li><a href="https://quasi.github.io/cl-memcached/">CL-Memcached</a>
+    - A fast, thread-safe Common Lisp interface to the Memcached in-memory datastore.</li>
   </ul>
-  <br />
-  <h4>Old</h4>
+
+  <h4>Misc</h4>
   <ul>
     <li>Simple JS game <a href="game/tictactoe.html">TicTacToe</a></li>
   </ul>
-    
   </div>
-
-  <div class="lizzard" ><img src="images/lisp-lizzard.png" width="100"></div>
+  </main>
+  <!-- <div class="lizzard" ><img src="images/lisp-lizzard.png" width="100"></div> -->
 
   <footer> 
-    <p>© 2008-2023 quasiLabs</p>           
+    © 2008-2023 quasiLabs
   </footer>
 </body>
 <script type="text/javascript">
