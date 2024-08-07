@@ -93,6 +93,11 @@ main #left-cont {
     font-style: italic;
 }
 
+#left-cont p {
+    font-size: 1.2em;
+    font-style: italic;
+}
+
 .vmbox {
     padding: 16px;
     width: 400px;
