@@ -15,6 +15,15 @@ body {
     color: #000;
 }
 
+.container {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+}
+
 h1 {
     font-size: 3rem;
     font-weight: 300;
@@ -24,6 +33,20 @@ h1 {
     letter-spacing: 3px;
     margin:0;
 }
+
+h4 {
+    font-weight: normal;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+h5 {
+    font-size: 1.1em;
+    letter-spacing: 1.1px;
+    margin: 8px 0;
+    font-style: italic;
+}
+
 ul {
     margin-top:0;
 }
@@ -80,18 +103,6 @@ main #left-cont {
     background-image: linear-gradient(to right, rgba(255,255,255,1) , rgba(255,255,255,0.1));
 }
 
-#left-cont h4 {
-    font-weight: normal;
-    font-size: 1.2em;
-    margin: 0;
-}
-
-#left-cont h5 {
-    font-size: 1.1em;
-    letter-spacing: 1.1px;
-    margin: 8px 0;
-    font-style: italic;
-}
 
 #left-cont p {
     font-size: 1.2em;
@@ -99,18 +110,23 @@ main #left-cont {
 }
 
 .vmbox {
-    padding: 16px;
-    width: 400px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+    padding: 24px;
+    max-width: 600px;
+    min-width: 400px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 60px -20px, 
                 rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
                 rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border-radius: 16px;
-    background-color: rgba(255,255,255,1);
+    background-color: rgba(255,255,255,0.7);
 }
 
 .vmbox h3, .vmbox h4 {
     font-weight: normal;
     margin: 0;
+}
+
+.vmbox-top {
+    text-align: center;
 }
 
 .clientbox {
