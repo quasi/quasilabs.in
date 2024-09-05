@@ -220,6 +220,19 @@ footer {
         padding: 8px;
         border-radius: 4px;
     }
+    .vmbox {
+        min-width: 250px;
+    }
+    main {
+        margin: 8px;
+    }
+    header div#navbox {
+        padding-bottom: 8px;
+    }
+    #why-choose-us {
+        margin: 0px;
+    }
+
 }
 @media all and (min-width: 769px) and (max-width: 1024px) {
     #left-cont {
@@ -228,7 +241,8 @@ footer {
 }
 @media all and (min-width: 1025px) {
     #left-cont {
-	width: 50%
-    }	  
-}
+	    width: 50%
+    }
+}	  
+
 
