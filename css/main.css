@@ -93,16 +93,9 @@ main #left-cont {
     background-image: linear-gradient(to right, rgba(255,255,255,1) , rgba(255,255,255,0.1));
 }
 
-.profile-box {
+#profiles {
     display: flex;
     flex-wrap: wrap;
-}
-
-.profile-box > div {
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    margin: 24px;
 }
 
 #left-cont p {
@@ -111,14 +104,15 @@ main #left-cont {
 }
 
 .vmbox {
-    margin-right: 24px;
     max-width: 400px;
-    min-width: 300px;
+    min-width: 240px;
     box-shadow: rgba(50, 50, 93, 0.2) 0px 1px 12px 1px, 
                 rgba(0, 0, 0, 0.3) 0px 30px 8px -30px,
                 rgba(10, 37, 64, 0.35) 0px -2px 4px 0px inset;
     border-radius: 8px;
     background-color: rgba(255,255,255,0.9);
+    float: left;
+    margin: 24px;
 }
 
 .vmbox > div {
@@ -178,17 +172,22 @@ main #left-cont {
     margin-bottom: 12px;
 }
 
-.clientbox {
-    float: left;
-    padding: 16px;
-    margin: 32px;
+#clients {
     display: flex;
     flex-wrap: wrap;
+}
+
+.clientbox {
+    padding: 16px;
+    margin: 16px;
     justify-content: space-around;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     background-color: rgba(255,255,255,0.5);
     height: 30px;
+}
+.clientbox:first-child {
+    margin-left: 0;
 }
 
 footer {
@@ -227,13 +226,8 @@ footer {
         border-radius: 4px;
     }
     .vmbox {
-        min-width: 250px;
-        max-width: 600px;
-    }
-    .vmbox > div {
-        position: none;
-    }
-    
+        margin: 8px;
+    }    
     main {
         margin: 8px;
     }
@@ -244,11 +238,6 @@ footer {
         margin: 0px;
         margin-bottom: 24px;
     }
-    main #left-cont {
-        padding: 8px;
-        margin: 8px;
-    }
-
 }
 @media all and (min-width: 769px) and (max-width: 1024px) {
     #left-cont {
