@@ -112,7 +112,6 @@ main #left-cont {
 
 .vmbox {
     margin-right: 24px;
-    padding: 24px 48px;
     max-width: 400px;
     min-width: 300px;
     box-shadow: rgba(50, 50, 93, 0.2) 0px 1px 12px 1px, 
@@ -120,7 +119,11 @@ main #left-cont {
                 rgba(10, 37, 64, 0.35) 0px -2px 4px 0px inset;
     border-radius: 8px;
     background-color: rgba(255,255,255,0.9);
+}
+
+.vmbox > div {
     position: relative;
+    padding: 24px 48px;
 }
 
 .top-right-ln-image {
@@ -222,6 +225,7 @@ footer {
     }
     .vmbox {
         min-width: 250px;
+        max-width: 600px;
     }
     main {
         margin: 8px;
@@ -231,6 +235,14 @@ footer {
     }
     #why-choose-us {
         margin: 0px;
+    }
+    .profile-box > div {
+        margin: 0px;
+        margin-bottom: 24px;
+    }
+    main #left-cont {
+        padding: 8px;
+        margin: 8px;
     }
 
 }
