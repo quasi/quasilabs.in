@@ -230,6 +230,10 @@ footer {
         min-width: 250px;
         max-width: 600px;
     }
+    .vmbox > div {
+        position: none;
+    }
+    
     main {
         margin: 8px;
     }
