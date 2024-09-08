@@ -83,12 +83,11 @@ header img {
 main {
     height: calc(100% - 152px);
     overflow: scroll;
-    margin: 20px;
+    margin: 20px 80px;
 }
 
 main #left-cont {
     padding: 20px;
-    margin: 20px;
     border-radius:4px;
     background-image: linear-gradient(to right, rgba(255,255,255,1) , rgba(255,255,255,0.1));
 }
@@ -106,9 +105,7 @@ main #left-cont {
 .vmbox {
     max-width: 400px;
     min-width: 240px;
-    box-shadow: rgba(50, 50, 93, 0.2) 0px 1px 12px 1px, 
-                rgba(0, 0, 0, 0.3) 0px 30px 8px -30px,
-                rgba(10, 37, 64, 0.35) 0px -2px 4px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px 1px;
     border-radius: 8px;
     background-color: rgba(255,255,255,0.9);
     float: left;
@@ -156,6 +153,10 @@ main #left-cont {
     text-align: center;
 }
 
+.vmbox-top img {
+    border-radius: 120px;
+}
+
 .vmbox p {
     text-align: justify;
 }
@@ -163,7 +164,8 @@ main #left-cont {
 #why-choose-us {
     margin: 24px;
     padding: 32px;
-    max-width:600px;
+    max-width:700px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 #why-choose-us li {
     font-size: 1.2em;
@@ -193,7 +195,7 @@ main #left-cont {
 footer {
     height: 24px;
     text-align:left;
-    margin: 12px;
+    margin: 12px 12px 12px 90px;
 }
 
 @media all and (max-width: 768px) {

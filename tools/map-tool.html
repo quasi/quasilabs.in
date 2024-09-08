@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenStreetMap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+     <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+ 
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 80%;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="map"></div>
+    <div id="timeline" style="height: 20%;"></div>
+    
+
+</body>
+
+<script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+    }).addTo(map);
+
+/*     var polygon = L.polygon([
+            [51.509, -0.08],
+            [51.503, -0.06],
+            [51.51, -0.047]
+        ]).addTo(map);
+ */
+/*     L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('A marker on the map.')
+        .openPopup(); */
+
+
+    var timelineData = {
+        events: [
+            {
+            start_date: {
+                year: -1000,
+                month: 1,
+                day: 1
+            },
+            text: {
+                headline: "Event 1",
+                text: "Description of Event 1"
+            },
+            polygon: [
+                [51.509, -0.08],
+                [51.503, -0.06],
+                [51.55, -0.06],
+                [51.6, -0.047]
+            ]
+            },
+            {
+            start_date: {
+                year: 2022,
+                month: 1,
+                day: 1
+            },
+            text: {
+                headline: "Event 2",
+                text: "Description of Event 2"
+            },
+            polygon: [
+                [52.5, -0.09],
+                [52.51, -0.08],
+                [52.505, -0.085]
+            ]
+            },
+            // Add more events here
+        ]
+    };
+
+    var timelineOptions = {
+        width: "100%",
+        height: "100%",
+        start_at_end: false,
+        timenav_position: "bottom",
+        language: "en",
+        start_zoom_adjust: -3000,
+        // Add more options here
+    };
+
+    var timeline = new TL.Timeline("timeline", timelineData, timelineOptions);
+
+    function addPolygonToMap(polygonData) {
+    var polygon = L.polygon(polygonData).addTo(map);
+    }
+
+    timeline.on('click', function(event) {
+        console.log('hello')
+        var polygonData = event.target.data.polygon;
+        addPolygonToMap(polygonData);
+    });
+</script>
+
+</html>

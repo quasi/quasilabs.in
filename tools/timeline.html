@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timeline Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            height: 10vh;
+            background-color: #f2f2f2;
+        }
+        footer {
+            height: 5vh;
+            background-color: #f2f2f2;
+        }
+        main {
+            height: 85vh;
+            background-color: #ffffff;
+            display: flex;
+        }
+        .left-section {
+            flex-basis: 8%;
+            background-color: #e6e6e6;
+            position: relative;
+        }
+        .right-section {
+            flex-basis: 92%;
+            background-color: #f9f9f9;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 0 20px;
+            height: 100%;
+            overflow-y: scroll;
+
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+
+        }
+        .timeline::-webkit-scrollbar {
+             display: none;
+        }
+        .year {
+            margin: 5px 2px;
+        }
+        .indicator {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            text-align: right;
+            font-size: 18px;
+            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        header
+        <!-- Header content goes here -->
+    </header>
+    <main>
+        <div class="left-section" id="left-section">
+            <div class="indicator" id="indicator">◀</div>
+            <div class="timeline" id="timeline">
+                <!-- Timeline content will be generated here -->
+            </div>
+        </div>
+        <div class="right-section">
+            right section
+            <!-- Right section content goes here -->
+        </div>
+    </main>
+    <footer>
+        footer
+        <!-- Footer content goes here -->
+    </footer>
+    <script>
+        const timeline = document.getElementById('timeline');
+        let startYear = 1900;
+        let endYear = new Date().getFullYear();
+    
+        function generateYearList(start, end, order = 'asc') {
+            const years = [];
+            if (order === 'asc') {
+                for (let year = start; year <= end; year++) {
+                    years.push(year);
+                }
+            } else if (order === 'desc') {
+                for (let year = end; year >= start; year--) {
+                    years.push(year);
+                }
+            }
+            return years;
+        }
+    
+        function addYears(start, end, prepend = false, order = 'asc') {
+            const years = generateYearList(start, end, order);
+            years.forEach(year => {
+                const yearElement = document.createElement('div');
+                yearElement.className = 'year';
+                yearElement.textContent = year;
+                if (prepend) {
+                    timeline.prepend(yearElement);
+                } else {
+                    timeline.appendChild(yearElement);
+                }
+            });
+        }
+    
+        // Initial load
+        addYears(startYear, endYear);
+    
+        // Scroll to the current year initially
+        const currentYearElement = Array.from(timeline.children).find(el => el.textContent == endYear);
+        if (currentYearElement) {
+            timeline.scrollTop = currentYearElement.offsetTop - timeline.clientHeight / 2 + currentYearElement.clientHeight / 2;
+        }
+    
+        // Add more years dynamically on scroll
+        timeline.addEventListener('scroll', () => {
+            if (timeline.scrollTop + timeline.clientHeight >= timeline.scrollHeight) {
+                // Add 50 more years to the end
+                endYear += 50;
+                addYears(endYear - 49, endYear);
+            } else if (timeline.scrollTop === 0) {
+                // Add 50 more years to the start
+                startYear -= 50;
+                addYears(startYear, startYear + 49, true, 'desc');
+                // Adjust scroll position to maintain the current view
+                timeline.scrollTop = timeline.scrollHeight / 2;
+            }
+        });
+    </script>
+</body>
+</html>
