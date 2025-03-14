@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Problem Solving on quasiLabs Blog</title>
+    <link>https://quasilabs.in/blog/categories/problem-solving/</link>
+    <description>Recent content in Problem Solving on quasiLabs Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Aug 2009 17:07:00 +0530</lastBuildDate>
+    <atom:link href="https://quasilabs.in/blog/categories/problem-solving/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to solve it</title>
+      <link>https://quasilabs.in/blog/2009/08/23/how-to-solve-it/</link>
+      <pubDate>Sun, 23 Aug 2009 17:07:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/2009/08/23/how-to-solve-it/</guid>
+      <description>&lt;p&gt;One of the books, which Alok Tiwari, a friend of mine from the old time, had suggested I read was &amp;lsquo;How to Solve it&amp;rsquo; by G Polya. I remember being enthralled reading it. It, with Euclid&amp;rsquo;s &amp;lsquo;Elements&amp;rsquo;, are the two books which have had the most impact on my method of thought.&lt;/p&gt;&#xA;&lt;p&gt;I made a quick set of slides for sharing the salient points of that book with a few friends. The book itself is written in 1945 but still is a very inspiring read.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,368 +1,275 @@
 
+
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-  <meta charset="utf-8">
-  <title>Pooler - quasiTech</title>
-  <meta name="author" content="Abhijit Rao">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
   
-  <meta name="description" content="A simple, fast &amp; thread-safe generic pooling library. Homepage http://quasilabs.com/pooler/ We need pools for items which have heavy cost of &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
   
-  <link rel="canonical" href="http://quasi.github.io/2013/10/14/pooler">
-  <link href="/blog/favicon.png" rel="icon">
-  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/blog/atom.xml" rel="alternate" title="quasiTech" type="application/atom+xml">
-  <script src="/blog/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
 
   
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-44839128-1']);
-    _gaq.push(['_trackPageview']);
+  <title>Pooler</title>
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://quasilabs.in/blog/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  
+    <link href="https://quasilabs.in/favicon.png" rel="icon">
+  
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="quasiLabs">
+
+  
+  <meta name="generator" content="Hugo 0.145.0">
+
+  
+  
+
+  
+  
+
 
 
 </head>
+<body>
 
-<body    class="collapse-sidebar sidebar-footer" >
-  <header role="banner"><hgroup>
-  <h1><a href="/blog/">quasiTech</a></h1>
+
+<header role="banner">
+<hgroup>
   
-    <h2>experiments</h2>
-  
+  <h1><a href="https://quasilabs.in/">quasiLabs Blog</a></h1>
+    <h2>Stories from the code-mines</h2>
 </hgroup>
-
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/blog/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
   
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:quasi.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="https://quasilabs.in/blog/">» Posts</option>
+      
+        <option value="https://quasilabs.in/blog/categories/">» Categories</option>
+      
+        <option value="https://quasilabs.in/blog/tags/">» Tags</option>
+      
+  </select>
+</fieldset>
+
+
 <ul class="main-navigation">
-  <li><a href="/">quasiLabs</a></li>
-  <li><a href="/blog/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  
+  
+    
+      <li><a href="https://quasilabs.in/blog/" title="Posts"  rel="noopener noreferrer">Posts</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/categories/" title="Categories"  rel="noopener noreferrer">Categories</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/tags/" title="Tags"  rel="noopener noreferrer">Tags</a></li>
+    
+  
 </ul>
+
+<ul class="subscription">
+  
+</ul>
+
 
 </nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Pooler</h1>
-    
-    
-      <p class="meta">
-        
 
 
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+        <header>
+          <h1 class="entry-title">
+            Pooler 
+          </h1>
+          <p class="meta">Oct 14, 2013 - 1 minute read -  <a href="https://quasilabs.in/blog/2013/10/14/pooler/#disqus_thread">Comments</a>
 
+          
 
-
-
-
-
-  
-
-
-<time datetime="2013-10-14T16:53:00+05:30" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>A <em>simple</em>, <em>fast</em> &amp; <em>thread-safe</em> generic pooling library.</p>
-
-<p>Homepage <a href="http://quasilabs.com/pooler/">http://quasilabs.com/pooler/</a></p>
-
+          
+          
+          <a class="label" href="https://quasilabs.in/categories/common-lisp">common lisp</a>
+          </p>
+        </header>
+        <div class="entry-content">
+          
+          
+          
+          <p>A <em>simple</em>, <em>fast</em> &amp; <em>thread-safe</em> generic pooling library.</p>
+<p>Homepage 
+<a href="http://quasilabs.com/pooler/" target="_blank" rel="noopener">http://quasilabs.com/pooler/</a></p>
 <p>We need pools for items which have heavy cost of creation and which we can reuse. A typical use case is connection pools.</p>
-
 <p>Pool item creation (as required) is automatic on fetch-from pool. Pool-item&rsquo;s are created and destroyed using user supplied funcitons. The pool has a idle timeout after which all the existing pool-item&rsquo;s are destroyed and new ones created (pool-init). The pool has a threshold number of items which it tries to maintain.</p>
-
 <p>Licence : MIT</p>
-
 <p>An Example :</p>
+<pre tabindex="0"><code>CL-USER&gt; (pooler:make-pool :item-maker
+                           #&#39;(lambda () (clsql:connect &#39;(&#34;127.0.0.1&#34; &#34;quasidb&#34; &#34;quasi&#34; &#34;*****&#34;)
+                                                       :database-type :mysql
+                                                       :if-exists :new))
+                           :item-destroyer
+                           #&#39;(lambda (item) (clsql:disconnect :database item)))
+#S(POOLER::POOL
+  :NAME &#34;Default Pool&#34;
+  :QUEUE #S(SB-CONCURRENCY:QUEUE
+  :HEAD (SB-CONCURRENCY::.DUMMY.)
+  :TAIL (SB-CONCURRENCY::.DUMMY.)
+  :NAME NIL)
+  :LOCK #&lt;SB-THREAD:MUTEX &#34;Pool Lock&#34; (free)&gt;
+  :ITEM-MAKER #&lt;FUNCTION (LAMBDA #) {1005C9BFAB}&gt;
+  :ITEM-DESTROYER #&lt;FUNCTION (LAMBDA #) {1005CCAAAB}&gt;
+  :CAPACITY 40
+  :THRESHOLD 2
+  :TIMEOUT 300
+  :LAST-ACCESS 0
+  :CURRENT-SIZE 0
+  :TOTAL-USES 0
+  :TOTAL-CREATED 0
+  :TOTAL-POOL-INITS 0)
+CL-USER&gt; (defvar *mysql-pool* *)
+CL-USER&gt; (pooler:fetch-from *mysql-pool*)
+#&lt;CLSQL-MYSQL:MYSQL-DATABASE 127.0.0.1/quasidb/quasi OPEN {1007571373}&gt;
+CL-USER&gt; (pooler:return-to *mysql-pool* *)
+2
+CL-USER&gt; (pooler:with-pool (db *mysql-pool*) (clsql:query &#34;show tables;&#34; :database db))
+((&#34;LOGIN_DATA&#34;))
+(&#34;Tables_in_quasidb&#34;)
+</code></pre><p>Has been tested with 
+<a href="http://www.sbcl.org/" target="_blank" rel="noopener">SBCL (Steel Bank Common Lisp)</a>, 
+<a href="http://www.clozure.com/clozurecl.html" target="_blank" rel="noopener">CCL (Clozure Common Lisp)</a> &amp; 
+<a href="http://www.cons.org/cmucl/" target="_blank" rel="noopener">CMUCL (CMU Common Lisp)</a> on OSX. Should work on GNU/Linux.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>CL-USER&gt; (pooler:make-pool :item-maker
-</span><span class='line'>                           #'(lambda () (clsql:connect '("127.0.0.1" "quasidb" "quasi" "*****")
-</span><span class='line'>                                                       :database-type :mysql
-</span><span class='line'>                                                       :if-exists :new))
-</span><span class='line'>                           :item-destroyer
-</span><span class='line'>                           #'(lambda (item) (clsql:disconnect :database item)))
-</span><span class='line'>#S(POOLER::POOL
-</span><span class='line'>  :NAME "Default Pool"
-</span><span class='line'>  :QUEUE #S(SB-CONCURRENCY:QUEUE
-</span><span class='line'>  :HEAD (SB-CONCURRENCY::.DUMMY.)
-</span><span class='line'>  :TAIL (SB-CONCURRENCY::.DUMMY.)
-</span><span class='line'>  :NAME NIL)
-</span><span class='line'>  :LOCK #&lt;SB-THREAD:MUTEX "Pool Lock" (free)&gt;
-</span><span class='line'>  :ITEM-MAKER #&lt;FUNCTION (LAMBDA #) {1005C9BFAB}&gt;
-</span><span class='line'>  :ITEM-DESTROYER #&lt;FUNCTION (LAMBDA #) {1005CCAAAB}&gt;
-</span><span class='line'>  :CAPACITY 40
-</span><span class='line'>  :THRESHOLD 2
-</span><span class='line'>  :TIMEOUT 300
-</span><span class='line'>  :LAST-ACCESS 0
-</span><span class='line'>  :CURRENT-SIZE 0
-</span><span class='line'>  :TOTAL-USES 0
-</span><span class='line'>  :TOTAL-CREATED 0
-</span><span class='line'>  :TOTAL-POOL-INITS 0)
-</span><span class='line'>CL-USER&gt; (defvar *mysql-pool* *)
-</span><span class='line'>CL-USER&gt; (pooler:fetch-from *mysql-pool*)
-</span><span class='line'>#&lt;CLSQL-MYSQL:MYSQL-DATABASE 127.0.0.1/quasidb/quasi OPEN {1007571373}&gt;
-</span><span class='line'>CL-USER&gt; (pooler:return-to *mysql-pool* *)
-</span><span class='line'>2
-</span><span class='line'>CL-USER&gt; (pooler:with-pool (db *mysql-pool*) (clsql:query "show tables;" :database db))
-</span><span class='line'>(("LOGIN_DATA"))
-</span><span class='line'>("Tables_in_quasidb")</span></code></pre></td></tr></table></div></figure>
+        </div>
+        
 
-
-<p>Has been tested with <a href="http://www.sbcl.org/">SBCL</a>, <a href="http://www.clozure.com/clozurecl.html">CCL</a> &amp; <a href="http://www.cons.org/cmucl/">CMUCL</a> on OSX. Should work on GNU/Linux.</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Abhijit Rao</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-10-14T16:53:00+05:30" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/common-lisp/'>common lisp</a>
-  
-</span>
-
-
-    </p>
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">quasiLabs</span></span>
     
-      <div class="sharing">
+    <time>Oct 14, 2013</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://quasilabs.in/tags/"></a>  
+    
+    </span>
+  </p>
+
   
-  <a href="/blog//twitter.com/share" class="twitter-share-button" data-url="http://quasi.github.io/blog/2013/10/14/pooler/" data-via="_quasi" data-counturl="http://quasi.github.io/blog//2013/10/14/pooler/" >Tweet</a>
-  
-  
-  
-</div>
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="https://quasilabs.in/blog/2012/05/15/nostalgia/" title="Nostalgia">Nostalgia</a>
+    
 
     
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/05/15/nostalgia/" title="Previous Post: Nostalgia">&laquo; Nostalgia</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2014/01/06/emacs-and-js-finding-function-definitions/" title="Next Post: Emacs and JS: Finding function definitions">Emacs and JS: Finding function definitions &raquo;</a>
+      <a class="basic-alignment right" href="https://quasilabs.in/blog/2014/01/06/emacs-and-js-finding-function-definitions/" title="Emacs and JS: Finding function definitions">Emacs and JS: Finding function definitions</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
       
     </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
   </section>
 
-</div>
-
-<aside class="sidebar">
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2014/02/05/starting-with-common-lisp/">Starting With Common Lisp</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/15/how-I-came-to-lisp/">How I Came to Lisp</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/06/emacs-and-js-finding-function-definitions/">Emacs and JS: Finding Function Definitions</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/10/14/pooler/">Pooler</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/15/nostalgia/">Nostalgia</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
   
-  <a href="https://github.com/quasi">@quasi</a> on GitHub
+
+
+
+<ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
   
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
+  
+  </li>
+</ul>
 
-        github.showRepos({
-            user: 'quasi',
-            count: 4,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/blog/javascripts/github.js" type="text/javascript"> </script>
-</section>
+  
 
+  
 
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/107852988396065902264?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
+  
+  
   
 </aside>
 
-
-    </div>
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - <a href="http://quasi.in/">Abhijit Rao</a> -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
+</div>
 
-</footer>
-  
+    <footer role="contentinfo">
+      <p><a href="https://quasilabs.in/">quasiLabs</a>
+      &copy; 2010 - 2025 
+      </p>
+    </footer>
 
-<script type="text/javascript">
-      var disqus_shortname = 'quasilabs';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://quasi.github.io/2013/10/14/pooler/';
-        var disqus_url = 'http://quasi.github.io/2013/10/14/pooler/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
+    
+    
 
 
 
+    
+    
+    
 
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
+    
+  </body>
 </html>
+

@@ -1,0 +1,73 @@
+html {
+    background: #f8f8f8 top left;
+}
+
+body>div {
+    background: #f8f8f8 top left;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+body > header h1 a, body > header h1 a:visited, body > header h1 a:hover {
+    color: rgb(102, 102, 119);
+    text-decoration: none;   
+}
+
+body > header h1 {
+    font-size: 1.8em;
+}
+
+body>header h2 {
+    margin: .2em 0 0;
+    font-size: 1em;
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+
+body > header {
+    background: rgb(248, 248, 248);
+    padding-bottom: 1em;
+    padding-top:1em;
+}
+
+body > nav {
+    background: rgb(248,248,248);
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+body>footer {
+    font-size: 1em;
+    color: #888;
+    text-shadow: none;
+    background: #f8f8f8;
+}
+
+#tags-categories h1 {
+    font-size: 1em;
+}
+
+#blog-archives {
+    padding-left: 40px;
+}
+
+article > header h1 {
+    font-size: 1.6em;
+    color: #444;
+}
+article > header {
+    margin-bottom: 0px;
+}
+article header p.meta,
+article header p.meta a {
+    font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif;
+    text-decoration: none;
+}
+
+.label {
+    background-color: #7384e5;
+}
+
+.entry-content h1 {
+    font-size: 0.9em;
+}

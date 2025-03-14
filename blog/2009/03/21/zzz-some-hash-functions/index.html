@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>ZZZ Some Hash Functions</title>
+
+  
+  
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://quasilabs.in/blog/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  
+
+  
+  
+    <link href="https://quasilabs.in/favicon.png" rel="icon">
+  
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="quasiLabs">
+
+  
+  <meta name="generator" content="Hugo 0.145.0">
+
+  
+  
+
+  
+  
+
+
+
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="https://quasilabs.in/">quasiLabs Blog</a></h1>
+    <h2>Stories from the code-mines</h2>
+</hgroup>
+</header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="https://quasilabs.in/blog/">» Posts</option>
+      
+        <option value="https://quasilabs.in/blog/categories/">» Categories</option>
+      
+        <option value="https://quasilabs.in/blog/tags/">» Tags</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="https://quasilabs.in/blog/" title="Posts"  rel="noopener noreferrer">Posts</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/categories/" title="Categories"  rel="noopener noreferrer">Categories</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/tags/" title="Tags"  rel="noopener noreferrer">Tags</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+</ul>
+
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+        <header>
+          <h1 class="entry-title">
+            ZZZ Some Hash Functions 
+          </h1>
+          <p class="meta">Mar 21, 2009 - 2 minute read -  <a href="https://quasilabs.in/blog/2009/03/21/zzz-some-hash-functions/#disqus_thread">Comments</a>
+
+          
+
+          
+          
+          <a class="label" href="https://quasilabs.in/categories/programming">programming</a>
+          </p>
+        </header>
+        <div class="entry-content">
+          
+          
+          
+          <h1 id="hash-functions">hash functions</h1>
+<p>Here are some common hash functions in C I found online 
+<a href="http://www.cse.yorku.ca/~oz/hash.html" target="_blank" rel="noopener">here</a> and 
+<a href="http://www.partow.net/programming/hashfunctions/index.html" target="_blank" rel="noopener">here</a>. I have done the menial task of translating them to Common Lisp.</p>
+<h3 id="code">code</h3>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function by Dan Bernstein</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-DJB</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#00a8c8">optimize</span> <span style="color:#111">speed</span> <span style="color:#111">(</span><span style="color:#111">debug</span> <span style="color:#ae81ff">0</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">let</span> <span style="color:#111">((</span><span style="color:#111">hash</span> <span style="color:#ae81ff">5381</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">loop</span> <span style="color:#111">for</span> <span style="color:#111">x</span> <span style="color:#111">across</span> <span style="color:#111">str</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">do</span> <span style="color:#111">(</span><span style="color:#111">setf</span> <span style="color:#111">hash</span> <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#111">(</span><span style="color:#75af00">+</span> <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#111">(</span><span style="color:#75af00">+</span> <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                                        <span style="color:#111">(</span><span style="color:#75af00">ash</span> <span style="color:#111">hash</span> <span style="color:#ae81ff">5</span><span style="color:#111">))</span> <span style="color:#111">hash</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                           <span style="color:#111">(</span><span style="color:#75af00">char-int</span> <span style="color:#111">x</span><span style="color:#111">))))</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#111">finally</span> <span style="color:#111">(</span><span style="color:#111">return</span> <span style="color:#111">hash</span><span style="color:#111">))))</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function by Dan Bernstein</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-DJB2</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#00a8c8">optimize</span> <span style="color:#111">speed</span> <span style="color:#111">(</span><span style="color:#111">debug</span> <span style="color:#ae81ff">0</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">let</span> <span style="color:#111">((</span><span style="color:#111">hash</span> <span style="color:#ae81ff">5381</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">loop</span> <span style="color:#111">for</span> <span style="color:#111">x</span> <span style="color:#111">across</span> <span style="color:#111">str</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">do</span> <span style="color:#111">(</span><span style="color:#111">setf</span> <span style="color:#111">hash</span> <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#111">(</span><span style="color:#75af00">logxor</span> <span style="color:#111">(</span><span style="color:#75af00">char-int</span> <span style="color:#111">x</span><span style="color:#111">)</span> <span style="color:#111">(</span><span style="color:#75af00">*</span> <span style="color:#111">hash</span> <span style="color:#ae81ff">33</span><span style="color:#111">))))</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">finally</span> <span style="color:#111">(</span><span style="color:#111">return</span> <span style="color:#111">hash</span><span style="color:#111">))))</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function from GAWK, a variation from the verwion from SDBM</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-SDBM</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#111">(</span><span style="color:#00a8c8">optimize</span> <span style="color:#111">speed</span> <span style="color:#111">(</span><span style="color:#111">debug</span> <span style="color:#ae81ff">0</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">let</span> <span style="color:#111">((</span><span style="color:#111">hash</span> <span style="color:#ae81ff">0</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">loop</span> <span style="color:#111">for</span> <span style="color:#111">x</span> <span style="color:#111">across</span> <span style="color:#111">str</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">do</span> <span style="color:#111">(</span><span style="color:#111">setf</span> <span style="color:#111">hash</span> <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#111">(</span><span style="color:#75af00">+</span> <span style="color:#111">(</span><span style="color:#75af00">char-int</span> <span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#111">(</span><span style="color:#75af00">ash</span> <span style="color:#111">hash</span> <span style="color:#ae81ff">6</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#111">(</span><span style="color:#75af00">ash</span> <span style="color:#111">hash</span> <span style="color:#ae81ff">16</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#111">(</span><span style="color:#75af00">-</span> <span style="color:#111">hash</span><span style="color:#111">))))</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">finally</span> <span style="color:#111">(</span><span style="color:#111">return</span> <span style="color:#111">hash</span><span style="color:#111">))))</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; An algorithm proposed by Donald E. Knuth in The Art Of Computer Programming Volume 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-DEK</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>	   <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>	   <span style="color:#111">(</span><span style="color:#00a8c8">optimize</span> <span style="color:#111">speed</span> <span style="color:#111">(</span><span style="color:#111">debug</span> <span style="color:#ae81ff">0</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">let</span> <span style="color:#111">((</span><span style="color:#111">hash</span> <span style="color:#111">(</span><span style="color:#75af00">length</span> <span style="color:#111">str</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">loop</span> <span style="color:#111">for</span> <span style="color:#111">x</span> <span style="color:#111">across</span> <span style="color:#111">str</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">do</span> <span style="color:#111">(</span><span style="color:#111">setf</span> <span style="color:#111">hash</span> <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#111">(</span><span style="color:#75af00">logxor</span> <span style="color:#111">(</span><span style="color:#75af00">char-int</span> <span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#111">(</span><span style="color:#75af00">logxor</span> <span style="color:#111">(</span><span style="color:#75af00">ldb</span> <span style="color:#111">(</span><span style="color:#75af00">byte</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#111">(</span><span style="color:#75af00">ash</span> <span style="color:#111">hash</span> <span style="color:#ae81ff">5</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>                                          <span style="color:#111">(</span><span style="color:#75af00">ash</span> <span style="color:#111">hash</span> <span style="color:#ae81ff">-27</span><span style="color:#111">)))))</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#111">finally</span> <span style="color:#111">(</span><span style="color:#111">return</span> <span style="color:#111">hash</span><span style="color:#111">))))</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">quasiLabs</span></span>
+    
+    <time>Mar 21, 2009</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://quasilabs.in/tags/code">code</a>  <a class="category" href="https://quasilabs.in/tags/common-lisp">common lisp</a>  
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+
+    
+      <a class="basic-alignment right" href="https://quasilabs.in/blog/2009/04/15/about-paradigms/" title="About paradigms">About paradigms</a>
+    
+  </p>
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+  
+
+
+
+<ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+  
+  </li>
+</ul>
+
+  
+
+  
+
+  
+  
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p><a href="https://quasilabs.in/">quasiLabs</a>
+      &copy; 2010 - 2025 
+      </p>
+    </footer>
+
+    
+    
+
+
+
+    
+    
+    
+
+    
+  </body>
+</html>
+
