@@ -3,15 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://quasilabs.in/blog/categories/</loc>
-    <lastmod>2014-01-15T14:18:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/2014/01/15/how-i-came-to-lisp/</loc>
-    <lastmod>2014-01-15T14:18:00+05:30</lastmod>
+    <lastmod>2024-06-15T15:02:00+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/categories/life/</loc>
-    <lastmod>2014-01-15T14:18:00+05:30</lastmod>
+    <lastmod>2024-06-15T15:02:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/2024/06/15/my-grandfather/</loc>
+    <lastmod>2024-06-15T15:02:00+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/</loc>
+    <lastmod>2024-06-15T15:02:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/2014/01/15/how-i-came-to-lisp/</loc>
     <lastmod>2014-01-15T14:18:00+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/code/</loc>
@@ -53,7 +56,7 @@
     <loc>https://quasilabs.in/blog/tags/common-lisp/</loc>
     <lastmod>2009-03-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2009/03/21/zzz-some-hash-functions/</loc>
+    <loc>https://quasilabs.in/blog/2009/03/21/some-hash-functions/</loc>
     <lastmod>2009-03-21T00:00:00+00:00</lastmod>
   </url>
 </urlset>

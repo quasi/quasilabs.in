@@ -6,8 +6,15 @@
     <description>Recent content in Life on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2014 14:18:00 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 15 Jun 2024 15:02:00 +0530</lastBuildDate>
     <atom:link href="https://quasilabs.in/blog/categories/life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Grandfather</title>
+      <link>https://quasilabs.in/blog/2024/06/15/my-grandfather/</link>
+      <pubDate>Sat, 15 Jun 2024 15:02:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/2024/06/15/my-grandfather/</guid>
+      <description>&lt;p&gt;My grandfather left rural North Karnataka and moved to Mumbai in the 1950s. He had a large family, no place to stay, no job, and no particular skills.&lt;/p&gt;&#xA;&lt;p&gt;However, he was imaginative and skilled with his hands. He received an order to create a large 3D model of a bee from the government apiary in Bengaluru. He went to the public library, made hundreds of drawings of bees, and was able to craft a marvelous model.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How I came to Lisp</title>
       <link>https://quasilabs.in/blog/2014/01/15/how-i-came-to-lisp/</link>
