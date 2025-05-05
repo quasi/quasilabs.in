@@ -2,6 +2,22 @@ html {
     background: #f8f8f8 top left;
 }
 
+@media only screen and (min-width: 768px) {
+    body {
+        margin-left: 80px;
+        -webkit-text-size-adjust: auto;
+    }
+    body > header {
+        padding-left: 0px;
+    }
+    body > nav {
+        padding-left: 0px;
+    }
+    #blog-archives {
+        padding-left: 0px;
+    }
+}
+
 body>div {
     background: #f8f8f8 top left;
     border-bottom: 1px solid #bfbfbf;

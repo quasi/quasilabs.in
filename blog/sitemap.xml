@@ -2,61 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://quasilabs.in/blog/categories/</loc>
+    <loc>http://localhost:1313/blog/categories/</loc>
+    <lastmod>2025-05-05T20:10:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2025-05-05T20:10:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/categories/software-development/</loc>
+    <lastmod>2025-05-05T20:10:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/startups/</loc>
+    <lastmod>2025-05-05T20:10:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/</loc>
+    <lastmod>2025-05-05T20:10:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/tech-debt/</loc>
+    <lastmod>2025-05-05T20:10:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/2025/05/05/tech-debt-and-startups/</loc>
+    <lastmod>2025-05-05T20:10:31+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/categories/life/</loc>
     <lastmod>2024-06-15T15:02:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/categories/life/</loc>
+    <loc>http://localhost:1313/blog/2024/06/15/my-grandfather/</loc>
     <lastmod>2024-06-15T15:02:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2024/06/15/my-grandfather/</loc>
-    <lastmod>2024-06-15T15:02:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/</loc>
-    <lastmod>2024-06-15T15:02:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/2014/01/15/how-i-came-to-lisp/</loc>
+    <loc>http://localhost:1313/blog/2014/01/15/how-i-came-to-lisp/</loc>
     <lastmod>2014-01-15T14:18:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/tags/code/</loc>
+    <loc>http://localhost:1313/blog/tags/code/</loc>
     <lastmod>2014-01-06T17:31:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/tags/elisp/</loc>
+    <loc>http://localhost:1313/blog/tags/elisp/</loc>
     <lastmod>2014-01-06T17:31:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/tags/emacs/</loc>
+    <loc>http://localhost:1313/blog/tags/emacs/</loc>
     <lastmod>2014-01-06T17:31:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2014/01/06/emacs-and-js-finding-function-definitions/</loc>
+    <loc>http://localhost:1313/blog/2014/01/06/emacs-and-js-finding-function-definitions/</loc>
     <lastmod>2014-01-06T17:31:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/categories/programming/</loc>
+    <loc>http://localhost:1313/blog/categories/programming/</loc>
     <lastmod>2014-01-06T17:31:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/tags/</loc>
-    <lastmod>2014-01-06T17:31:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/categories/common-lisp/</loc>
+    <loc>http://localhost:1313/blog/categories/common-lisp/</loc>
     <lastmod>2013-10-14T16:53:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2013/10/14/pooler/</loc>
+    <loc>http://localhost:1313/blog/2013/10/14/pooler/</loc>
     <lastmod>2013-10-14T16:53:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2012/05/15/nostalgia/</loc>
+    <loc>http://localhost:1313/blog/2012/05/15/nostalgia/</loc>
     <lastmod>2012-05-15T16:57:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2009/08/23/how-to-solve-it/</loc>
+    <loc>http://localhost:1313/blog/2009/08/23/how-to-solve-it/</loc>
     <lastmod>2009-08-23T17:07:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/categories/problem-solving/</loc>
+    <loc>http://localhost:1313/blog/categories/problem-solving/</loc>
     <lastmod>2009-08-23T17:07:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2009/04/15/about-paradigms/</loc>
+    <loc>http://localhost:1313/blog/2009/04/15/about-paradigms/</loc>
     <lastmod>2009-04-15T17:31:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/tags/common-lisp/</loc>
+    <loc>http://localhost:1313/blog/tags/common-lisp/</loc>
     <lastmod>2009-03-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/2009/03/21/some-hash-functions/</loc>
+    <loc>http://localhost:1313/blog/2009/03/21/some-hash-functions/</loc>
     <lastmod>2009-03-21T00:00:00+00:00</lastmod>
   </url>
 </urlset>
