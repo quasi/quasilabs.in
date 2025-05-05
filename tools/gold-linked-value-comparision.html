@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Benchmark Tool</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, Arial, sans-serif;
+            background: #fffbe7;
+            color: #222;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 2rem 1rem;
+        }
+        .header {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 40vw;
+            min-height: 220px;
+            max-height: 340px;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            margin-bottom: 1.5rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 1rem;
+        }
+        form p {
+            font-size: 1rem;
+            color: #3e6542;
+            margin: 0;
+        }
+        .form-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        label {
+            flex: 1 0 60px;
+            font-size: 1rem;
+        }
+        input[type="number"] {
+            flex: 2 1 100px;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        button[type="submit"] {
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+            background: #ffd700;
+            color: #222;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: #ffe066;
+        }
+        .result {
+            margin: 1.5rem 0;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 1.25rem 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        @media (min-width: 600px) {
+            .container {
+                max-width: 420px;
+            }
+            .chart-container {
+                height: 320px;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Gold-Linked Value Comparision Tool</div>
+        <div class="chart-container">
+            <canvas id="goldChart"></canvas>
+        </div>
+        <div id="result" class="result" style="display:none;"></div>
+        <form id="goldForm" autocomplete="off">
+            <p>Please enter price/amount of an item across two different years and check the gold-linked value difference. For Example
+                You can add your salary for two years and check the true gold-linked value difference.
+            </p>
+            <div class="form-row">
+                <label for="year1">Year 1</label>
+                <input type="number" id="year1" name="year1" min="1964" max="2025" required placeholder="e.g. 2000">
+            </div>
+            <div class="form-row">
+                <label for="amount1">Amount 1 in &#8377;</label>
+                <input type="number" id="amount1" name="amount1" min="1" required placeholder="e.g. 10000">
+            </div>
+            <div class="form-row">
+                <label for="year2">Year 2</label>
+                <input type="number" id="year2" name="year2" min="1964" max="2025" required placeholder="e.g. 2024">
+            </div>
+            <div class="form-row">
+                <label for="amount2">Amount 2 in &#8377;</label>
+                <input type="number" id="amount2" name="amount2" min="1" required placeholder="e.g. 20000">
+            </div>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    <script>
+        // Gold price data for 10 grams
+        const goldData = [
+            { year: 1964, price: 63.25 },
+            { year: 1965, price: 71.75 },
+            { year: 1966, price: 83.75 },
+            { year: 1967, price: 102.50 },
+            { year: 1968, price: 162.00 },
+            { year: 1969, price: 176.00 },
+            { year: 1970, price: 184.00 },
+            { year: 1971, price: 193.00 },
+            { year: 1972, price: 202.00 },
+            { year: 1973, price: 278.50 },
+            { year: 1974, price: 506.00 },
+            { year: 1975, price: 540.00 },
+            { year: 1976, price: 432.00 },
+            { year: 1977, price: 486.00 },
+            { year: 1978, price: 685.00 },
+            { year: 1979, price: 937.00 },
+            { year: 1980, price: 1330.00 },
+            { year: 1981, price: 1670.00 },
+            { year: 1982, price: 1645.00 },
+            { year: 1983, price: 1800.00 },
+            { year: 1984, price: 1970.00 },
+            { year: 1985, price: 2130.00 },
+            { year: 1986, price: 2140.00 },
+            { year: 1987, price: 2570.00 },
+            { year: 1988, price: 3130.00 },
+            { year: 1989, price: 3140.00 },
+            { year: 1990, price: 3200.00 },
+            { year: 1991, price: 3466.00 },
+            { year: 1992, price: 4334.00 },
+            { year: 1993, price: 4140.00 },
+            { year: 1994, price: 4598.00 },
+            { year: 1995, price: 4680.00 },
+            { year: 1996, price: 5160.00 },
+            { year: 1997, price: 4725.00 },
+            { year: 1998, price: 4045.00 },
+            { year: 1999, price: 4234.00 },
+            { year: 2000, price: 4400.00 },
+            { year: 2001, price: 4300.00 },
+            { year: 2002, price: 4990.00 },
+            { year: 2003, price: 5600.00 },
+            { year: 2004, price: 5850.00 },
+            { year: 2005, price: 7000.00 },
+            { year: 2006, price: 9870.00  },
+            { year: 2007, price: 10800.00 },
+            { year: 2008, price: 12500.00 },
+            { year: 2009, price: 14500.00 },
+            { year: 2010, price: 18500.00 },
+            { year: 2011, price: 26400.00 },
+            { year: 2012, price: 31050.00 },
+            { year: 2013, price: 29600.00 },
+            { year: 2014, price: 28006.50 },
+            { year: 2015, price: 26343.50 },
+            { year: 2016, price: 28623.50 },
+            { year: 2017, price: 29667.50 },
+            { year: 2018, price: 31438.00 },
+            { year: 2019, price: 35220.00 },
+            { year: 2020, price: 48651.00 },
+            { year: 2021, price: 48720.00 },
+            { year: 2022, price: 52670.00 },
+            { year: 2023, price: 65330.00 },
+            { year: 2024, price: 81510.00 },
+            { year: 2025, price: 96000.00 },
+        ];
+
+        // Chart.js setup
+        const ctx = document.getElementById('goldChart').getContext('2d');
+        const goldChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: goldData.map(item => item.year),
+                datasets: [{
+                    label: 'Gold Price (10g)',
+                    data: goldData.map(item => item.price),
+                    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+                    borderColor: 'rgba(255, 215, 0, 1)',
+                    borderWidth: 2,
+                    pointRadius: 2,
+                    tension: 0.2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Gold Price in India (10g)',
+                        font: { size: 16 }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Year' },
+                        ticks: { maxTicksLimit: 8, autoSkip: true }
+                    },
+                    y: {
+                        title: { display: true, text: 'INR' },
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+
+        // Helper to get gold price for a year
+        function getGoldPrice(year) {
+            const found = goldData.find(item => item.year === year);
+            return found ? found.price : null;
+        }
+        // Helper to calculate gold amount for an amount in a year
+        function calculateGoldAmount(amount, year) {
+            const price = getGoldPrice(year);
+            if (!price) return null;
+            return amount / price * 10; // 10g price
+        }
+        // Helper to calculate % change
+        function percentChange(oldVal, newVal) {
+            if (oldVal === 0 || oldVal === null || newVal === null) return null;
+            return ((newVal - oldVal) / oldVal) * 100;
+        }
+
+        // Form logic
+        document.getElementById('goldForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const year1 = parseInt(document.getElementById('year1').value, 10);
+            const amount1 = parseFloat(document.getElementById('amount1').value);
+            const year2 = parseInt(document.getElementById('year2').value, 10);
+            const amount2 = parseFloat(document.getElementById('amount2').value);
+
+            const gold1 = calculateGoldAmount(amount1, year1);
+            const gold2 = calculateGoldAmount(amount2, year2);
+
+            let html = '';
+            if (gold1 === null) {
+                html += `No gold price data for Year 1 (${year1}).<br>`;
+            } else {
+                // html += `Year 1: <b>${year1}</b>, Amount: <b>₹${amount1.toLocaleString()}</b><br>Gold you could buy: <b>${gold1.toFixed(2)}g</b><br><br>`;
+            }
+            if (gold2 === null) {
+                html += `No gold price data for Year 2 (${year2}).<br>`;
+            } else {
+                // html += `Year 2: <b>${year2}</b>, Amount: <b>₹${amount2.toLocaleString()}</b><br>Gold you could buy: <b>${gold2.toFixed(2)}g</b><br><br>`;
+            }
+            if (gold1 !== null && gold2 !== null) {
+                const pct = percentChange(gold1, gold2);
+                html += `<b>Gold-linked value comparision: </b> <span style="color:${pct >= 0 ? 'green' : 'red'}">${pct >= 0 ? '+' : ''}${pct.toFixed(2)}%</span>`;
+            }
+            document.getElementById('result').innerHTML = html;
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
