@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Startups on quasiLabs Blog</title>
-    <link>http://localhost:1313/blog/tags/startups/</link>
+    <link>https://quasilabs.in/blog/tags/startups/</link>
     <description>Recent content in Startups on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 05 May 2025 20:10:31 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/startups/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://quasilabs.in/blog/tags/startups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tech Debt and Startups</title>
-      <link>http://localhost:1313/blog/2025/05/05/tech-debt-and-startups/</link>
+      <link>https://quasilabs.in/blog/2025/05/05/tech-debt-and-startups/</link>
       <pubDate>Mon, 05 May 2025 20:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/2025/05/05/tech-debt-and-startups/</guid>
+      <guid>https://quasilabs.in/blog/2025/05/05/tech-debt-and-startups/</guid>
       <description>&lt;p&gt;Startups are tough.&lt;/p&gt;&#xA;&lt;p&gt;There are crazy pressures for speedy development and user acquisition. The roadmap moves all over the place. Life is full of passionate debates, coffee and late night debugging.&lt;/p&gt;&#xA;&lt;p&gt;These circumstances are prime breeding ground of a dangerous enemy -&#xA;TTDM, &lt;em&gt;The Technical Debt Monster (tm)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the race for the MVP you take shortcuts. You use sub-optimal but ready-made solutions. You have no time for thinking about abstractions. It just needs to work.&lt;/p&gt;</description>
     </item>
   </channel>

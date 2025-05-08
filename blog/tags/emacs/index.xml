@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Emacs on quasiLabs Blog</title>
-    <link>http://localhost:1313/blog/tags/emacs/</link>
+    <link>https://quasilabs.in/blog/tags/emacs/</link>
     <description>Recent content in Emacs on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Jan 2014 17:31:00 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://quasilabs.in/blog/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs and JS: Finding function definitions</title>
-      <link>http://localhost:1313/blog/2014/01/06/emacs-and-js-finding-function-definitions/</link>
+      <link>https://quasilabs.in/blog/2014/01/06/emacs-and-js-finding-function-definitions/</link>
       <pubDate>Mon, 06 Jan 2014 17:31:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/2014/01/06/emacs-and-js-finding-function-definitions/</guid>
+      <guid>https://quasilabs.in/blog/2014/01/06/emacs-and-js-finding-function-definitions/</guid>
       <description>&lt;p&gt;I started doing Javascript recently. The &lt;code&gt;js2-mode&lt;/code&gt; is excellent. But I am spoilt by &lt;code&gt;SLIME&lt;/code&gt; :). One of the things I most missed from there was to be able to lookup function definitions with &lt;code&gt;M-.&lt;/code&gt; and to get back with &lt;code&gt;M-,&lt;/code&gt;. I had been pair programming with a team-mate and editing a 1000 line file and in his vanilla &amp;lsquo;Sublime&amp;rsquo; editor and it was a royal pain scrolling all over the place looking for function definitions.  So I decided to try my hand at some elisp. This was the first time but I really felt the need.&lt;/p&gt;</description>
     </item>
   </channel>
