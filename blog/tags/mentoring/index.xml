@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Startups on quasiLabs Blog</title>
-    <link>https://quasilabs.in/blog/tags/startups/</link>
-    <description>Recent content in Startups on quasiLabs Blog</description>
+    <title>Mentoring on quasiLabs Blog</title>
+    <link>https://quasilabs.in/blog/tags/mentoring/</link>
+    <description>Recent content in Mentoring on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 05 May 2025 20:10:31 +0530</lastBuildDate>
-    <atom:link href="https://quasilabs.in/blog/tags/startups/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://quasilabs.in/blog/tags/mentoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building High Performance Teams</title>
       <link>https://quasilabs.in/blog/2025/05/05/building-high-performance-teams/</link>
       <pubDate>Mon, 05 May 2025 20:10:31 +0530</pubDate>
       <guid>https://quasilabs.in/blog/2025/05/05/building-high-performance-teams/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://quasilabs.in/blog/res/stonehenge.jpeg&#34; alt=&#34;High Performance Teams&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;We did a lot of things right in the early days of &lt;strong&gt;Cleartrip&lt;/strong&gt;, albeit, serendipitously. The team that was forged in the fires of hashtag#startup mountain was something magical.&lt;/p&gt;&#xA;&lt;p&gt;We had the honour of hearing &lt;strong&gt;John Doerr&lt;/strong&gt; himself speak in our Mahalaxmi office. I clearly remember his advice:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Hire only A people. A people hire A/A+ people. B people hire C people&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Hire missionaries not mercenaries&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;We hired the crazies. The curious. The deeply interested. People who were willing to take the leap of faith. People who believed.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tech Debt and Startups</title>
-      <link>https://quasilabs.in/blog/2025/05/05/tech-debt-and-startups/</link>
-      <pubDate>Mon, 05 May 2025 20:10:31 +0530</pubDate>
-      <guid>https://quasilabs.in/blog/2025/05/05/tech-debt-and-startups/</guid>
-      <description>&lt;p&gt;Startups are tough.&lt;/p&gt;&#xA;&lt;p&gt;There are crazy pressures for speedy development and user acquisition. The roadmap moves all over the place. Life is full of passionate debates, coffee and late night debugging.&lt;/p&gt;&#xA;&lt;p&gt;These circumstances are prime breeding ground of a dangerous enemy -&#xA;TTDM, &lt;em&gt;The Technical Debt Monster (tm)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the race for the MVP you take shortcuts. You use sub-optimal but ready-made solutions. You have no time for thinking about abstractions. It just needs to work.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
