@@ -6,8 +6,15 @@
     <description>Recent content on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 May 2025 20:10:31 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 14 Jul 2025 19:10:31 +0530</lastBuildDate>
     <atom:link href="https://quasilabs.in/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Iterate as fast as you can</title>
+      <link>https://quasilabs.in/blog/2025/07/14/iterate-as-fast-as-you-can/</link>
+      <pubDate>Mon, 14 Jul 2025 19:10:31 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/2025/07/14/iterate-as-fast-as-you-can/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://quasilabs.in/blog/res/throw-code.png&#34; alt=&#34;Throw Code&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Many young teams, in their excitement to build stuff, end up spending time on things which are not directly progressing their product or service. I have been guilty of this myself.&lt;/p&gt;&#xA;&lt;p&gt;Often this stems from attempts at first principles thinking (which is great in principle) or Not-Invented-Here syndrome (not so good) coupled with a lack of research on existing solutions.&lt;/p&gt;&#xA;&lt;p&gt;There has to be a &lt;strong&gt;clear advantage&lt;/strong&gt; - a demonstrable positive ROI - to inventing a better wheel or for coming up with a custom solution. This is especially true of custom micro frameworks for routine things.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building High Performance Teams</title>
       <link>https://quasilabs.in/blog/2025/05/20/building-high-performance-teams/</link>

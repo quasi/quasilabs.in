@@ -2,28 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://quasilabs.in/blog/2025/05/20/building-high-performance-teams/</loc>
-    <lastmod>2025-05-20T20:10:31+05:30</lastmod>
-  </url><url>
     <loc>https://quasilabs.in/blog/categories/</loc>
-    <lastmod>2025-05-20T20:10:31+05:30</lastmod>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/2025/07/14/iterate-as-fast-as-you-can/</loc>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/mentoring/</loc>
-    <lastmod>2025-05-20T20:10:31+05:30</lastmod>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/</loc>
-    <lastmod>2025-05-20T20:10:31+05:30</lastmod>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/categories/software-development/</loc>
-    <lastmod>2025-05-20T20:10:31+05:30</lastmod>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/startups/</loc>
-    <lastmod>2025-05-20T20:10:31+05:30</lastmod>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/</loc>
-    <lastmod>2025-05-20T20:10:31+05:30</lastmod>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/teams/</loc>
+    <lastmod>2025-07-14T19:10:31+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/2025/05/20/building-high-performance-teams/</loc>
     <lastmod>2025-05-20T20:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/tech-debt/</loc>

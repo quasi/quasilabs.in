@@ -23,7 +23,7 @@
   
 
   
-  <title>Pooler</title>
+  <title>Iterate as fast as you can</title>
 
   
   
@@ -129,17 +129,17 @@
         
 
 <header>
-  <p class="meta">Oct 14, 2013
+  <p class="meta">Jul 14, 2025
      - 1 minute read 
     
 
     
     
-      - <a class="label" href="https://quasilabs.in/blog/categories/common-lisp/">common lisp </a>
+      - <a class="label" href="https://quasilabs.in/blog/categories/software-development/">software development </a>
     
   </p>
   <h1 class="entry-title">
-     Pooler 
+     Iterate as fast as you can 
   </h1>
 </header> 
 
@@ -147,48 +147,13 @@
           
           
           
-          <p>A <em>simple</em>, <em>fast</em> &amp; <em>thread-safe</em> generic pooling library.</p>
-<p>Homepage 
-<a href="http://quasilabs.com/pooler/" target="_blank" rel="noopener">http://quasilabs.com/pooler/</a></p>
-<p>We need pools for items which have heavy cost of creation and which we can reuse. A typical use case is connection pools.</p>
-<p>Pool item creation (as required) is automatic on fetch-from pool. Pool-item&rsquo;s are created and destroyed using user supplied funcitons. The pool has a idle timeout after which all the existing pool-item&rsquo;s are destroyed and new ones created (pool-init). The pool has a threshold number of items which it tries to maintain.</p>
-<p>Licence : MIT</p>
-<p>An Example :</p>
-<pre tabindex="0"><code>CL-USER&gt; (pooler:make-pool :item-maker
-                           #&#39;(lambda () (clsql:connect &#39;(&#34;127.0.0.1&#34; &#34;quasidb&#34; &#34;quasi&#34; &#34;*****&#34;)
-                                                       :database-type :mysql
-                                                       :if-exists :new))
-                           :item-destroyer
-                           #&#39;(lambda (item) (clsql:disconnect :database item)))
-#S(POOLER::POOL
-  :NAME &#34;Default Pool&#34;
-  :QUEUE #S(SB-CONCURRENCY:QUEUE
-  :HEAD (SB-CONCURRENCY::.DUMMY.)
-  :TAIL (SB-CONCURRENCY::.DUMMY.)
-  :NAME NIL)
-  :LOCK #&lt;SB-THREAD:MUTEX &#34;Pool Lock&#34; (free)&gt;
-  :ITEM-MAKER #&lt;FUNCTION (LAMBDA #) {1005C9BFAB}&gt;
-  :ITEM-DESTROYER #&lt;FUNCTION (LAMBDA #) {1005CCAAAB}&gt;
-  :CAPACITY 40
-  :THRESHOLD 2
-  :TIMEOUT 300
-  :LAST-ACCESS 0
-  :CURRENT-SIZE 0
-  :TOTAL-USES 0
-  :TOTAL-CREATED 0
-  :TOTAL-POOL-INITS 0)
-CL-USER&gt; (defvar *mysql-pool* *)
-CL-USER&gt; (pooler:fetch-from *mysql-pool*)
-#&lt;CLSQL-MYSQL:MYSQL-DATABASE 127.0.0.1/quasidb/quasi OPEN {1007571373}&gt;
-CL-USER&gt; (pooler:return-to *mysql-pool* *)
-2
-CL-USER&gt; (pooler:with-pool (db *mysql-pool*) (clsql:query &#34;show tables;&#34; :database db))
-((&#34;LOGIN_DATA&#34;))
-(&#34;Tables_in_quasidb&#34;)
-</code></pre><p>Has been tested with 
-<a href="http://www.sbcl.org/" target="_blank" rel="noopener">SBCL (Steel Bank Common Lisp)</a>, 
-<a href="http://www.clozure.com/clozurecl.html" target="_blank" rel="noopener">CCL (Clozure Common Lisp)</a> &amp; 
-<a href="http://www.cons.org/cmucl/" target="_blank" rel="noopener">CMUCL (CMU Common Lisp)</a> on OSX. Should work on GNU/Linux.</p>
+          <p><img src="https://quasilabs.in/blog/res/throw-code.png" alt="Throw Code"></p>
+<p>Many young teams, in their excitement to build stuff, end up spending time on things which are not directly progressing their product or service. I have been guilty of this myself.</p>
+<p>Often this stems from attempts at first principles thinking (which is great in principle) or Not-Invented-Here syndrome (not so good) coupled with a lack of research on existing solutions.</p>
+<p>There has to be a <strong>clear advantage</strong> - a demonstrable positive ROI - to inventing a better wheel or for coming up with a custom solution. This is especially true of custom micro frameworks for routine things.</p>
+<p>In most cases, in the early days of a startup, speed of delivery <strong>far</strong> outweighs absolute quality of code.</p>
+<p>With AI, this is all the more relevant as throwing away code is getting easier by the day. Nay, hour.</p>
+<p><strong>Iterate as fast as you can.</strong></p>
 
         </div>
         
@@ -197,12 +162,12 @@ CL-USER&gt; (pooler:with-pool (db *mysql-pool*) (clsql:query &#34;show tables;&#
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">quasiLabs</span></span>
     
-    <time>Oct 14, 2013</time>
+    <time>Jul 14, 2025</time>
     
       <span class="categories">
         Tags:
         
-          <a class="category" href="https://quasilabs.in/blog/tags/"></a>  
+          <a class="category" href="https://quasilabs.in/blog/tags/startups">startups</a>  <a class="category" href="https://quasilabs.in/blog/tags/teams">teams</a>  <a class="category" href="https://quasilabs.in/blog/tags/mentoring">mentoring</a>  
     
     </span>
   </p>
@@ -211,11 +176,9 @@ CL-USER&gt; (pooler:with-pool (db *mysql-pool*) (clsql:query &#34;show tables;&#
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="https://quasilabs.in/blog/2012/05/15/nostalgia/" title="Nostalgia">Nostalgia</a>
+        <a class="basic-alignment left" href="https://quasilabs.in/blog/2025/05/20/building-high-performance-teams/" title="Building High Performance Teams">Building High Performance Teams</a>
     
 
-    
-      <a class="basic-alignment right" href="https://quasilabs.in/blog/2014/01/06/emacs-and-js-finding-function-definitions/" title="Emacs and JS: Finding function definitions">Emacs and JS: Finding function definitions</a>
     
   </p>
   
