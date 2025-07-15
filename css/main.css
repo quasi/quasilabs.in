@@ -198,6 +198,11 @@ footer {
     margin: 12px 12px 12px 90px;
 }
 
+dd {
+    margin-left: 0;
+    margin-top: 4px;
+}
+
 @media all and (max-width: 768px) {
     header div {
 	    padding-left: 8px;
