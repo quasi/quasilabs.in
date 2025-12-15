@@ -71,6 +71,14 @@ header div#logo {
     letter-spacing: 3px;
 }
 
+header div#logo a {
+    font-weight: 300;
+    text-decoration: none;
+}
+header div#logo a:hover {
+    text-decoration: none;
+}
+
 header div#navbox {
     padding-top: 16px;
     padding-right: 24px;
@@ -234,7 +242,7 @@ dd {
     }
     .vmbox {
         margin: 8px;
-    }    
+    }
     main {
         margin: 8px;
     }
@@ -260,6 +268,6 @@ dd {
     #left-cont {
 	    width: 50%
     }
-}	  
+}
 
 
