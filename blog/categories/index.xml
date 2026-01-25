@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on quasiLabs Blog</title>
-    <link>http://localhost:1313/blog/categories/</link>
+    <link>https://quasilabs.in/blog/categories/</link>
     <description>Recent content in Categories on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Jan 2026 01:10:31 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://quasilabs.in/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Software Development</title>
-      <link>http://localhost:1313/blog/categories/software-development/</link>
+      <link>https://quasilabs.in/blog/categories/software-development/</link>
       <pubDate>Mon, 26 Jan 2026 01:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/categories/software-development/</guid>
+      <guid>https://quasilabs.in/blog/categories/software-development/</guid>
       <description></description>
     </item>
     <item>
       <title>Life</title>
-      <link>http://localhost:1313/blog/categories/life/</link>
+      <link>https://quasilabs.in/blog/categories/life/</link>
       <pubDate>Sat, 15 Jun 2024 15:02:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/categories/life/</guid>
+      <guid>https://quasilabs.in/blog/categories/life/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/blog/categories/programming/</link>
+      <link>https://quasilabs.in/blog/categories/programming/</link>
       <pubDate>Mon, 06 Jan 2014 17:31:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/categories/programming/</guid>
+      <guid>https://quasilabs.in/blog/categories/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Common Lisp</title>
-      <link>http://localhost:1313/blog/categories/common-lisp/</link>
+      <link>https://quasilabs.in/blog/categories/common-lisp/</link>
       <pubDate>Mon, 14 Oct 2013 16:53:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/categories/common-lisp/</guid>
+      <guid>https://quasilabs.in/blog/categories/common-lisp/</guid>
       <description></description>
     </item>
     <item>
       <title>Problem Solving</title>
-      <link>http://localhost:1313/blog/categories/problem-solving/</link>
+      <link>https://quasilabs.in/blog/categories/problem-solving/</link>
       <pubDate>Sun, 23 Aug 2009 17:07:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/categories/problem-solving/</guid>
+      <guid>https://quasilabs.in/blog/categories/problem-solving/</guid>
       <description></description>
     </item>
   </channel>

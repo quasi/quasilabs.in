@@ -2,101 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on quasiLabs Blog</title>
-    <link>http://localhost:1313/blog/tags/</link>
+    <link>https://quasilabs.in/blog/tags/</link>
     <description>Recent content in Tags on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Jan 2026 01:10:31 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://quasilabs.in/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Agents</title>
-      <link>http://localhost:1313/blog/tags/agents/</link>
+      <link>https://quasilabs.in/blog/tags/agents/</link>
       <pubDate>Mon, 26 Jan 2026 01:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/agents/</guid>
+      <guid>https://quasilabs.in/blog/tags/agents/</guid>
       <description></description>
     </item>
     <item>
       <title>Ai</title>
-      <link>http://localhost:1313/blog/tags/ai/</link>
+      <link>https://quasilabs.in/blog/tags/ai/</link>
       <pubDate>Mon, 26 Jan 2026 01:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/ai/</guid>
+      <guid>https://quasilabs.in/blog/tags/ai/</guid>
       <description></description>
     </item>
     <item>
       <title>Claude</title>
-      <link>http://localhost:1313/blog/tags/claude/</link>
+      <link>https://quasilabs.in/blog/tags/claude/</link>
       <pubDate>Mon, 26 Jan 2026 01:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/claude/</guid>
+      <guid>https://quasilabs.in/blog/tags/claude/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>http://localhost:1313/blog/tags/programming/</link>
+      <link>https://quasilabs.in/blog/tags/programming/</link>
       <pubDate>Mon, 26 Jan 2026 01:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/programming/</guid>
+      <guid>https://quasilabs.in/blog/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Software</title>
-      <link>http://localhost:1313/blog/tags/software/</link>
+      <link>https://quasilabs.in/blog/tags/software/</link>
       <pubDate>Mon, 26 Jan 2026 01:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/software/</guid>
+      <guid>https://quasilabs.in/blog/tags/software/</guid>
       <description></description>
     </item>
     <item>
       <title>Startups</title>
-      <link>http://localhost:1313/blog/tags/startups/</link>
+      <link>https://quasilabs.in/blog/tags/startups/</link>
       <pubDate>Mon, 14 Jul 2025 12:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/startups/</guid>
+      <guid>https://quasilabs.in/blog/tags/startups/</guid>
       <description></description>
     </item>
     <item>
       <title>Teams</title>
-      <link>http://localhost:1313/blog/tags/teams/</link>
+      <link>https://quasilabs.in/blog/tags/teams/</link>
       <pubDate>Mon, 14 Jul 2025 12:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/teams/</guid>
+      <guid>https://quasilabs.in/blog/tags/teams/</guid>
       <description></description>
     </item>
     <item>
       <title>Mentoring</title>
-      <link>http://localhost:1313/blog/tags/mentoring/</link>
+      <link>https://quasilabs.in/blog/tags/mentoring/</link>
       <pubDate>Tue, 20 May 2025 20:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/mentoring/</guid>
+      <guid>https://quasilabs.in/blog/tags/mentoring/</guid>
       <description></description>
     </item>
     <item>
       <title>Tech Debt</title>
-      <link>http://localhost:1313/blog/tags/tech-debt/</link>
+      <link>https://quasilabs.in/blog/tags/tech-debt/</link>
       <pubDate>Mon, 05 May 2025 20:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/tech-debt/</guid>
+      <guid>https://quasilabs.in/blog/tags/tech-debt/</guid>
       <description></description>
     </item>
     <item>
       <title>Code</title>
-      <link>http://localhost:1313/blog/tags/code/</link>
+      <link>https://quasilabs.in/blog/tags/code/</link>
       <pubDate>Mon, 06 Jan 2014 17:31:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/code/</guid>
+      <guid>https://quasilabs.in/blog/tags/code/</guid>
       <description></description>
     </item>
     <item>
       <title>Elisp</title>
-      <link>http://localhost:1313/blog/tags/elisp/</link>
+      <link>https://quasilabs.in/blog/tags/elisp/</link>
       <pubDate>Mon, 06 Jan 2014 17:31:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/elisp/</guid>
+      <guid>https://quasilabs.in/blog/tags/elisp/</guid>
       <description></description>
     </item>
     <item>
       <title>Emacs</title>
-      <link>http://localhost:1313/blog/tags/emacs/</link>
+      <link>https://quasilabs.in/blog/tags/emacs/</link>
       <pubDate>Mon, 06 Jan 2014 17:31:00 +0530</pubDate>
-      <guid>http://localhost:1313/blog/tags/emacs/</guid>
+      <guid>https://quasilabs.in/blog/tags/emacs/</guid>
       <description></description>
     </item>
     <item>
       <title>Common Lisp</title>
-      <link>http://localhost:1313/blog/tags/common-lisp/</link>
+      <link>https://quasilabs.in/blog/tags/common-lisp/</link>
       <pubDate>Sat, 21 Mar 2009 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/common-lisp/</guid>
+      <guid>https://quasilabs.in/blog/tags/common-lisp/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Software Development on quasiLabs Blog</title>
-    <link>http://localhost:1313/blog/categories/software-development/</link>
+    <link>https://quasilabs.in/blog/categories/software-development/</link>
     <description>Recent content in Software Development on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Jan 2026 01:10:31 +0530</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/categories/software-development/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://quasilabs.in/blog/categories/software-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Claude Memory Across Sessions</title>
-      <link>http://localhost:1313/blog/2026/01/26/claude-memory-across-sessions/</link>
+      <link>https://quasilabs.in/blog/2026/01/26/claude-memory-across-sessions/</link>
       <pubDate>Mon, 26 Jan 2026 01:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/2026/01/26/claude-memory-across-sessions/</guid>
+      <guid>https://quasilabs.in/blog/2026/01/26/claude-memory-across-sessions/</guid>
       <description>&lt;h1 id=&#34;teaching-claude-code-to-remember-building-session-memory-that-actually-works&#34;&gt;Teaching Claude Code to Remember: Building Session Memory That Actually Works&lt;/h1&gt;&#xA;&lt;p&gt;Claude Code has become a legitimate part of my workflow. It&amp;rsquo;s changed how I approach certain tasks—exploratory work, documentation, even debugging. But it has a maddening limitation: it forgets. Context compaction kicks in, the conversation gets summarized, and suddenly we&amp;rsquo;re back to square one. Close the terminal? Complete amnesia.&lt;/p&gt;&#xA;&lt;p&gt;This isn&amp;rsquo;t just an inconvenience. It breaks the entire collaboration model. Real work happens across sessions. You dig into a problem, make progress, hit a wall, sleep on it, come back fresh. That&amp;rsquo;s how humans work. If your AI pair programmer can&amp;rsquo;t maintain continuity, you spend half your time re-explaining context instead of solving problems.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Iterate as fast as you can</title>
-      <link>http://localhost:1313/blog/2025/07/14/iterate-as-fast-as-you-can/</link>
+      <link>https://quasilabs.in/blog/2025/07/14/iterate-as-fast-as-you-can/</link>
       <pubDate>Mon, 14 Jul 2025 12:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/2025/07/14/iterate-as-fast-as-you-can/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/res/throw-code.png&#34; alt=&#34;Throw Code&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Many young teams, in their excitement to build stuff, end up spending time on things which are not directly progressing their product or service. I have been guilty of this myself.&lt;/p&gt;&#xA;&lt;p&gt;Often this stems from attempts at first principles thinking (which is great in principle) or Not-Invented-Here syndrome (not so good) coupled with a lack of research on existing solutions.&lt;/p&gt;&#xA;&lt;p&gt;There has to be a clear advantage - a demonstrable positive ROI - to inventing a better wheel or for coming up with a custom solution. This is especially true of custom micro frameworks for routine things.&lt;/p&gt;</description>
+      <guid>https://quasilabs.in/blog/2025/07/14/iterate-as-fast-as-you-can/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://quasilabs.in/blog/res/throw-code.png&#34; alt=&#34;Throw Code&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Many young teams, in their excitement to build stuff, end up spending time on things which are not directly progressing their product or service. I have been guilty of this myself.&lt;/p&gt;&#xA;&lt;p&gt;Often this stems from attempts at first principles thinking (which is great in principle) or Not-Invented-Here syndrome (not so good) coupled with a lack of research on existing solutions.&lt;/p&gt;&#xA;&lt;p&gt;There has to be a clear advantage - a demonstrable positive ROI - to inventing a better wheel or for coming up with a custom solution. This is especially true of custom micro frameworks for routine things.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building High Performance Teams</title>
-      <link>http://localhost:1313/blog/2025/05/20/building-high-performance-teams/</link>
+      <link>https://quasilabs.in/blog/2025/05/20/building-high-performance-teams/</link>
       <pubDate>Tue, 20 May 2025 20:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/2025/05/20/building-high-performance-teams/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/blog/res/stonehenge.jpeg&#34; alt=&#34;High Performance Teams&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;We did a lot of things right in the early days of &lt;strong&gt;Cleartrip&lt;/strong&gt;, albeit, serendipitously. The team that was forged in the fires of hashtag#startup mountain was something magical.&lt;/p&gt;&#xA;&lt;p&gt;We had the honour of hearing &lt;strong&gt;John Doerr&lt;/strong&gt; himself speak in our Mahalaxmi office. I clearly remember his advice:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Hire only A people. A people hire A/A+ people. B people hire C people&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Hire missionaries not mercenaries&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;We hired the crazies. The curious. The deeply interested. People who were willing to take the leap of faith. People who believed.&lt;/p&gt;</description>
+      <guid>https://quasilabs.in/blog/2025/05/20/building-high-performance-teams/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://quasilabs.in/blog/res/stonehenge.jpeg&#34; alt=&#34;High Performance Teams&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;We did a lot of things right in the early days of &lt;strong&gt;Cleartrip&lt;/strong&gt;, albeit, serendipitously. The team that was forged in the fires of hashtag#startup mountain was something magical.&lt;/p&gt;&#xA;&lt;p&gt;We had the honour of hearing &lt;strong&gt;John Doerr&lt;/strong&gt; himself speak in our Mahalaxmi office. I clearly remember his advice:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Hire only A people. A people hire A/A+ people. B people hire C people&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Hire missionaries not mercenaries&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;We hired the crazies. The curious. The deeply interested. People who were willing to take the leap of faith. People who believed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tech Debt and Startups</title>
-      <link>http://localhost:1313/blog/2025/05/05/tech-debt-and-startups/</link>
+      <link>https://quasilabs.in/blog/2025/05/05/tech-debt-and-startups/</link>
       <pubDate>Mon, 05 May 2025 20:10:31 +0530</pubDate>
-      <guid>http://localhost:1313/blog/2025/05/05/tech-debt-and-startups/</guid>
+      <guid>https://quasilabs.in/blog/2025/05/05/tech-debt-and-startups/</guid>
       <description>&lt;p&gt;Startups are tough.&lt;/p&gt;&#xA;&lt;p&gt;There are crazy pressures for speedy development and user acquisition. The roadmap moves all over the place. Life is full of passionate debates, coffee and late night debugging.&lt;/p&gt;&#xA;&lt;p&gt;These circumstances are prime breeding ground of a dangerous enemy -&#xA;TTDM, &lt;em&gt;The Technical Debt Monster (tm)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the race for the MVP you take shortcuts. You use sub-optimal but ready-made solutions. You have no time for thinking about abstractions. It just needs to work.&lt;/p&gt;</description>
     </item>
   </channel>
