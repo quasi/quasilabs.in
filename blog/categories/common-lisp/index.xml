@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Common Lisp on quasiLabs Blog</title>
-    <link>https://quasilabs.in/blog/categories/common-lisp/</link>
+    <link>http://localhost:1313/blog/categories/common-lisp/</link>
     <description>Recent content in Common Lisp on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 14 Oct 2013 16:53:00 +0530</lastBuildDate>
-    <atom:link href="https://quasilabs.in/blog/categories/common-lisp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/categories/common-lisp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pooler</title>
-      <link>https://quasilabs.in/blog/2013/10/14/pooler/</link>
+      <link>http://localhost:1313/blog/2013/10/14/pooler/</link>
       <pubDate>Mon, 14 Oct 2013 16:53:00 +0530</pubDate>
-      <guid>https://quasilabs.in/blog/2013/10/14/pooler/</guid>
+      <guid>http://localhost:1313/blog/2013/10/14/pooler/</guid>
       <description>&lt;p&gt;A &lt;em&gt;simple&lt;/em&gt;, &lt;em&gt;fast&lt;/em&gt; &amp;amp; &lt;em&gt;thread-safe&lt;/em&gt; generic pooling library.&lt;/p&gt;&#xA;&lt;p&gt;Homepage &#xA;&lt;a href=&#34;http://quasilabs.com/pooler/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://quasilabs.com/pooler/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;We need pools for items which have heavy cost of creation and which we can reuse. A typical use case is connection pools.&lt;/p&gt;&#xA;&lt;p&gt;Pool item creation (as required) is automatic on fetch-from pool. Pool-item&amp;rsquo;s are created and destroyed using user supplied funcitons. The pool has a idle timeout after which all the existing pool-item&amp;rsquo;s are destroyed and new ones created (pool-init). The pool has a threshold number of items which it tries to maintain.&lt;/p&gt;</description>
     </item>
   </channel>

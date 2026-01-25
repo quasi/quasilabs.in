@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTFD2R6QYL"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTFD2R6QYL');
+</script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="http://localhost:1313/blog/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>Claude Memory Across Sessions</title>
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:1313/blog/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="http://localhost:1313/blog/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="http://localhost:1313/blog/css/fork-awesome.min.css">
+  
+
+  
+  
+    <link href="http://localhost:1313/blog/favicon.png" rel="icon">
+  
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="quasiLabs">
+
+  
+  <meta name="generator" content="Hugo 0.154.5">
+
+  
+  
+
+  
+  
+
+
+
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="http://localhost:1313/blog/">quasiLabs Blog</a></h1>
+    <h2>Stories from the code-mines</h2>
+</hgroup> </header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        
+          <option value="http://localhost:1313/blog/">» Posts</option>
+        
+      
+        
+          <option value="http://localhost:1313/blog/categories/">» Categories</option>
+        
+      
+        
+          <option value="http://localhost:1313/blog/tags/">» Tags</option>
+        
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  <li><a href="https://quasilabs.in/" title="Home">Home</a></li>
+  
+    
+      <li><a href="http://localhost:1313/blog/" title="Posts">Posts</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/blog/categories/" title="Categories"  rel="noopener noreferrer">Categories</a></li>
+    
+  
+    
+      <li><a href="http://localhost:1313/blog/tags/" title="Tags"  rel="noopener noreferrer">Tags</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+</ul>
+
+ </nav> 
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Jan 26, 2026
+     - 5 minute read 
+    
+
+    
+    
+      - <a class="label" href="http://localhost:1313/blog/categories/software-development/">software development </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Claude Memory Across Sessions 
+  </h1>
+</header> 
+
+        <div class="entry-content">
+          
+          
+          
+          <h1 id="teaching-claude-code-to-remember-building-session-memory-that-actually-works">Teaching Claude Code to Remember: Building Session Memory That Actually Works</h1>
+<p>Claude Code has become a legitimate part of my workflow. It&rsquo;s changed how I approach certain tasks—exploratory work, documentation, even debugging. But it has a maddening limitation: it forgets. Context compaction kicks in, the conversation gets summarized, and suddenly we&rsquo;re back to square one. Close the terminal? Complete amnesia.</p>
+<p>This isn&rsquo;t just an inconvenience. It breaks the entire collaboration model. Real work happens across sessions. You dig into a problem, make progress, hit a wall, sleep on it, come back fresh. That&rsquo;s how humans work. If your AI pair programmer can&rsquo;t maintain continuity, you spend half your time re-explaining context instead of solving problems.</p>
+<h2 id="the-core-problem">The Core Problem</h2>
+<p>Claude Code has a context window. When you fill it up, the system compacts the conversation—summarizing, discarding specifics. You lose:</p>
+<ul>
+<li>Which files you were actively modifying</li>
+<li>Decisions made during the session (and why)</li>
+<li>The exact state of half-finished work</li>
+<li>Your actual intent and goals</li>
+</ul>
+<p>Starting a new session is worse. Claude has no idea what you were doing yesterday, even in the same project. Every session is a fresh start, which sounds nice until you realize it means &ldquo;fresh start&rdquo; as in &ldquo;total ignorance of everything that came before.&rdquo;</p>
+<p>What I wanted: automatic capture of session state before it&rsquo;s lost, automatic restoration when starting new sessions. A memory system that works without me thinking about it.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p>Three components, working together:</p>
+<p><strong>PreCompact Hook</strong> — Fires automatically right before context compaction. Captures the full session state before Claude&rsquo;s memory gets compressed into a summary.</p>
+<p><strong>SessionStart Hook</strong> — Fires when you launch Claude Code. Loads the most recent snapshot so Claude immediately knows what you were working on.</p>
+<p><strong>/save-state Command</strong> — Manual trigger for when you want to checkpoint before running <code>/clear</code>. Because sometimes you know you&rsquo;re about to reset context and want to preserve state intentionally.</p>
+<p>All snapshots go into <code>.claude/snapshots/</code> within your project directory. This keeps contexts separate—your React work doesn&rsquo;t bleed into your Python API sessions.</p>
+<h2 id="the-interesting-part-mining-the-transcript">The Interesting Part: Mining the Transcript</h2>
+<p>Here&rsquo;s what I didn&rsquo;t expect: Claude Code keeps surprisingly detailed transcripts. The PreCompact hook receives a path to a JSONL file containing the full conversation history. Not the compacted version—the actual conversation.</p>
+<p>Each line is a JSON object: user messages, assistant responses, file snapshots, summaries. The transcript format looks like this:</p>
+<pre tabindex="0"><code class="language-jsonl" data-lang="jsonl">{&#34;type&#34;: &#34;user&#34;, &#34;message&#34;: {&#34;content&#34;: &#34;Fix the login bug&#34;}, &#34;timestamp&#34;: &#34;...&#34;}
+{&#34;type&#34;: &#34;assistant&#34;, &#34;message&#34;: {&#34;content&#34;: [{&#34;type&#34;: &#34;text&#34;, &#34;text&#34;: &#34;I&#39;ll help...&#34;}]}}
+{&#34;type&#34;: &#34;file-history-snapshot&#34;, &#34;snapshot&#34;: {&#34;trackedFileBackups&#34;: {&#34;/src/auth.js&#34;: &#34;...&#34;}}}
+{&#34;type&#34;: &#34;summary&#34;, &#34;summary&#34;: &#34;Fixed authentication bug in login flow&#34;}
+</code></pre><p>Mining this properly gives you everything: what files were touched, what the user actually asked for, what work got summarized away. The key insight is that the hook system gives you access to the raw data before compaction happens.</p>
+<h2 id="implementation-details-worth-noting">Implementation Details Worth Noting</h2>
+<p>A few things bit me during implementation:</p>
+<p><strong>Python import naming</strong> — You can&rsquo;t import modules with hyphens in the filename. Seems obvious in retrospect, but <code>precompact-snapshot.py</code> had to become <code>precompact_snapshot.py</code>.</p>
+<p><strong>Content type handling</strong> — User message content is sometimes a string, sometimes a list. Assistant messages are almost always lists with typed objects. You need to handle both:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">content</span> <span style="color:#f92672">=</span> <span style="color:#111">message</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;content&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">isinstance</span><span style="color:#111">(</span><span style="color:#111">content</span><span style="color:#111">,</span> <span style="color:#111">list</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">content</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34; &#34;</span><span style="color:#f92672">.</span><span style="color:#111">join</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">item</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;text&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">if</span> <span style="color:#111">isinstance</span><span style="color:#111">(</span><span style="color:#111">item</span><span style="color:#111">,</span> <span style="color:#111">dict</span><span style="color:#111">)</span> <span style="color:#00a8c8">else</span> <span style="color:#111">str</span><span style="color:#111">(</span><span style="color:#111">item</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">content</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">)</span>
+</span></span></code></pre></div><p><strong>Path extraction from free-form text</strong> — Extracting file paths from conversation text requires multiple regex patterns and careful filtering to avoid matching URLs and domain names. It&rsquo;s messier than it sounds.</p>
+<p><strong>System message filtering</strong> — The transcript includes system-generated content like command confirmations that shouldn&rsquo;t be saved as &ldquo;user requests.&rdquo; Filter by prefix and strip XML-like tags.</p>
+<h2 id="the-configuration">The Configuration</h2>
+<p>In <code>~/.claude/settings.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hooks&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;PreCompact&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;matcher&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;hooks&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;command&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;command&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;python3 ~/.claude/hooks/precompact_snapshot.py&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timeout&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SessionStart&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;matcher&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;hooks&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;command&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;command&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;python3 ~/.claude/hooks/sessionstart-load-snapshot.py&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;timeout&#34;</span><span style="color:#111">:</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>The file structure ends up being:</p>
+<pre tabindex="0"><code>~/.claude/
+├── hooks/
+│   ├── precompact_snapshot.py
+│   ├── sessionstart-load-snapshot.py
+│   └── manual-snapshot.py
+├── commands/
+│   └── save-state.md
+└── settings.json
+
+&lt;your-project&gt;/.claude/
+└── snapshots/
+    ├── 2026-01-26-00-08-session-snapshot.md
+    └── 2026-01-26-00-47-manual-snapshot.md
+</code></pre><h2 id="what-this-reveals-about-ai-tooling">What This Reveals About AI Tooling</h2>
+<p>A thought I&rsquo;ve been circling around for months: the gap between &ldquo;AI can help with code&rdquo; and &ldquo;AI can be a genuine collaborator&rdquo; is largely about memory and context.</p>
+<p>We&rsquo;re used to tools that maintain state. Your IDE remembers your project structure. Git remembers your history. Your build system knows what changed. But AI assistants start fresh every time, which puts the entire burden of context maintenance on the human.</p>
+<p>This session memory system is a small step toward something bigger. If AI is going to write code faster than we can verify it—which is increasingly true—then the tooling around AI needs to grow up. We need trust frameworks, verification mechanisms, and yes, persistent memory.</p>
+<p>The hook system in Claude Code is more powerful than it first appears. PreCompact gives you access to the full transcript, not just the summary. That&rsquo;s a design choice that enables this kind of extension. More AI tools should think this way—expose the seams, let practitioners build what they need.</p>
+<h2 id="limitations-and-future-work">Limitations and Future Work</h2>
+<p>Things this doesn&rsquo;t solve yet:</p>
+<ul>
+<li>Can&rsquo;t programmatically trigger <code>/clear</code> from a slash command</li>
+<li>Very long sessions create large transcript files</li>
+<li>Quality depends on Claude&rsquo;s automatic summarization</li>
+<li>Only tracks one active transcript per project</li>
+</ul>
+<p>Things I want to add:</p>
+<ul>
+<li>Diff-based snapshots (only store changes)</li>
+<li>Searchable history across sessions</li>
+<li>Auto-cleanup of old snapshots</li>
+<li>Git integration to link snapshots to commits</li>
+</ul>
+<h2 id="the-takeaway">The Takeaway</h2>
+<p>Session continuity transforms Claude Code from a stateless assistant into something that actually remembers our work together. The combination of automatic capture (PreCompact), automatic restoration (SessionStart), and manual checkpointing (/save-state) creates a robust system that preserves context across the natural boundaries of AI conversation limits.</p>
+<p>A small step &hellip;</p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">quasiLabs</span></span>
+    
+    <time>Jan 26, 2026</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="http://localhost:1313/blog/tags/ai">ai</a>  <a class="category" href="http://localhost:1313/blog/tags/claude">claude</a>  <a class="category" href="http://localhost:1313/blog/tags/agents">agents</a>  <a class="category" href="http://localhost:1313/blog/tags/software">software</a>  <a class="category" href="http://localhost:1313/blog/tags/programming">programming</a>  
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://localhost:1313/blog/2025/07/14/iterate-as-fast-as-you-can/" title="Iterate as fast as you can">Iterate as fast as you can</a>
+    
+
+    
+  </p>
+  
+</footer> 
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+  
+
+
+
+<ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+  
+  </li>
+</ul>
+
+  
+
+  
+
+  
+  
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p><a href="http://localhost:1313/blog/">quasiLabs</a>
+       &copy; 2010 - 2026 
+      </p>
+    </footer>
+
+    
+    
+
+
+
+    
+    
+    
+
+    
+  </body>
+</html>
+

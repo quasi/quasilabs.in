@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Life on quasiLabs Blog</title>
-    <link>https://quasilabs.in/blog/categories/life/</link>
+    <link>http://localhost:1313/blog/categories/life/</link>
     <description>Recent content in Life on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Jun 2024 15:02:00 +0530</lastBuildDate>
-    <atom:link href="https://quasilabs.in/blog/categories/life/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/categories/life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Grandfather</title>
-      <link>https://quasilabs.in/blog/2024/06/15/my-grandfather/</link>
+      <link>http://localhost:1313/blog/2024/06/15/my-grandfather/</link>
       <pubDate>Sat, 15 Jun 2024 15:02:00 +0530</pubDate>
-      <guid>https://quasilabs.in/blog/2024/06/15/my-grandfather/</guid>
+      <guid>http://localhost:1313/blog/2024/06/15/my-grandfather/</guid>
       <description>&lt;p&gt;My grandfather left rural North Karnataka and moved to Mumbai in the 1950s. He had a large family, no place to stay, no job, and no particular skills.&lt;/p&gt;&#xA;&lt;p&gt;However, he was imaginative and skilled with his hands. He received an order to create a large 3D model of a bee from the government apiary in Bengaluru. He went to the public library, made hundreds of drawings of bees, and was able to craft a marvelous model.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How I came to Lisp</title>
-      <link>https://quasilabs.in/blog/2014/01/15/how-i-came-to-lisp/</link>
+      <link>http://localhost:1313/blog/2014/01/15/how-i-came-to-lisp/</link>
       <pubDate>Wed, 15 Jan 2014 14:18:00 +0530</pubDate>
-      <guid>https://quasilabs.in/blog/2014/01/15/how-i-came-to-lisp/</guid>
+      <guid>http://localhost:1313/blog/2014/01/15/how-i-came-to-lisp/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;People have asked me why I chose to program in Lisp.&lt;/p&gt;&#xA;&lt;h3 id=&#34;early-days&#34;&gt;Early days&lt;/h3&gt;&#xA;&lt;p&gt;Long back (1995-6) when I was still a college student (studying Math) I first saw Prolog. Chirs Martis, then boyfriend (now husband) of my friend Medha Patkar used to work for some company in SEEPZ and he was working on a project for some Japanese company. They had to migrate an older code base to a newer stack. I disremember the details (I dont think I knew much anyway) but he was learning Prolog as they were using a translater written in Prolog to help in the translation of the older codebase. I was a curious cuss then, and kept pestering him with questions. I was interested and wanted to learn Prolog. This was before we had access to the Internet. So my friend Anuprita took me to the British Council Library where she was a member. I saw a couple of Prolog books - pretty hard for me to understand as I had scant background in Programming (I did not even own a computer at that time). But I also saw a tiny booklet about another language called Lisp written by some Indian author. What intrigued me was the factorial program on the last page - this did not look like any program I had ever seen. I was more interested.&lt;/p&gt;</description>
     </item>
   </channel>
