@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quasilabs.in/blog/categories/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/e2e-testing/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/categories/engineering-practices/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/software-quality/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/testing/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/verification/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/2026/01/28/when-passing-tests-lie/</loc>
+    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+  </url><url>
     <loc>https://quasilabs.in/blog/tags/agents/</loc>
     <lastmod>2026-01-26T01:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/ai/</loc>
-    <lastmod>2026-01-26T01:10:31+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/categories/</loc>
     <lastmod>2026-01-26T01:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/claude/</loc>
@@ -20,16 +44,10 @@
     <loc>https://quasilabs.in/blog/tags/programming/</loc>
     <lastmod>2026-01-26T01:10:31+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/</loc>
-    <lastmod>2026-01-26T01:10:31+05:30</lastmod>
-  </url><url>
     <loc>https://quasilabs.in/blog/tags/software/</loc>
     <lastmod>2026-01-26T01:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/categories/software-development/</loc>
-    <lastmod>2026-01-26T01:10:31+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/tags/</loc>
     <lastmod>2026-01-26T01:10:31+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/2025/07/14/iterate-as-fast-as-you-can/</loc>

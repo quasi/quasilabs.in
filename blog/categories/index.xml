@@ -6,8 +6,15 @@
     <description>Recent content in Categories on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jan 2026 01:10:31 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jan 2026 03:24:00 +0530</lastBuildDate>
     <atom:link href="https://quasilabs.in/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Engineering Practices</title>
+      <link>https://quasilabs.in/blog/categories/engineering-practices/</link>
+      <pubDate>Wed, 28 Jan 2026 03:24:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/categories/engineering-practices/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Software Development</title>
       <link>https://quasilabs.in/blog/categories/software-development/</link>

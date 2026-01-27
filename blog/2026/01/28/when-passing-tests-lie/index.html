@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTFD2R6QYL"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTFD2R6QYL');
+</script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="https://quasilabs.in/blog/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>When Passing Tests Lie</title>
+
+  
+  
+  <link rel="stylesheet" href="https://quasilabs.in/blog/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://quasilabs.in/blog/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="https://quasilabs.in/blog/css/fork-awesome.min.css">
+  
+
+  
+  
+    <link href="https://quasilabs.in/blog/favicon.png" rel="icon">
+  
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="quasiLabs">
+
+  
+  <meta name="generator" content="Hugo 0.154.5">
+
+  
+  
+
+  
+  
+
+
+
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="https://quasilabs.in/blog/">quasiLabs Blog</a></h1>
+    <h2>Stories from the code-mines</h2>
+</hgroup> </header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        
+          <option value="https://quasilabs.in/blog/">» Posts</option>
+        
+      
+        
+          <option value="https://quasilabs.in/blog/categories/">» Categories</option>
+        
+      
+        
+          <option value="https://quasilabs.in/blog/tags/">» Tags</option>
+        
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  <li><a href="https://quasilabs.in/" title="Home">Home</a></li>
+  
+    
+      <li><a href="https://quasilabs.in/blog/" title="Posts">Posts</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/categories/" title="Categories"  rel="noopener noreferrer">Categories</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/tags/" title="Tags"  rel="noopener noreferrer">Tags</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+</ul>
+
+ </nav> 
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Jan 28, 2026
+     - 4 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://quasilabs.in/blog/categories/engineering-practices/">Engineering Practices </a>
+    
+  </p>
+  <h1 class="entry-title">
+     When Passing Tests Lie 
+  </h1>
+</header> 
+
+        <div class="entry-content">
+          
+          
+          
+          <p>48 tests passed. Zero failures. 94% coverage.</p>
+<p>I deployed with confidence. First production request: authentication failed. Every request failed. Nothing worked.</p>
+<p>The tests lied.</p>
+<hr>
+<p>I&rsquo;ve seen this pattern more times than I can count. A team shows me their test suite with pride — high coverage, fast execution, green across the board. Then I ask one question: <em>when did you last start your server fresh and make a real HTTP request?</em></p>
+<p>Silence.</p>
+<p>The problem isn&rsquo;t that they don&rsquo;t have tests. It&rsquo;s that their tests verify an idealized version of their system that exists only in the test suite. Production uses the real HTTP stack, real database connections, real integration points. The tests bypass all of this.</p>
+<p>This is worse than having no tests. No tests give no confidence. Passing tests that verify nothing give <em>false</em> confidence.</p>
+<h2 id="how-tests-lie">How tests lie</h2>
+<p>I was debugging a Web Service last month. 127 unit tests, all passing. The authentication endpoint failed on every real request.</p>
+<p>The bug was embarrassing once I found it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># The test</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">test_auth</span><span style="color:#111">(</span><span style="color:#111">mock_request</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">mock_request</span><span style="color:#f92672">.</span><span style="color:#111">headers</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#d88200">&#34;http-authorization&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;Bearer xxx&#34;</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">authenticate</span><span style="color:#111">(</span><span style="color:#111">mock_request</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">assert</span> <span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">user</span>  <span style="color:#75715e"># Passes!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Production expects &#34;Authorization&#34;, not &#34;http-authorization&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The mock used the wrong header name</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The test verified the mock worked, not the code</span>
+</span></span></code></pre></div><p>The test passed because it mocked the HTTP request. The mock was wrong. The test never touched the real HTTP stack, so it never noticed.</p>
+<p>Here&rsquo;s a Common Lisp example that bit me harder:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#75715e">;; REPL Session 1: Manual setup while developing</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">setf</span> <span style="color:#111">*jwt-secret*</span> <span style="color:#d88200">&#34;my-secret-key&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; REPL Session 2: Write the actual code</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defvar</span> <span style="color:#111">*jwt-secret*</span> <span style="color:#d88200">&#34;default&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Run tests in the same REPL</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">deftest</span> <span style="color:#111">test-jwt</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">let</span> <span style="color:#111">((</span><span style="color:#111">token</span> <span style="color:#111">(</span><span style="color:#111">create-token</span> <span style="color:#111">{:user</span> <span style="color:#d88200">&#34;alice&#34;</span><span style="color:#111">}</span><span style="color:#111">)))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">is</span> <span style="color:#111">(</span><span style="color:#111">verify-token</span> <span style="color:#111">token</span><span style="color:#111">))))</span>  <span style="color:#75715e">; PASSES</span>
+</span></span></code></pre></div><p>Why does this pass? Because <code>defvar</code> doesn&rsquo;t reinitialize variables. The test uses &ldquo;my-secret-key&rdquo; from Session 1, not &ldquo;default&rdquo; from the code.</p>
+<p>Production starts fresh. It uses &ldquo;default&rdquo;. Every token verification fails.</p>
+<p>The test passed in <strong>accumulated state</strong>. Production starts with <strong>zero state</strong>.</p>
+<h2 id="the-three-tests-that-actually-matter">The three tests that actually matter</h2>
+<p><strong>First: the smoke test.</strong></p>
+<p>Start the actual server. Make a real HTTP request. See if authentication works end-to-end.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">test_server_smoke</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">server</span> <span style="color:#f92672">=</span> <span style="color:#111">subprocess</span><span style="color:#f92672">.</span><span style="color:#111">Popen</span><span style="color:#111">([</span><span style="color:#d88200">&#34;python&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-m&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;myapp&#34;</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">time</span><span style="color:#f92672">.</span><span style="color:#111">sleep</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">try</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Real HTTP, real headers, real everything</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">response</span> <span style="color:#f92672">=</span> <span style="color:#111">requests</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;http://localhost:8080/health&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">assert</span> <span style="color:#111">response</span><span style="color:#f92672">.</span><span style="color:#111">status_code</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Auth flow with real HTTP stack</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">login</span> <span style="color:#f92672">=</span> <span style="color:#111">requests</span><span style="color:#f92672">.</span><span style="color:#111">post</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d88200">&#34;http://localhost:8080/login&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">json</span><span style="color:#f92672">=</span><span style="color:#111">{</span><span style="color:#d88200">&#34;username&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;test&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;password&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;test&#34;</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">token</span> <span style="color:#f92672">=</span> <span style="color:#111">login</span><span style="color:#f92672">.</span><span style="color:#111">json</span><span style="color:#111">()[</span><span style="color:#d88200">&#34;token&#34;</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">protected</span> <span style="color:#f92672">=</span> <span style="color:#111">requests</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d88200">&#34;http://localhost:8080/protected&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">headers</span><span style="color:#f92672">=</span><span style="color:#111">{</span><span style="color:#d88200">&#34;Authorization&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">f</span><span style="color:#d88200">&#34;Bearer </span><span style="color:#d88200">{</span><span style="color:#111">token</span><span style="color:#d88200">}</span><span style="color:#d88200">&#34;</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">assert</span> <span style="color:#111">protected</span><span style="color:#f92672">.</span><span style="color:#111">status_code</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">finally</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">server</span><span style="color:#f92672">.</span><span style="color:#111">terminate</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>This test would have caught my authentication bug. It uses the real HTTP stack with real headers.</p>
+<p><strong>Second: the fresh-start test.</strong></p>
+<p>Start the server in a completely fresh environment. No accumulated state. No leftover config. Nothing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">test_fresh_start</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">temp_dir</span> <span style="color:#f92672">=</span> <span style="color:#111">tempfile</span><span style="color:#f92672">.</span><span style="color:#111">mkdtemp</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">env</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;DATABASE_URL&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">f</span><span style="color:#d88200">&#34;sqlite:///</span><span style="color:#d88200">{</span><span style="color:#111">temp_dir</span><span style="color:#d88200">}</span><span style="color:#d88200">/db.sqlite&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;JWT_SECRET&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;fresh-secret&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#d88200">&#34;CONFIG_PATH&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">f</span><span style="color:#d88200">&#34;</span><span style="color:#d88200">{</span><span style="color:#111">temp_dir</span><span style="color:#d88200">}</span><span style="color:#d88200">/config.yaml&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">process</span> <span style="color:#f92672">=</span> <span style="color:#111">subprocess</span><span style="color:#f92672">.</span><span style="color:#111">Popen</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">[</span><span style="color:#d88200">&#34;python&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;-m&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;myapp&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--port&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;9999&#34;</span><span style="color:#111">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">env</span><span style="color:#f92672">=</span><span style="color:#111">env</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">try</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">time</span><span style="color:#f92672">.</span><span style="color:#111">sleep</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">response</span> <span style="color:#f92672">=</span> <span style="color:#111">requests</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;http://localhost:9999/health&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">assert</span> <span style="color:#111">response</span><span style="color:#f92672">.</span><span style="color:#111">status_code</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">finally</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">process</span><span style="color:#f92672">.</span><span style="color:#111">terminate</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">shutil</span><span style="color:#f92672">.</span><span style="color:#111">rmtree</span><span style="color:#111">(</span><span style="color:#111">temp_dir</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>This catches the <code>defvar</code> bug. Fresh process, fresh environment, no REPL state to hide behind.</p>
+<p><strong>Third: the critical path test.</strong></p>
+<p>Pick your most important user journeys. Test them end-to-end through the same code path production uses.</p>
+<p>Not <code>user.save()</code> called directly. <code>POST /users</code> through the HTTP handler, middleware, validation, serialization — the whole stack.</p>
+<h2 id="the-confidence-score">The confidence score</h2>
+<p>Use a simple heuristic when auditing test suites:</p>
+<p>Start at 100. Deduct for gaps.</p>
+<ul>
+<li>No smoke tests: -30</li>
+<li>No fresh-start tests: -20</li>
+<li>Mocked integration points: -15</li>
+<li>No E2E tests at all: -25</li>
+<li>Tests call internal functions instead of API endpoints: -10</li>
+</ul>
+<p>That Common Lisp service? 127 tests, 91% coverage, confidence score of 10.</p>
+<p>After adding smoke tests, one fresh-start test, and three E2E tests for critical paths: score of 85.</p>
+<h2 id="the-objections-i-always-hear">The objections I always hear</h2>
+<p><em>&ldquo;E2E tests are slow.&rdquo;</em></p>
+<p>One smoke test runs in 5 seconds. It catches bugs that slip through hours of unit testing. Fast tests that verify nothing are useless. Slow tests that catch real bugs are valuable.</p>
+<p><em>&ldquo;Subprocess tests are flaky.&rdquo;</em></p>
+<p>Flaky tests mean unstable code. If your server can&rsquo;t start reliably in tests, it can&rsquo;t start reliably in production. Fix the stability problem, don&rsquo;t skip the test.</p>
+<p><em>&ldquo;We have 100% coverage.&rdquo;</em></p>
+<p>Coverage measures which lines executed, not whether they worked correctly. This test has 100% coverage:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">test_discount</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">calculate_discount</span><span style="color:#111">(</span><span style="color:#ae81ff">100</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;VIP&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">assert</span> <span style="color:#111">result</span> <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#00a8c8">None</span>  <span style="color:#75715e"># Technically passes</span>
+</span></span></code></pre></div><p>It executes the function. It doesn&rsquo;t verify the result is correct. High coverage with weak assertions creates false confidence.</p>
+<h2 id="start-here">Start here</h2>
+<p>This week, add one smoke test. Start your server, make a real HTTP request to your most critical endpoint, verify it works.</p>
+<p>Next week, add a fresh-start test. Completely clean environment, no inherited state.</p>
+<p>That&rsquo;s it. Two tests. They&rsquo;ll catch more bugs than the next hundred unit tests you write.</p>
+<p>Your tests pass. But do they verify the code actually works?</p>
+<hr>
+<p><em>The techniques here are part of what I do when auditing test suites for clients. If your tests pass but production keeps breaking, that&rsquo;s a test strategy problem — and it&rsquo;s fixable.</em></p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">quasiLabs</span></span>
+    
+    <time>Jan 28, 2026</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://quasilabs.in/blog/tags/testing">testing</a>  <a class="category" href="https://quasilabs.in/blog/tags/verification">verification</a>  <a class="category" href="https://quasilabs.in/blog/tags/software-quality">software-quality</a>  <a class="category" href="https://quasilabs.in/blog/tags/e2e-testing">e2e-testing</a>  
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="https://quasilabs.in/blog/2026/01/26/claude-memory-across-sessions/" title="Claude Memory Across Sessions">Claude Memory Across Sessions</a>
+    
+
+    
+  </p>
+  
+</footer> 
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+  
+
+
+
+<ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+  
+  </li>
+</ul>
+
+  
+
+  
+
+  
+  
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p><a href="https://quasilabs.in/blog/">quasiLabs</a>
+       &copy; 2010 - 2026 
+      </p>
+    </footer>
+
+    
+    
+
+
+
+    
+    
+    
+
+    
+  </body>
+</html>
+

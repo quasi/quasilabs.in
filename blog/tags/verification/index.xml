@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Verification on quasiLabs Blog</title>
+    <link>https://quasilabs.in/blog/tags/verification/</link>
+    <description>Recent content in Verification on quasiLabs Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Jan 2026 03:24:00 +0530</lastBuildDate>
+    <atom:link href="https://quasilabs.in/blog/tags/verification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When Passing Tests Lie</title>
+      <link>https://quasilabs.in/blog/2026/01/28/when-passing-tests-lie/</link>
+      <pubDate>Wed, 28 Jan 2026 03:24:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/2026/01/28/when-passing-tests-lie/</guid>
+      <description>&lt;p&gt;48 tests passed. Zero failures. 94% coverage.&lt;/p&gt;&#xA;&lt;p&gt;I deployed with confidence. First production request: authentication failed. Every request failed. Nothing worked.&lt;/p&gt;&#xA;&lt;p&gt;The tests lied.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve seen this pattern more times than I can count. A team shows me their test suite with pride — high coverage, fast execution, green across the board. Then I ask one question: &lt;em&gt;when did you last start your server fresh and make a real HTTP request?&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
