@@ -51,7 +51,7 @@
   <meta name="author" content="quasiLabs">
 
   
-  <meta name="generator" content="Hugo 0.154.5">
+  <meta name="generator" content="Hugo 0.155.1">
 
   
   
@@ -178,7 +178,7 @@
 <p>A few things bit me during implementation:</p>
 <p><strong>Python import naming</strong> — You can&rsquo;t import modules with hyphens in the filename. Seems obvious in retrospect, but <code>precompact-snapshot.py</code> had to become <code>precompact_snapshot.py</code>.</p>
 <p><strong>Content type handling</strong> — User message content is sometimes a string, sometimes a list. Assistant messages are almost always lists with typed objects. You need to handle both:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">content</span> <span style="color:#f92672">=</span> <span style="color:#111">message</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;content&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">content</span> <span style="color:#f92672">=</span> <span style="color:#111">message</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;content&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">isinstance</span><span style="color:#111">(</span><span style="color:#111">content</span><span style="color:#111">,</span> <span style="color:#111">list</span><span style="color:#111">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">content</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34; &#34;</span><span style="color:#f92672">.</span><span style="color:#111">join</span><span style="color:#111">(</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#111">item</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;text&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;&#34;</span><span style="color:#111">)</span> <span style="color:#00a8c8">if</span> <span style="color:#111">isinstance</span><span style="color:#111">(</span><span style="color:#111">item</span><span style="color:#111">,</span> <span style="color:#111">dict</span><span style="color:#111">)</span> <span style="color:#00a8c8">else</span> <span style="color:#111">str</span><span style="color:#111">(</span><span style="color:#111">item</span><span style="color:#111">)</span>
@@ -188,7 +188,7 @@
 <p><strong>System message filtering</strong> — The transcript includes system-generated content like command confirmations that shouldn&rsquo;t be saved as &ldquo;user requests.&rdquo; Filter by prefix and strip XML-like tags.</p>
 <h2 id="the-configuration">The Configuration</h2>
 <p>In <code>~/.claude/settings.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#111">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;hooks&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;PreCompact&#34;</span><span style="color:#111">:</span> <span style="color:#111">[</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#111">{</span>

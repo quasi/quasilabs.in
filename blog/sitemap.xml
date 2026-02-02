@@ -2,8 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quasilabs.in/blog/tags/agentic-workflows/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/categories/ai-native-development/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/architecture/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/2026/02/02/building-an-agent-council/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
     <loc>https://quasilabs.in/blog/categories/</loc>
-    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/claude-code/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/deliberation/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/multi-agent/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/</loc>
+    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/e2e-testing/</loc>
     <lastmod>2026-01-28T03:24:00+05:30</lastmod>
@@ -11,13 +38,7 @@
     <loc>https://quasilabs.in/blog/categories/engineering-practices/</loc>
     <lastmod>2026-01-28T03:24:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/</loc>
-    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
-  </url><url>
     <loc>https://quasilabs.in/blog/tags/software-quality/</loc>
-    <lastmod>2026-01-28T03:24:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/tags/</loc>
     <lastmod>2026-01-28T03:24:00+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/testing/</loc>

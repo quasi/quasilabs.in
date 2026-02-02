@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI-Native Development on quasiLabs Blog</title>
+    <link>https://quasilabs.in/blog/categories/ai-native-development/</link>
+    <description>Recent content in AI-Native Development on quasiLabs Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Feb 2026 17:26:00 +0530</lastBuildDate>
+    <atom:link href="https://quasilabs.in/blog/categories/ai-native-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building an Agent Council</title>
+      <link>https://quasilabs.in/blog/2026/02/02/building-an-agent-council/</link>
+      <pubDate>Mon, 02 Feb 2026 17:26:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/2026/02/02/building-an-agent-council/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://quasilabs.in/blog/res/agent-council.png&#34; alt=&#34;The Agent Council&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been making architectural decisions with a single AI agent. Claude Code is smart, thorough, and fast. But lately I&amp;rsquo;ve noticed a pattern: my best decisions come when I&amp;rsquo;m uncertain, when I push back, when I ask &amp;ldquo;what am I missing?&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;Single agents don&amp;rsquo;t argue with themselves. They&amp;rsquo;re confident. Sometimes too confident.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s where a &lt;strong&gt;council&lt;/strong&gt; comes in.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem-with-monolithic-thinking&#34;&gt;The Problem With Monolithic Thinking&lt;/h2&gt;&#xA;&lt;p&gt;Every AI model has training data biases, reasoning patterns it favors, and blind spots it doesn&amp;rsquo;t know it has. When you ask Claude to design a system, it designs &lt;em&gt;a&lt;/em&gt; system—often a good one—but it&amp;rsquo;s &lt;em&gt;one&lt;/em&gt; perspective.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

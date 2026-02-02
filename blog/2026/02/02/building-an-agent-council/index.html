@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JTFD2R6QYL"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JTFD2R6QYL');
+</script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="https://quasilabs.in/blog/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>Building an Agent Council</title>
+
+  
+  
+  <link rel="stylesheet" href="https://quasilabs.in/blog/css/hugo-octopress.css">
+
+  
+  
+    <link rel="stylesheet" href="https://quasilabs.in/blog/css/custom.css">
+  
+
+  
+    <link rel="stylesheet" href="https://quasilabs.in/blog/css/fork-awesome.min.css">
+  
+
+  
+  
+    <link href="https://quasilabs.in/blog/favicon.png" rel="icon">
+  
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="quasiLabs">
+
+  
+  <meta name="generator" content="Hugo 0.155.1">
+
+  
+  
+
+  
+  
+
+
+
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="https://quasilabs.in/blog/">quasiLabs Blog</a></h1>
+    <h2>Stories from the code-mines</h2>
+</hgroup> </header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        
+          <option value="https://quasilabs.in/blog/">» Posts</option>
+        
+      
+        
+          <option value="https://quasilabs.in/blog/categories/">» Categories</option>
+        
+      
+        
+          <option value="https://quasilabs.in/blog/tags/">» Tags</option>
+        
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  <li><a href="https://quasilabs.in/" title="Home">Home</a></li>
+  
+    
+      <li><a href="https://quasilabs.in/blog/" title="Posts">Posts</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/categories/" title="Categories"  rel="noopener noreferrer">Categories</a></li>
+    
+  
+    
+      <li><a href="https://quasilabs.in/blog/tags/" title="Tags"  rel="noopener noreferrer">Tags</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+</ul>
+
+ </nav> 
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Feb 2, 2026
+     - 6 minute read 
+    
+
+    
+    
+      - <a class="label" href="https://quasilabs.in/blog/categories/ai-native-development/">AI-Native Development </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Building an Agent Council 
+  </h1>
+</header> 
+
+        <div class="entry-content">
+          
+          
+          
+          <p><img src="https://quasilabs.in/blog/res/agent-council.png" alt="The Agent Council"></p>
+<p>I&rsquo;ve been making architectural decisions with a single AI agent. Claude Code is smart, thorough, and fast. But lately I&rsquo;ve noticed a pattern: my best decisions come when I&rsquo;m uncertain, when I push back, when I ask &ldquo;what am I missing?&rdquo;</p>
+<p>Single agents don&rsquo;t argue with themselves. They&rsquo;re confident. Sometimes too confident.</p>
+<p>Here&rsquo;s where a <strong>council</strong> comes in.</p>
+<h2 id="the-problem-with-monolithic-thinking">The Problem With Monolithic Thinking</h2>
+<p>Every AI model has training data biases, reasoning patterns it favors, and blind spots it doesn&rsquo;t know it has. When you ask Claude to design a system, it designs <em>a</em> system—often a good one—but it&rsquo;s <em>one</em> perspective.</p>
+<p>This isn&rsquo;t unique to AI. Humans do this too. We call it groupthink when teams do it, and we&rsquo;ve invented entire disciplines (red teaming, devil&rsquo;s advocacy, design reviews) to counteract it.</p>
+<p>The question is: can we do the same with AI agents?</p>
+<h2 id="agent-council-the-architecture">Agent Council: The Architecture</h2>
+<p>Agent Council is a multi-agent deliberation system. Not single API to different models—that lacks depth. Instead, it brings together <em>genuinely different</em> coding agents.</p>
+<p>Each agent has its own tool ecosystem, web search, file exploration. They&rsquo;re complete systems, not just models with different prompts. For example, I have:</p>
+<ul>
+<li><strong>Claude Code</strong> (Claude)</li>
+<li><strong>Gemini CLI</strong> (Gemini)</li>
+<li><strong>Codex</strong> (OpenAI)</li>
+<li><strong>OpenCode</strong></li>
+</ul>
+<p>You could use any combination or number.</p>
+<h2 id="the-hats-they-wear">The Hats They Wear</h2>
+<p>Each council member adopts a distinct perspective (configurable per session):</p>
+<table>
+  <thead>
+      <tr>
+          <th>Agent</th>
+          <th>Perspective</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Claude</strong></td>
+          <td>Systems Thinker and Inventor—long-term architecture, sustainability</td>
+      </tr>
+      <tr>
+          <td><strong>Gemini</strong></td>
+          <td>Pragmatic Architect—scalability, production stability, operational constraints</td>
+      </tr>
+      <tr>
+          <td><strong>Codex</strong></td>
+          <td>Devil&rsquo;s Advocate—challenges assumptions, questions everything</td>
+      </tr>
+      <tr>
+          <td><strong>OpenCode</strong></td>
+          <td>Maintainability Zealot—developer experience, testability, friction reduction</td>
+      </tr>
+  </tbody>
+</table>
+<p>The value isn&rsquo;t in the labels. It&rsquo;s in the combination of <em>different models</em> wearing <em>different hats</em>. Real diversity, not simulated.</p>
+<h2 id="my-workflow-three-steps">My Workflow: Three Steps</h2>
+<p>Here&rsquo;s how I actually use this:</p>
+<h3 id="step-1-primary-research">Step 1: Primary Research</h3>
+<p>Before calling a council, I work with Claude Code to deeply understand the problem. Research the domain. Explore the codebase. Draft an initial proposal.</p>
+<p>This matters because councils aren&rsquo;t for simple problems. They&rsquo;re for architectural decisions with genuine ambiguity—multiple valid approaches, unclear tradeoffs, suspected blind spots.</p>
+<p>The proposal becomes the foundation. But I know it&rsquo;s incomplete.</p>
+<h3 id="step-2-the-council-deliberates">Step 2: The Council Deliberates</h3>
+<p>The council works through four rounds of asynchronous deliberation:</p>
+<p><strong>Round 1 (Initial):</strong> Each agent independently analyzes the problem and proposes a solution. No peeking at others&rsquo; work. This captures genuine first impressions, not anchoring effects.</p>
+<p><strong>Round 2 (Critique):</strong> Agents read each other&rsquo;s Round 1 proposals and identify weaknesses. What did they miss? What assumptions are unexamined? What breaks at scale?</p>
+<p><strong>Round 3 (Defense):</strong> Agents read critiques <em>of their own work</em> and respond. Either they defend with additional reasoning, or they acknowledge the critique and revise. Positions evolve.</p>
+<p><strong>Round 4 (Synthesis):</strong> The chairman (typically Claude) reads ALL the evidence—every proposal, every critique, every defense—and consolidates into a final recommendation.</p>
+<h3 id="step-3-the-synthesis">Step 3: The Synthesis</h3>
+<p>The synthesis isn&rsquo;t a vote. It&rsquo;s not averaging. It&rsquo;s genuine integration:</p>
+<ul>
+<li><strong>Areas of agreement</strong> - what converged across perspectives</li>
+<li><strong>Areas of disagreement</strong> - where agents differ and <em>why</em></li>
+<li><strong>Recommended path forward</strong> - the consolidated recommendation</li>
+<li><strong>Minority opinions worth noting</strong> - dissenting views that merit consideration</li>
+</ul>
+<p>This becomes my implementation plan.</p>
+<h2 id="why-each-step-matters">Why Each Step Matters</h2>
+<p><strong>Asynchronous deliberation beats real-time discussion.</strong> When agents work asynchronously (like thoughtful email exchanges), there&rsquo;s no &ldquo;first speaker dominance.&rdquo; Each position gets articulated fully before anyone responds.</p>
+<p><strong>Independent proposals prevent anchoring.</strong> If agents saw each other&rsquo;s Round 1 work before writing, they&rsquo;d anchor to the first proposal. Independence captures genuine diversity.</p>
+<p><strong>Forced articulation creates clarity.</strong> When you must write down &ldquo;here&rsquo;s why I think X,&rdquo; you discover gaps in your reasoning. This applies to AI agents too.</p>
+<p><strong>Critique without consequences enables honesty.</strong> There&rsquo;s no ego, no politics. If Claude&rsquo;s proposal has a weakness, Codex will say so.</p>
+<p><strong>The chairman role prevents dissolution.</strong> Without synthesis, you&rsquo;d have four opinions. The chairman must <em>integrate</em>, finding what&rsquo;s common, what&rsquo;s contested, and what&rsquo;s the path forward.</p>
+<h2 id="real-results-a-case-study">Real Results: A Case Study</h2>
+<p>I ran a council to design a task management workflow for research projects. Here&rsquo;s what happened:</p>
+<h3 id="my-round-1-proposal-claude-alone">My Round 1 Proposal (Claude alone):</h3>
+<ul>
+<li>Three research files (<code>notes.md</code>, <code>findings.md</code>, <code>candidates.md</code>)</li>
+<li>Direct adoption of a task management tool called Beads</li>
+<li>Implicit dependency handling</li>
+</ul>
+<h3 id="what-the-council-changed">What The Council Changed:</h3>
+<table>
+  <thead>
+      <tr>
+          <th>What</th>
+          <th>Before</th>
+          <th>After</th>
+          <th>Who Caught It</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>File structure</td>
+          <td>3 files</td>
+          <td>Single <code>RESEARCH.md</code></td>
+          <td>Gemini: &ldquo;excessive ceremony&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Task lifecycle</td>
+          <td>Not addressed</td>
+          <td>Explicit <code>obsolete</code> status</td>
+          <td>Codex: &ldquo;no dedupe model&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Dependencies</td>
+          <td>All equal</td>
+          <td>Hard vs. soft distinction</td>
+          <td>Codex: operational wisdom</td>
+      </tr>
+      <tr>
+          <td>Tool adoption</td>
+          <td>&ldquo;Adopt Beads now&rdquo;</td>
+          <td>&ldquo;Validate workflow first, then decide&rdquo;</td>
+          <td>OpenCode + Codex</td>
+      </tr>
+      <tr>
+          <td>Staleness</td>
+          <td>Vague &ldquo;periodic review&rdquo;</td>
+          <td>Explicit weekly 5-minute ritual</td>
+          <td>Codex: concrete over vague</td>
+      </tr>
+      <tr>
+          <td>ID scheme</td>
+          <td>Assumed hash IDs</td>
+          <td>ULIDs (sortable + collision-free)</td>
+          <td>Gemini: explicit rationale</td>
+      </tr>
+  </tbody>
+</table>
+<p>The final synthesis was <em>materially better</em> than my initial proposal. Not because any single agent had the answer, but because the deliberation process forced genuine consideration of alternatives.</p>
+<h3 id="what-i-would-have-shipped-without-the-council">What I Would Have Shipped Without The Council:</h3>
+<ul>
+<li>Three research files (too heavy for a solo developer)</li>
+<li>No obsolescence handling (zombie task accumulation)</li>
+<li>All dependencies blocking equally (over-coupling)</li>
+<li>Dogmatic tool adoption without validation</li>
+<li>No concrete maintenance ritual</li>
+</ul>
+<h2 id="when-to-use-and-when-not-to">When To Use (And When Not To)</h2>
+<p><strong>Use councils when:</strong></p>
+<ul>
+<li>Architectural decisions have multiple valid approaches</li>
+<li>Trade-offs are unclear</li>
+<li>You suspect blind spots in your thinking</li>
+<li>Stakes justify the deliberation time</li>
+</ul>
+<p><strong>Skip councils when:</strong></p>
+<ul>
+<li>Problem has obvious solution</li>
+<li>Speed matters more than thoroughness</li>
+<li>You have high confidence</li>
+</ul>
+<p>A council takes maybe 20-30 minutes of active time (mostly waiting for agents to finish rounds). For a decision you&rsquo;ll live with for months, that&rsquo;s nothing. For a quick bug fix, it&rsquo;s overkill.</p>
+<h2 id="the-implementation">The Implementation</h2>
+<p>Agent Council is a single Python script. No dependencies, no server, no infrastructure.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 agent_council.py new my-council
+</span></span></code></pre></div><p>Creates a session folder with:</p>
+<ul>
+<li><code>COUNCIL.md</code> - rules and member perspectives</li>
+<li><code>PROBLEM.md</code> - where you define the challenge</li>
+<li><code>workspace/</code> - shared context (code, research notes)</li>
+<li><code>rounds/</code> - where agents write their reports</li>
+<li><code>prompts/</code> - ready-to-use prompts for each round</li>
+</ul>
+<p>Coordination happens through files. Every agent can read and write markdown. State is visible (<code>ls</code>, <code>cat</code> show exactly what&rsquo;s happening). Sessions survive crashes. The entire deliberation is git-versioned.</p>
+<h2 id="the-deeper-insight">The Deeper Insight</h2>
+<p>The council works because <em>distinct perspectives were real</em>. Gemini&rsquo;s stability focus caught issues Claude&rsquo;s systems thinking missed. Codex&rsquo;s operational pragmatism questioned assumptions everyone else accepted. OpenCode&rsquo;s friction obsession simplified what others overcomplicated.</p>
+<p>If all agents had the same perspective, the council would have been echo-chamber theater. The value came from genuine disagreement and forced reconciliation.</p>
+<p>This is what good human design reviews do. Multiple experts with different backgrounds, questioning each other, integrating insights. We&rsquo;ve been doing this with humans for eons.</p>
+<p>Now we can do it with AI agents.</p>
+<hr>
+<p><em>Agent Council is open source. The full project is at 
+<a href="https://github.com/quasilabs/agent-council" target="_blank" rel="noopener">github.com/quasilabs/agent-council</a>.</em></p>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">quasiLabs</span></span>
+    
+    <time>Feb 2, 2026</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="https://quasilabs.in/blog/tags/agentic-workflows">agentic-workflows</a>  <a class="category" href="https://quasilabs.in/blog/tags/multi-agent">multi-agent</a>  <a class="category" href="https://quasilabs.in/blog/tags/architecture">architecture</a>  <a class="category" href="https://quasilabs.in/blog/tags/claude-code">claude-code</a>  <a class="category" href="https://quasilabs.in/blog/tags/deliberation">deliberation</a>  
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="https://quasilabs.in/blog/2026/01/28/when-passing-tests-lie/" title="When Passing Tests Lie">When Passing Tests Lie</a>
+    
+
+    
+  </p>
+  
+</footer> 
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+    </p>
+  </section>
+
+  
+  
+
+
+
+<ul class="sidebar-nav">
+  <li class="sidebar-nav-item">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+  
+  </li>
+</ul>
+
+  
+
+  
+
+  
+  
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p><a href="https://quasilabs.in/blog/">quasiLabs</a>
+       &copy; 2010 - 2026 
+      </p>
+    </footer>
+
+    
+    
+
+
+
+    
+    
+    
+
+    
+  </body>
+</html>
+

@@ -51,7 +51,7 @@
   <meta name="author" content="quasiLabs">
 
   
-  <meta name="generator" content="Hugo 0.154.5">
+  <meta name="generator" content="Hugo 0.155.1">
 
   
   
@@ -152,9 +152,9 @@
 <a href="http://www.cse.yorku.ca/~oz/hash.html" target="_blank" rel="noopener">here</a> and 
 <a href="http://www.partow.net/programming/hashfunctions/index.html" target="_blank" rel="noopener">here</a>. I have done the menial task of translating them to Common Lisp.</p>
 <h3 id="code">code</h3>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -169,7 +169,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function by Dan Bernstein</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function by Dan Bernstein</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-DJB</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
@@ -184,9 +184,9 @@
 </span></span><span style="display:flex;"><span>     <span style="color:#111">finally</span> <span style="color:#111">(</span><span style="color:#111">return</span> <span style="color:#111">hash</span><span style="color:#111">))))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -198,7 +198,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function by Dan Bernstein</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function by Dan Bernstein</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-DJB2</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
@@ -210,9 +210,9 @@
 </span></span><span style="display:flex;"><span>       <span style="color:#111">finally</span> <span style="color:#111">(</span><span style="color:#111">return</span> <span style="color:#111">hash</span><span style="color:#111">))))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -227,7 +227,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function from GAWK, a variation from the verwion from SDBM</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Hash Function from GAWK, a variation from the verwion from SDBM</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-SDBM</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>           <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
@@ -242,9 +242,9 @@
 </span></span><span style="display:flex;"><span>       <span style="color:#111">finally</span> <span style="color:#111">(</span><span style="color:#111">return</span> <span style="color:#111">hash</span><span style="color:#111">))))</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -258,7 +258,7 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; An algorithm proposed by Donald E. Knuth in The Art Of Computer Programming Volume 3</span>
+<pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-common-lisp" data-lang="common-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; An algorithm proposed by Donald E. Knuth in The Art Of Computer Programming Volume 3</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">(</span><span style="color:#111">defun</span> <span style="color:#111">hash-DEK</span> <span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#111">(</span><span style="color:#00a8c8">declare</span> <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#00a8c8">simple-string</span> <span style="color:#111">str</span><span style="color:#111">)</span>
 </span></span><span style="display:flex;"><span>	   <span style="color:#111">(</span><span style="color:#00a8c8">type</span> <span style="color:#111">(</span><span style="color:#00a8c8">unsigned-byte</span> <span style="color:#ae81ff">32</span><span style="color:#111">)</span> <span style="color:#111">hash</span><span style="color:#111">)</span>
