@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://quasilabs.in/blog/tags/agent-architecture/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/categories/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/common-lisp/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/2026/02/07/conditions-restarts-and-the-agent-that-chooses/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/error-handling/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/categories/software-architecture/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://quasilabs.in/blog/tags/telos/</loc>
+    <lastmod>2026-02-07T00:00:00+05:30</lastmod>
+  </url><url>
     <loc>https://quasilabs.in/blog/tags/agentic-workflows/</loc>
     <lastmod>2026-02-02T17:26:00+05:30</lastmod>
   </url><url>
@@ -14,9 +41,6 @@
     <loc>https://quasilabs.in/blog/2026/02/02/building-an-agent-council/</loc>
     <lastmod>2026-02-02T17:26:00+05:30</lastmod>
   </url><url>
-    <loc>https://quasilabs.in/blog/categories/</loc>
-    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
-  </url><url>
     <loc>https://quasilabs.in/blog/tags/claude-code/</loc>
     <lastmod>2026-02-02T17:26:00+05:30</lastmod>
   </url><url>
@@ -24,12 +48,6 @@
     <lastmod>2026-02-02T17:26:00+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/multi-agent/</loc>
-    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/</loc>
-    <lastmod>2026-02-02T17:26:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/tags/</loc>
     <lastmod>2026-02-02T17:26:00+05:30</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/tags/e2e-testing/</loc>
@@ -133,9 +151,6 @@
   </url><url>
     <loc>https://quasilabs.in/blog/2009/04/15/about-paradigms/</loc>
     <lastmod>2009-04-15T17:31:00+05:30</lastmod>
-  </url><url>
-    <loc>https://quasilabs.in/blog/tags/common-lisp/</loc>
-    <lastmod>2009-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://quasilabs.in/blog/2009/03/21/some-hash-functions/</loc>
     <lastmod>2009-03-21T00:00:00+00:00</lastmod>

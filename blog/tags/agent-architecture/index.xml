@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agent Architecture on quasiLabs Blog</title>
+    <link>https://quasilabs.in/blog/tags/agent-architecture/</link>
+    <description>Recent content in Agent Architecture on quasiLabs Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0530</lastBuildDate>
+    <atom:link href="https://quasilabs.in/blog/tags/agent-architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conditions, Restarts, and the Agent That Chooses</title>
+      <link>https://quasilabs.in/blog/2026/02/07/conditions-restarts-and-the-agent-that-chooses/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/2026/02/07/conditions-restarts-and-the-agent-that-chooses/</guid>
+      <description>&lt;p&gt;&lt;em&gt;A companion to my friend Chaitanya Gupta&amp;rsquo;s excellent &#xA;&lt;a href=&#34;https://lisper.in/restarts&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Common Lisp: A Tutorial on Conditions and Restarts&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Common Lisp&amp;rsquo;s condition system separates &lt;strong&gt;signalling&lt;/strong&gt; an error from &lt;strong&gt;handling&lt;/strong&gt; it. The code that detects a problem does not decide what to do about it. It establishes &lt;strong&gt;restarts&lt;/strong&gt; — named recovery options — and signals a condition. A handler higher up the call stack selects a restart.&lt;/p&gt;&#xA;&lt;p&gt;Restarts can be selected interactively from the debugger or programmatically via &lt;code&gt;handler-bind&lt;/code&gt; and &lt;code&gt;invoke-restart&lt;/code&gt;. The original tutorial demonstrates both: a human selecting restarts from the debugger menu, and &lt;code&gt;list-csv-errors&lt;/code&gt; selecting them in code. The programmatic path works, but it operates on restart names and error message strings. The handler must know, at compile time, which restart to pick for which situation. It cannot reason about the system&amp;rsquo;s goals, weigh tradeoffs between recovery options, or adapt its strategy to context it was not explicitly programmed for.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

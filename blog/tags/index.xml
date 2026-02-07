@@ -6,8 +6,36 @@
     <description>Recent content in Tags on quasiLabs Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Feb 2026 17:26:00 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 07 Feb 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://quasilabs.in/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Architecture</title>
+      <link>https://quasilabs.in/blog/tags/agent-architecture/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/tags/agent-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Common Lisp</title>
+      <link>https://quasilabs.in/blog/tags/common-lisp/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/tags/common-lisp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Error Handling</title>
+      <link>https://quasilabs.in/blog/tags/error-handling/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/tags/error-handling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Telos</title>
+      <link>https://quasilabs.in/blog/tags/telos/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:00 +0530</pubDate>
+      <guid>https://quasilabs.in/blog/tags/telos/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Agentic-Workflows</title>
       <link>https://quasilabs.in/blog/tags/agentic-workflows/</link>
@@ -153,13 +181,6 @@
       <link>https://quasilabs.in/blog/tags/emacs/</link>
       <pubDate>Mon, 06 Jan 2014 17:31:00 +0530</pubDate>
       <guid>https://quasilabs.in/blog/tags/emacs/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Common Lisp</title>
-      <link>https://quasilabs.in/blog/tags/common-lisp/</link>
-      <pubDate>Sat, 21 Mar 2009 00:00:00 +0000</pubDate>
-      <guid>https://quasilabs.in/blog/tags/common-lisp/</guid>
       <description></description>
     </item>
   </channel>
